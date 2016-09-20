@@ -1,1 +1,1 @@
-This is the file of the jQuery!
+此文件储存html引用的脚本文件!
