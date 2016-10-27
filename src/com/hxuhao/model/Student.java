@@ -17,6 +17,10 @@ public class Student {
 
     private Date birthdate;
 
+    private Boolean isonline;
+
+    private String iconaddr;
+
     public Integer getId() {
         return id;
     }
@@ -71,5 +75,21 @@ public class Student {
 
     public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
+    }
+
+    public Boolean getIsonline() {
+        return isonline;
+    }
+
+    public void setIsonline(Boolean isonline) {
+        this.isonline = isonline;
+    }
+
+    public String getIconaddr() {
+        return iconaddr;
+    }
+
+    public void setIconaddr(String iconaddr) {
+        this.iconaddr = iconaddr == null ? null : iconaddr.trim();
     }
 }

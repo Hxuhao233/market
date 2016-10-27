@@ -9,9 +9,11 @@
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="studentNum" jdbcType="VARCHAR" property="studentnum" />
     <result column="birthDate" jdbcType="DATE" property="birthdate" />
+    <result column="isOnline" jdbcType="TINYINT" property="isonline" />
+    <result column="iconAddr" jdbcType="VARCHAR" property="iconaddr" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, universityId, account, password, name, studentNum, birthDate
+    id, universityId, account, password, name, studentNum, birthDate, isOnline, iconAddr
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -19,6 +21,16 @@
     from Student
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectByAccountAndPassword" parameterType="com.hxuhao.model.Student" resultType="java.lang.Integer">
+  select
+  id
+  from Student
+  where account=#{account,jdbcType=CHAR} and password=md5(#{password,jdbcType=VARCHAR})  
+  </select>
+  
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from Student
     where id = #{id,jdbcType=INTEGER}
@@ -26,10 +38,12 @@
   <insert id="insert" parameterType="com.hxuhao.model.Student">
     insert into Student (id, universityId, account, 
       password, name, studentNum, 
-      birthDate)
+      birthDate, isOnline, iconAddr
+      )
     values (#{id,jdbcType=INTEGER}, #{universityid,jdbcType=INTEGER}, #{account,jdbcType=CHAR}, 
-    Md5(#{password,jdbcType=VARCHAR}), #{name,jdbcType=VARCHAR}, #{studentnum,jdbcType=VARCHAR}, 
-      #{birthdate,jdbcType=DATE})
+      #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{studentnum,jdbcType=VARCHAR}, 
+      #{birthdate,jdbcType=DATE}, #{isonline,jdbcType=TINYINT}, #{iconaddr,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.hxuhao.model.Student">
     insert into Student
@@ -55,6 +69,12 @@
       <if test="birthdate != null">
         birthDate,
       </if>
+      <if test="isonline != null">
+        isOnline,
+      </if>
+      <if test="iconaddr != null">
+        iconAddr,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -67,7 +87,7 @@
         #{account,jdbcType=CHAR},
       </if>
       <if test="password != null">
-      #{password,jdbcType=VARCHAR},
+        md5(#{password,jdbcType=VARCHAR}),
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
@@ -77,6 +97,12 @@
       </if>
       <if test="birthdate != null">
         #{birthdate,jdbcType=DATE},
+      </if>
+      <if test="isonline != null">
+        #{isonline,jdbcType=TINYINT},
+      </if>
+      <if test="iconaddr != null">
+        #{iconaddr,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -90,7 +116,7 @@
         account = #{account,jdbcType=CHAR},
       </if>
       <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
+        password = md5(#{password,jdbcType=VARCHAR}),
       </if>
       <if test="name != null">
         name = #{name,jdbcType=VARCHAR},
@@ -101,6 +127,12 @@
       <if test="birthdate != null">
         birthDate = #{birthdate,jdbcType=DATE},
       </if>
+      <if test="isonline != null">
+        isOnline = #{isonline,jdbcType=TINYINT},
+      </if>
+      <if test="iconaddr != null">
+        iconAddr = #{iconaddr,jdbcType=VARCHAR},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -108,10 +140,12 @@
     update Student
     set universityId = #{universityid,jdbcType=INTEGER},
       account = #{account,jdbcType=CHAR},
-      password = #{password,jdbcType=VARCHAR},
+      password = md5(#{password,jdbcType=VARCHAR}),
       name = #{name,jdbcType=VARCHAR},
       studentNum = #{studentnum,jdbcType=VARCHAR},
-      birthDate = #{birthdate,jdbcType=DATE}
+      birthDate = #{birthdate,jdbcType=DATE},
+      isOnline = #{isonline,jdbcType=TINYINT},
+      iconAddr = #{iconaddr,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

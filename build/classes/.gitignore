@@ -3,3 +3,5 @@
 /log4j.properties
 /spring-mvc.xml
 /spring-mybatis.xml
+/Goods-servlet.xml
+/User-servlet.xml
