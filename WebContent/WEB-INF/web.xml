@@ -45,7 +45,7 @@
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:User-servlet.xml</param-value>
+			<param-value>classpath:SpringMVC-servlet.xml</param-value>
 		</init-param>
 		<load-on-startup>1</load-on-startup>
 		<async-supported>true</async-supported>
@@ -53,10 +53,10 @@
 	<servlet-mapping>
 		<servlet-name>SpringMVC</servlet-name>
 		<!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
-		<url-pattern>/User/*</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	<!-- Spring MVC servlet -->
-	<servlet>
+	<!-- <servlet>
 		<servlet-name>Goods</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -68,10 +68,9 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>Goods</servlet-name>
-		<!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->
 		<url-pattern>/Goods/*</url-pattern>
 	</servlet-mapping>
-	
+	 -->
 	<welcome-file-list>
 		<welcome-file>/index.jsp</welcome-file>
 	</welcome-file-list>

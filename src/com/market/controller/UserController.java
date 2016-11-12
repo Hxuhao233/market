@@ -28,7 +28,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.market.model.Student;
 import com.market.service.IStudentService;
 import com.market.tools.Message;
-
+@RequestMapping(value="/User/")
 @Controller
 public class UserController {
 	

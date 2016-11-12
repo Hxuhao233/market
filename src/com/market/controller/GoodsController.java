@@ -23,21 +23,22 @@ import com.market.service.IGoodsService;
 import com.market.tools.PhotoData;
 
 @RestController
-//@RequestMapping(value="/Goods")
+@RequestMapping(value="/Goods")
 public class GoodsController {
 	
 	//@Autowired
 	private IGoodsService iGoodsService;
 	
-	@RequestMapping(value="Goods",method=RequestMethod.POST)
+	@RequestMapping(value="/Goods",method=RequestMethod.POST)
 	public String publishGoods(@RequestBody Map<String,PhotoData[]> photos) {
 	
 		
 		System.out.println(photos.size());
+		System.out.println(photos.get("photos").length);
 		return "2333333";
 	}
 	
-	@RequestMapping(value="Goods/{id}",method=RequestMethod.PUT)
+	@RequestMapping(value="/Goods/{id}",method=RequestMethod.PUT)
 	public ResponseEntity<Void> updateGoodsInfo(@PathVariable("id")int id, @RequestBody  Goods goods) {
 		return null;
 	}
