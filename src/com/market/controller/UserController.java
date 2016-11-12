@@ -79,7 +79,7 @@ public class UserController {
 				ret.setCode(200);
 				ret.setInfo("登录成功");
 			}else{
-				ret.setCode(400);
+				ret.setCode(203);
 				ret.setInfo( "用户名或密码错误");
 			}
 		}else {
