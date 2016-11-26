@@ -17,7 +17,7 @@ public interface StudentMapper {
 
     int updateByPrimaryKey(Student record);
     
-    int selectName(String name);
+    int selectAccount(String name);
     
     Student selectByKey(Map<String, String> accountAndPassword);
     

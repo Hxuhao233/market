@@ -20,7 +20,7 @@
     from Student
     where id = #{id,jdbcType=INTEGER}
   </select>
-  <select id="selectName" parameterType="java.lang.String"  resultType="java.lang.Integer">
+  <select id="selectAccount" parameterType="java.lang.String"  resultType="java.lang.Integer">
   	select count(account)
   	from Student
   	where account = #{account,jdbcType=VARCHAR}       

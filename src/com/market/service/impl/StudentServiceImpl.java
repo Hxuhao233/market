@@ -20,7 +20,7 @@ public class StudentServiceImpl implements IStudentService{
 	public int register(Student student) {
 		// TODO Auto-generated method stub
 		int ret = 0;
-		if(checkReatName(student.getAccount())==0){
+		if(checkRepeatAccount(student.getAccount())==0){
 			studentDao.insertSelective(student);	
 			ret = student.getId();
 			System.out.println("register id" + ret);
@@ -49,10 +49,10 @@ public class StudentServiceImpl implements IStudentService{
 	}
 
 	@Override
-	public int checkReatName(String name) {
+	public int checkRepeatAccount(String name) {
 		// TODO Auto-generated method stub
 		
-		return studentDao.selectName(name);
+		return studentDao.selectAccount(name);
 	}
 	
 	

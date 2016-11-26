@@ -28,12 +28,29 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.market.model.Student;
 import com.market.service.IStudentService;
 import com.market.tools.Message;
+import com.market.tools.RequestData;
+import com.market.tools.ResponeData;
 @RequestMapping(value="/User/")
 @Controller
 public class UserController {
 	
 	@Autowired
 	private IStudentService iStudentService;
+	
+	@RequestMapping(value="check",method=RequestMethod.POST)
+	public @ResponseBody ResponeData checkRepeatAccount(@RequestBody RequestData userData){
+		String username = userData.getData().get(0).get("account");
+		ResponeData message = new ResponeData();
+		if(iStudentService.checkRepeatAccount("account")>0){
+			message.setCode(201);
+			message.setInfo("改用户名已被使用");
+		}else{
+			message.setCode(200);
+		}
+		
+		return message;
+	}
+	
 	
 	// 用户注册
 	@RequestMapping(value="signup",method=RequestMethod.POST)
@@ -56,20 +73,21 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public Message login(@RequestBody Student s,HttpSession session){
+	public Message login(@RequestBody RequestData userData,HttpSession session){
 		//System.out.println("account" + account);
 	//	String password = "";
 		Message ret = new Message();
 		Student u  = (Student) session.getAttribute("student");
-		
+		String account  = userData.getData().get(0).get("account");
+		String password = userData.getData().get(0).get("password");
 		if(u!=null){
 			System.out.println(u.getId());
 			ret.setCode(201);
 			ret.setInfo("用户已登录");
-		}else if ( s.getAccount() != null && s.getPassword() != null &&
-				! "".equals(s.getAccount()) && ! "".equals(s.getPassword()) ){
+		}else if ( account != null && password != null &&
+				! "".equals(account) && ! "".equals(password) ){
 			
-			Student student = iStudentService.logIn(s.getAccount(),s.getPassword());
+			Student student = iStudentService.logIn(account,password);
 			
 			if(student != null){
 				System.out.println("user " + student.getId() + " login!");

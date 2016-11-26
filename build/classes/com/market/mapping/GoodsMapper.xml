@@ -48,7 +48,7 @@
       #{publishtime,jdbcType=DATE}, #{praisetimes,jdbcType=INTEGER}, #{collectedtimes,jdbcType=INTEGER}, 
       #{durabilityperiod,jdbcType=DATE})
   </insert>
-  <insert id="insertSelective" parameterType="com.market.model.Goods">
+  <insert id="insertSelective" parameterType="com.market.model.Goods"  useGeneratedKeys="true" keyProperty="id" >
     insert into Goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">

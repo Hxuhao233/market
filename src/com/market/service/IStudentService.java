@@ -9,7 +9,7 @@ public interface IStudentService {
 	public int updateStudent(int id,Student student);
 	public Student queryStudent(int id);
 	*/
-	public int checkReatName(String name);
+	public int checkRepeatAccount(String name);
 	
 	public int register(Student student);				
 	
