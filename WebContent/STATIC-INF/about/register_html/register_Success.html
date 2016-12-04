@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册成功</title>
+	<style type="text/css">
+		html {
+			width: 1100px;
+			height: 650px;
+        	margin-right: auto;
+        	margin-left: auto;
+		}
+
+		body {
+			width: 1100px;
+			height: 650px;
+			margin: 0;
+			top: 0;
+			font-weight: 400;
+			font-style: normal;
+			font-family: '微软雅黑 Regular', 微软雅黑;
+			background: url("../../images/注册/注册成功/background.png") no-repeat top center;
+		}
+		
+		#header {
+			width: 500px;
+			height: 50px;
+			margin: 100px 300px 0 300px;
+		}
+
+		#header img {
+			width: 40px;
+			right: 40px;
+			margin: 0 0 0 100px;
+			float: left;
+		}
+
+		#header p {
+			float: left;
+			font-size: 20px;
+			color: #333333;
+			margin: 10px 0 10px 10px;
+		}
+
+		#account {
+			font-size: 14px;
+		}
+
+		#jump {
+			width: 500px;
+			height: 50px;
+			margin: 150px 300px 0 300px;
+		}
+
+		#jump a {
+			margin: auto;
+			display: block;
+			width: 171px;
+			height: 45px;
+		}
+
+		#jump a:link {
+			background: url(../../images/注册/注册成功/jump_Default.png) center no-repeat;
+		}
+		#jump a:hover {
+			background: url(../../images/注册/注册成功/jump_Hover.png) center no-repeat;
+		}
+
+		#bottom {
+			width: 500px;
+			height: 50px;
+			margin: 0 300px 0 300px;
+		}
+
+		#bottom p {
+			font-size: 14px;
+			color: rgb(174,174,174);
+			text-align: center;
+			margin: auto;
+		}
+	</style>
+
+	<script type="text/javascript" src="../../scripts/jquery-1.6.2.js"></script>
+	<script type="text/javascript">
+		var time = 5;
+		// 扩展一个获取url参数的方法
+		(function ($) {
+		  $.getUrlParam = function (name) {
+		   var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+		   var r = window.location.search.substr(1).match(reg);
+		   if (r != null) {
+		   		return unescape(r[2]);
+		   }
+		   return null;
+		  };
+		 })(jQuery);
+		
+
+		function setTime() {
+			$("#time").html(time);
+			time--;
+			if (time == -1) {
+				window.location.href = "../self.html?account=" + $.getUrlParam('account');
+			}
+		}	
+
+		$('Document').ready(function() {
+			var data = $.getUrlParam('account');
+			$('span').append(data);
+			setTime();
+			setInterval(setTime, 1000);
+		});
+	</script>
+</head>
+<body>
+	<div id="header">
+		<img src="../../images/注册/注册成功/yes.png" alt="图标" />
+		<p>注册账号：<span id="account">&nbsp&nbsp</span></p>
+	</div>
+	<div id="jump">
+		<a href="#"></a>
+	</div>
+	<div id="bottom">
+		<p><span id="time">5</span>秒后返回个人主页</p>
+	</div>
+</body>
+</html>

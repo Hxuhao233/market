@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>release</title>
+	<style type="text/css">
+		html {
+			width: 600px;
+			height: 957px;
+        	margin-right: auto;
+        	margin-left: auto;
+        	background: rgb(242,242,242);
+		}
+
+		body {
+			width: 600px;
+			height: 957px;
+			margin: 0;
+			top: 0;
+			background: url("../../images/个人主页/我的发布/framebackground.png");
+			font-weight: 400;
+			font-style: normal;
+			font-family: '微软雅黑 Regular', 微软雅黑;
+		}
+
+		#header {
+			width: 600px;
+			height: 100px;
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		#headPic {
+			width: 65px;
+			height: 65px;
+			float: left;
+			position: relative;
+			top: 17px;
+			left: 17px;
+		}
+
+		#addNew {
+			width: 132px;
+			height: 32px;
+			float: right;
+			position: relative;
+			right: 25px;
+			top: 50px;
+		}
+
+		#addNew a {
+			font-size: 12px;
+		}
+
+		#addNew a:link, a:visited {
+			color: rgb(121,121,121);
+		}
+
+		#addNew a:hover {
+			color: rgb(60,205,129);
+		}
+
+		#contents {
+			width: 600px;
+			height: 803px;
+		}
+
+		.goods {
+			width: 300px;
+			height: 400px;
+			float: left;
+		}
+
+		.goodsPic {
+			width: 205px;
+			height: 245px;
+			margin: 50px 47px 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+		}
+
+		.twoPics {
+			width: 205px;
+			height: 45px;
+			margin: 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		.greatPic {
+			float: left;
+			margin: 10px 0 11px 35px;
+			width: 24px;
+			height: 24px;
+		}
+
+		.greatTitle {
+			float: left;
+			font-size: 12px;
+			color: #C9C9C9;
+			width: 26px;
+			height: 12px;
+			margin: 20px 0 13px 5px;
+		}
+
+		.starPic {
+			float: right;
+			width: 26px;
+			height: 26px;
+			margin: 10px 5px 9px 14px; 
+		}
+
+		.starTitle {
+			float: right;
+			width: 24px;
+			height: 12px;
+			font-size: 12px;
+			color: #C9C9C9;
+			margin: 20px 20px 13px 0;
+		}
+
+		.twoMethods {
+			width: 205px;
+			height: 45px;
+			margin: 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		.twoMethods a {
+			text-decoration: none;
+			font-size: 12px;
+			color: #5DB75D;
+		}
+
+		.comments {
+			float: left;
+			width: 102px;
+			height: 45px;
+			border-right: 2px solid rgb(242,242,242);
+		}
+
+		.comments a {
+			display: block;
+			margin: 14px 6px 14px 20px;
+		}
+
+		.edit {
+			float: left;
+			position: relative;
+			width: 101px;
+			height: 45px;
+		}
+
+		.rootUL {
+			position: relative;
+			top: 11px;
+			text-align: center;
+		}
+
+		.edit ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		.subUL {
+			position: absolute;
+			display: none;
+			top: 10px;
+			left: 64px;
+			margin-top: 42px;
+			padding-left: 30px; 
+		}
+
+		.subUL a {
+			display: block;
+			width: 82px;
+			height: 35px;
+		}
+
+		.change:link {
+			background: url(../../images/个人主页/我的发布/change.png) center;
+		}
+
+		.change:hover {
+			background: url(../../images/个人主页/我的发布/changehover.png) center;
+		}
+
+		.delete:link {
+			background: url(../../images/个人主页/我的发布/delete.png) center;
+		}
+
+		.delete:hover {
+			background: url(../../images/个人主页/我的发布/deletehover.png) center;
+		}
+
+		#bottom {
+			width: 600px;
+			height: 50px;
+			border-top: 2px solid rgb(242,242,242);
+		}
+
+		#others {
+			width: 120px;
+			height: 20px;
+			margin: 15px 240px;
+			font-size: 14px;
+			color: rgb(121,121,121);
+		}
+
+		#others img {
+			vertical-align: bottom;
+		}
+	</style>
+
+	<script type="text/javascript" src="../../scripts/jquery-1.6.2.js"></script>
+	<script type="text/javascript">
+		$('Document').ready(function(){
+			$("li").has("ul").mouseover(function(){
+				$(this).children("ul").css("display", "block");
+			}).mouseout(function(){
+				$(this).children("ul").css("display", "none");
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="header">
+		<div id="headPic">
+			<img src="../../images/个人主页/我的发布/headPic.png" alt="大头像" />
+		</div>
+		<div id="addNew">
+			<img src="../../images/个人主页/我的发布/writePic.png" alt="图标" />
+			<a href="release/newRelease.html">添加新发布</a>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="goods">
+			<img src="../../images/个人主页/我的发布/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/个人主页/我的发布/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/个人主页/我的发布/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<ul class="rootUL">
+						<li>
+							<a href="#">编辑</a>
+							<ul class="subUL">
+								<li><a href="#" class="change"></a></li>
+								<li><a href="#" class="delete"></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="goods">
+			<img src="../../images/个人主页/我的发布/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/个人主页/我的发布/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/个人主页/我的发布/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<ul class="rootUL">
+						<li>
+							<a href="#">编辑</a>
+							<ul class="subUL">
+								<li><a href="#" class="change"></a></li>
+								<li><a href="#" class="delete"></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="goods">
+			<img src="../../images/个人主页/我的发布/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/个人主页/我的发布/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/个人主页/我的发布/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<ul class="rootUL">
+						<li>
+							<a href="#">编辑</a>
+							<ul class="subUL">
+								<li><a href="#" class="change"></a></li>
+								<li><a href="#" class="delete"></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="goods">
+			<img src="../../images/个人主页/我的发布/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/个人主页/我的发布/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/个人主页/我的发布/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<ul class="rootUL">
+						<li>
+							<a href="#">编辑</a>
+							<ul class="subUL">
+								<li><a href="#" class="change"></a></li>
+								<li><a href="#" class="delete"></a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<p href="#" id="others">查看其他发布&nbsp&nbsp<img src="../../images/个人主页/我的发布/jiantou.png"></p>
+	</div>
+</body>
+</html>

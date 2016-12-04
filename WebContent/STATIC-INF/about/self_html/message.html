@@ -1,0 +1,214 @@
+<!doctype html>
+<html>
+<head>
+	<title>我的消息</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+        *{
+        	padding:0;
+        	margin: 0;
+        	border:0;
+        }
+        html{
+        	width: 600px;
+        	height: 957px;
+        	margin-left: auto;
+        	margin-right: auto;
+        }
+        body{
+        	background-image: url(../../images/个人主页/我的消息/framebackground.png);
+        	background-repeat: no-repeat;
+          background-color: rgb(242,242,242);
+	        background-size:600px 957px; 
+	        font-family:  '微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+        	font-size: 14px;
+        	font-weight: normal;
+        	color: #797979;
+        }
+        hr{
+        	border:none;
+        	border-top:1px dotted #E4E4E4;
+        	height: 1px;
+          width: 598px;
+          left: 1px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        #header{
+        	height: 120px;
+        	width: 600px;
+        }
+        #header img{
+        	float: right;
+          position: relative;
+          right:50px;
+          top: 30px;
+        	width: 65px;
+        	height: 65px;
+        }
+        .messageBar{
+        	width: 600px;
+        	height: 150px;
+        }
+        .messageBar img{
+          position: relative;
+          top: 10px;
+          left: 16px;
+          width: 56px;
+          height: 56px;
+        }
+        .messageBar p{
+        	position: relative;
+        	top: -30px;
+        	left: 80px;
+        	width: 500px;
+        }
+        .userName{
+        	color: #1B1B1B;
+        }
+        .sendTime{
+        	float: right;
+        	position: relative;
+        	right: 10px;
+        	font-size: 86%;
+        }
+        .message{
+        	margin-top: 20px;
+        	margin-right: 200px;
+        	font-size: 88%;
+        	color: #333333;
+          max-width:380px;
+          max-height: 76px;
+          width: 400px;
+          height: 76px;
+          line-height: 1.6; 
+          overflow: hidden;
+        }
+        .btn_default{
+        	background-image: url(../../images/个人主页/我的消息/retrive.png);
+        	background-repeat: no-repeat;
+	        background-color: transparent;
+	        width: 50px;
+	        height: 20px;
+          float: right;
+          position: relative;
+          top: -60px;
+          right: 50px;
+          cursor: pointer;
+        }
+        .btn_hover{
+          background-image: url(../../images/个人主页/我的消息/retrive_hover.png);
+          background-repeat: no-repeat;
+          background-color: transparent;
+          width: 45px;
+          height: 20px;
+          float: right;
+          position: relative;
+          top: -60px;
+          right: 50px;
+          cursor: pointer;
+        }
+        #footer{
+        	width: 600px;
+        	height: 50px;
+        }
+        #bottom{
+        	width: 100px;
+        	height: 30px;
+        	position: relative;
+        	overflow: hidden;
+          left: 250px;
+          top: 20px;
+        }
+        #skimmore{
+        	text-decoration: none;
+        	color: #797979;
+        	font-size: 90%;
+        	position: absolute;
+        	top: 8%;
+        }
+        #more{
+        	background-image: url(../../images/个人主页/我的消息/more.png);
+        	background-repeat: no-repeat;
+	        background-color: transparent;
+        	width: 16px;
+        	height: 16px;
+        	position: absolute;
+        	left: 80%;
+        	top: 10%;
+          cursor: pointer;
+        }
+        :focus{
+          outline: 0;
+        }
+	</style>
+</head>
+<body>
+  <div id="mainwindow">
+  <div id="header">
+  	<img src="../../images/个人主页/我的消息/hostPortrait.png">
+  </div>
+  	<hr/>
+  <div id="container">
+  	<div class="messageBar">
+  		<img src="../../images/个人主页/我的消息/ico1.png">
+  		<p>
+  			<span class="userName">用户名</span>
+  			<span class="sendTime">最近一次发送时间</span>
+  		</p>
+  		<p class="message">我想问问你那东西几成新的呀哈哈哈哈哈哈哈，哈哈哈哈好好和哈哈哈哈哈哈好好</p>
+  		<button type="button" class="btn btn_default"></button>
+  	</div>
+  	<hr/>
+  	<div class="messageBar">
+  		<img src="../../images/个人主页/我的消息/ico2.png">
+  		<p>
+  			<span class="userName">用户名</span>
+  			<span class="sendTime">最近一次发送时间</span>
+  		</p>
+  		<p class="message">我想问问你那东西几成新的呀</p>
+  		<button type="button" class="btn btn_default"></button>
+  	</div>
+  	<hr/>
+  	<div class="messageBar">
+  		<img src="../../images/个人主页/我的消息/ico3.png">
+  		<p>
+  			<span class="userName">用户名</span>
+  			<span class="sendTime">最近一次发送时间</span>
+  		</p>
+  		<p class="message">书本几成新呀</p>
+  		<button type="button" class="btn btn_default"></button>
+  	</div>
+  	<hr/>
+    <div class="messageBar">
+      <img src="../../images/个人主页/我的消息/ico4.png">
+      <p>
+        <span class="userName">用户名</span>
+        <span class="sendTime">最近一次发送时间</span>
+      </p>
+      <p class="message">你那东西几成新的呀,哈哈哈哈哈老板，麻烦给我预备10个</p>
+      <button type="button" class="btn btn_default"></button>
+    </div>
+    <hr/>
+    <div class="messageBar">
+      <img src="../../images/个人主页/我的消息/ico5.png">
+      <p>
+        <span class="userName">用户名</span>
+        <span class="sendTime">最近一次发送时间</span>
+      </p>
+      <p class="message">我想问问你那东西几成新的呀，可不可以再便宜一点点</p>
+      <button type="button" class="btn btn_default"></button>
+    </div>
+    <hr/>
+  </div>
+  <div id="footer">
+    <div id="bottom">
+    <a href="#" id="skimmore">查看全部消息</a>
+    <button id="more"></button>
+    </div>
+  </div>
+  </div>
+  <script src="../../scripts/jquery-1.6.2.js"></script>
+  <script src="../../scripts/myMessage.js"></script>
+</body>
+</html>
