@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>PracticeAjax</title>
+	<style type="text/css">
+		#register_Btn {
+			width: 328px;
+			height: 40px;
+		}
+	</style>
+	<script type="text/javascript" src="scripts/jquery-1.6.2.js"></script>
+	<script type="text/javascript">
+
+	    var xhr = new XMLHttpRequest();  
+	    var url = 'http://192.168.1.174:8080/Restful/see';  
+	    function crossDomainRequest() {  
+	      if (xhr) {  
+	        xhr.open('POST', url, true);  
+	        xhr.onreadystatechange = handler;  
+	        xhr.send();
+	      } else {  
+	      	console.log("fail");
+	      }  
+	    } 
+
+    	function status(data) {
+    		if (data == "200") {
+    			console.log("success");
+    			location.href="www.baidu.com";
+    		} else if (data == "400") {
+    			console.log("fail");
+    		} else if (data == "406") {
+    			console.log("重复");
+    		}
+    	}
+
+    	function handler(message) {
+    		console.log(message.d);
+    	}
+    	
+        function submit() {
+			var date = {username: $("#name").val(), password: $("#age").val()};
+        	var postData = {Name: $("#name").val(), Age: $("#age").val()};
+        	var postSer = $(":input").serialize();
+        	var postSerArray = $(":input").serializeArray();
+        	var postPar = $.param($(":input"));     
+        	console.log(postPar);
+        	console.log(postSerArray);
+        	console.log(postSer);
+        	console.log(postData);
+
+        	// $.getJSON("http://192.168.1.174:8080/Restful/Image/see?jsoncallback=?", JSON.stringify(date), function(result) {
+        	// 	if (result == "pass") {
+        	// 		console.log(result);
+        	// 		return true;
+        	// 	} else {
+        	// 		console.log(result);
+        	// 		return false;
+        	// 	}
+        	// });
+
+        	$.ajax({
+				type: "POST",
+				contentType: "application/json; charset=utf-8",
+				url: "http://192.168.1.174:8080/Restful/see",
+        		data: JSON.stringify(date),
+        		dataType: "json",
+        		success: function(message) {
+        			console.log("Success" + message);
+        		},
+        		error: function(err) {
+        			console.log("Error" + err);
+        		}
+        	});
+    	
+        }
+	</script>
+</head>
+<body>
+	Name: <input type="text" name="username" id="name" />
+	Age: <input type="text" name="password" id="age"/>
+	<input type="button" name="register" id="register_Btn" onclick="crossDomainRequest()" />
+</body>
+</html>
