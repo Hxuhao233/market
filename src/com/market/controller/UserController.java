@@ -42,7 +42,7 @@ public class UserController {
 		String username = userData.getData().get(0).get("account");
 		ResponeData message = new ResponeData();
 		if(iStudentService.checkRepeatAccount("account")>0){
-			message.setCode(201);
+			message.setCode(406);
 			message.setInfo("改用户名已被使用");
 		}else{
 			message.setCode(200);
@@ -60,10 +60,10 @@ public class UserController {
 		
 		if(id > 0){
 			message.setCode(200);
-			message.setInfo("注册成功");
+			//message.setInfo("注册成功");
 		}else{
-			message.setCode(201);
-			message.setInfo("该用户名已被使用");
+			message.setCode(406);
+			//message.setInfo("该用户名已被使用");
 		}
 			
 		return message;

@@ -10,15 +10,15 @@
 	<!-- scan the package and the sub package -->
 	<context:component-scan base-package="com.market" />
 
-	<!-- don't handle the static resource -->
-	<mvc:default-servlet-handler />
+	<!-- handle the static resource -->
+	<mvc:default-servlet-handler /> 
 
 
 	<!-- if you use annotation you must configure following setting -->
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
-			<!-- 设置返回字符串编码 -->
+			<!-- 字符串格式处理器 -->
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
 					<list>
@@ -36,15 +36,15 @@
 					</list>
 				</property>
 			</bean>
-
+			<!-- XML转换器 -->
 			<bean
 				class="org.springframework.http.converter.ResourceHttpMessageConverter" />
 		</mvc:message-converters>
 	</mvc:annotation-driven>
-	<!-- 定义跳转的文件的前后缀 ，视图模式配置 -->
+	<!-- 定义跳转的文件的前后缀 ，视图模式配置(暂时不会用到) -->
 	<bean
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
+		<!-- 这里的配置我的理解是自动给后面controller的方法return的字符串加上前缀和后缀，变成一个 可用的url地址 -->
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
 	</bean>

@@ -17,5 +17,6 @@ public class UniversityTest {
 		university.setUniversityname("华南理工大学");
 		//iUniversityService.createUniversity(university);
 		System.out.println(iUniversityService.getUniversityById(2).getUniversityname());
+		((ClassPathXmlApplicationContext)ac).close();
 	}
 }

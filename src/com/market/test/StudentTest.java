@@ -15,5 +15,6 @@ public class StudentTest {
 		student.setPassword("hxh896900488");
 		student.setName("何徐昊");
 		System.out.println(iStudentService.register(student));
+		((ClassPathXmlApplicationContext)ac).close();
 	}
 }

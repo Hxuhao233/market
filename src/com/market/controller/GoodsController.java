@@ -18,15 +18,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.market.model.Goods;
 import com.market.service.IGoodsService;
-import com.market.tools.PhotoData;
-import com.market.tools.ResponeData;
-import com.market.tools.User;
+
 import com.market.tools.GoodsInfo;
 @Controller
 @RequestMapping(value="/Goods")
