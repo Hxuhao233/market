@@ -61,6 +61,6 @@
 
 
 	<!-- 静态资源 -->
-	<mvc:resources mapping="/static/**" location="/STATIC-INF/" />
+	<mvc:resources mapping="/STATIC-INF/**" location="/STATIC-INF/" />
 
 </beans>
