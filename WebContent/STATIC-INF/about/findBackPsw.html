@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>findBackPsw</title>
+        <style type = "text/css">
+        /*{
+            margin:0;
+            padding:0;
+            border:0;
+        
+        }*/
+ 
+        #mainwindow{  
+            background-image:url(../images/pwdBack/background.png);           
+            height: 650px;
+            width: 1100px;
+            margin-right: auto;
+            margin-left: auto; 
+            margin-top:0px;
+        }
+         #mainwindow p,a{
+             font-family: '微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+             font-size:18px; 
+             color:gray;           
+         }
+
+          #wrapper{
+            padding-left:111px;
+            padding-top:5px;         
+            
+        }
+        #goback img{
+            float:left;
+            width:60px;
+            height:60px;
+            cursor:pointer;
+            padding-right:15px;
+            
+        }
+        #findBackPsw{
+            padding-top:12px;
+        }
+
+        #division{
+            height:1px;
+            width:100%;
+            border:0;
+            background-color:#E4E4E4;
+        }
+        
+        input{
+            border-width:0px;
+        }
+
+        input::-webkit-input-placeholder {
+　　        color: #000001 !important; 
+　　    }
+　　    input:-moz-placeholder {
+　　        color: #000001 !important; 
+　　    }
+　　    input::-moz-placeholder {
+　　        color: #000001 !important;
+　　    }
+　　    input:-ms-input-placeholder {
+　　        color: #000001 !important; 
+　　    }
+
+        .textStyle {
+            background-color:white;
+            border-style:solid;
+            border-width:0.2px;
+            border-color:#E4E4E4;
+            font-size:14px;
+            
+            padding-top:10px;
+            padding-bottom:6px;
+            padding-left:10px;
+            padding-right:10px;
+            margin-top:44px;
+            margin-bottom:0px;
+            
+
+        }
+
+        #username{
+            width:414px;
+            height:20px;
+        }
+        
+        #password{
+            width:400px;
+            height:20px;
+        }
+
+        #reInputPsw{
+            width:372px;
+            height:20px;
+        } 
+
+        .center{
+           margin-left:276px;
+        }
+
+        .buttonPre{
+            width:487px;;
+            height:40px;
+            background-image:url(../images/pwdBack/button.png);
+            padding-top:10px;
+            margin-top:40px;
+            margin-bottom:0px;                       
+        }
+
+        #variCode{
+            height:20px;
+            width:333px;
+            padding-top:10px;
+            padding-bottom:10px;
+            margin-top:40px;
+            margin-bottom:0px;
+            border-color:#E4E4E4;
+            border-size:1px;        
+           
+        }
+        #resendCode{
+            height:35px;
+            width:150px;
+            padding-top:10px;  
+            padding-bottom:10px;          
+            background-image:url(../images/pwdBack/button.png);
+            color:124,121,121;            
+
+        }  
+        .wordPre{
+            color:white;
+            font-family: '微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+            font-size:14px;
+
+        }
+
+        .formTips1,.formTips2,.formTips3,.formTips4,.formTips5{
+            position: relative;
+            float: right;
+            color: #cc0033;
+            font-size: 12px;
+            font-family: '微软雅黑','Hiragino Sans GB';
+        }
+        .formTips1{
+            top: -115px;
+            right:250px;
+        }
+        .formTips2{
+            bottom: 440px;
+            right:250px;     
+        }
+        /*.formTips3{
+            bottom：415px;
+            right:250px;
+        }*/
+
+        .formTips4{
+            top: -145px;
+            right:240px;
+        }
+        .formTips5{
+            top: -30px;
+            right:250px;
+        }
+
+        .failTips{
+        position: relative;
+        top:-300px;
+        left: 480px;
+        color: #cc0033;
+        font-size: 14px;
+        font-family: '微软雅黑','Hiragino Sans GB';
+    }     
+
+        </style>
+    </head>
+    <body>
+        <div id = "mainwindow">
+            <div id = "header">
+                <div id = "wrapper">
+                    <a id = "goback" href="#"><img src = "../images/pwdBack/goback.png"></a>
+                    <p id = "findBackPsw">找回密码</p>
+                    
+                </div>
+                <hr id="division"/>
+            </div>
+            <div id=" maincontainer">
+                <form action="#" method="POST">
+                    <p class="center">
+                        <span id = "usernametext" class = "textStyle">账号</span><input type="text" name="username" id="username" class = "textStyle" placeholder="用户名/邮箱/手机号" required><br/>
+                        <span id = "newpasswordtext" class="textStyle">新密码</span><input type="password" name="password" id="password"  class = "textStyle" required><br/>
+                        
+                    </p>
+                    <p class="center">
+                        <span class="textStyle">确认新密码</span><input type="password" name="reInputPsw" id="reInputPsw" class = "textStyle" required><br/>
+                    </p>
+                    <p>
+                        <input type="button" id="getCode" class="center buttonPre wordPre" value = "点击获取验证码">
+                    </p>
+                    <p>
+                        <input type="text" name="veriCode" id = "variCode" class="center" placeholder="验证码" required>
+                        <input type="button"  id="resendCode"    value="验证码"><br/>
+                    </p>
+                    <p>
+                        <input type="button" id="submit" class="center buttonPre wordPre" value="确认">
+                    </p>
+
+                </form>               
+
+            </div>
+            
+        </div>
+
+        <script src="../scripts/jquery-1.6.2.js"></script>
+        <script src="../scripts/findBackPsw.js"></script>
+   
+
+    </body>
+</html>
