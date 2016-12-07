@@ -1,0 +1,183 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title>log</title>
+    <style type="text/css">
+    *{
+        padding: 0;
+        margin:0;
+        border:0;
+    }
+    #mainwindow{
+        background-color: #E4E4E4;
+        height: 650px;
+        width: 1100px;
+        margin-right: auto;
+        margin-left: auto; 
+    }
+    #mainwindow p,a{
+        font-family: '微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+        font-size: 14px;
+        color: #4CBD88;
+    }
+    #header{
+        height: 150px;
+        width: 1100px;
+        margin-right: auto;
+        margin-left: auto;
+        position:relative;
+        overflow: hidden;
+    }
+    #tip{
+        position: absolute;
+        top: 4%;
+        left: 10%;
+        width: 120px;
+        height: 40px;   
+    }
+    #wrapper{
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    #goback img{
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+    }
+    p#log{
+        font-size: 18px;
+        color: gray;
+        position: absolute;
+        left: 50%;
+        top: 25%;
+    }
+    #logo{
+        display: block;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 10px;
+    }
+    #maincontainer{
+        background-image: url(../images/登录/smallbackground.png);
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-position: 50% 2%;
+        width: 100%;
+        height: 400px;
+    }
+    form{
+        display: table;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 60px;   
+    }
+    input{
+        padding:10px 0px;
+        margin:10px;
+        margin-left: 40px;
+        border: 1px solid #E4E4E4;
+        width:300PX;    
+        font-size: 14px;
+        font-family: '微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+    }
+    input:hover{
+        border: 1px solid #3CCD81;
+    }
+    input:focus{
+        border-color:#E4E4E4;
+    }
+    .hint{
+        padding:0px 40px;
+        text-decoration: none;
+    }
+    .hint:hover{
+        text-decoration: underline;
+    }
+    #submit{
+        border-radius: 20px;
+        width: 160px;
+        display: block;
+        color: white;
+        background-color: #4CBD88;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 25px;
+        cursor: pointer;
+    }
+    .formTips1,.formTips2{
+        position: relative;
+        float: right;
+        color: #cc0033;
+        font-size: 12px;
+        font-family: '微软雅黑','Hiragino Sans GB';
+    }
+    .formTips1{
+        top: -100px;
+        right:-40px;
+    }
+     .formTips2{
+        top: -190px;
+        right:-30px;     
+    }
+    .failTips{
+        position: relative;
+        top:-300px;
+        left: 480px;
+        color: #cc0033;
+        font-size: 14px;
+        font-family: '微软雅黑','Hiragino Sans GB';
+    }
+   #login{
+        margin-top: 50px;
+   }
+   #span1{
+        margin-left: 280px;
+   } 
+   #tree{
+        margin-top: -60px;
+        margin-left: 20px;
+   }
+   :focus{
+        outline: 0;
+     }
+   </style>
+</head>
+<body>
+	<div id="mainwindow">
+	    <div id="header">
+		    <div id="tip">
+		        <div id="wrapper">
+		    	    <a id="goback" href="#"><img src="../images/登录/goback.png"></a>
+		    	    <p id="log">登录</p>
+		        </div>
+		    </div>
+	        <img id="logo" src="../images/登录/logo.png" alt="logo" />
+        </div>
+        <div id="maincontainer">
+        	<form  action="#" method="POST">
+                <p>
+        		    <input type="text" name="username"id="username"class="label" placeholder="请输入邮箱/手机号码" required/><br/>
+        		    <input type="password" name="password" id="password" class="label" placeholder="请输入密码" required/><br/>
+        		</p>
+        		<p>
+        		<a class="hint" href="findBackPsw.html">忘记密码？</a>
+        		</p>
+        		<p>
+        			<input type="button" id="submit" value="登录">
+        		</p>
+        		<p id="login">
+        			<span id="span1">没有帐户？</span>
+        			<span id="span2"><a href="register.html">注册</a></span>
+        		</p>
+        	</form>
+        </div>
+        <div id="footer">
+        	<img id="tree" src="../images/登录/tree.png" alt="a tree" />
+        </div>
+	</div>
+	<script src="../scripts/jquery-1.6.2.js"></script>
+	<script src="../scripts/login.js"></script>
+</body>
+</html>
