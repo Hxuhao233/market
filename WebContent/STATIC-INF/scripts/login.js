@@ -1,8 +1,8 @@
 $(function(){
     $("#goback").hover(function(){                //为返回按钮添加鼠标悬浮效果
-      $(this).find("img").attr("src","../images/登录/goback_hover.png");
+      $(this).find("img").attr("src","../images/login/goback_hover.png");
     },function(){
-      $(this).find("img").attr("src","../images/登录/goback.png");
+      $(this).find("img").attr("src","../images/login/goback.png");
     });
     $('#goback').click(function(){                //点击返回首页
         window.location.href="../index.html";
@@ -48,11 +48,19 @@ $(function(){
 
              if(dataCode=="200"){
              //   alert(data.info);
+<<<<<<< HEAD
                 window.location.href=encodeURI("self.html"+"?"+"account="+dataKey[0].name);  //登录成功时默认返回首页并向首页传送用户昵称
              }else if(dataCode=="203"){
               //  alert("success");
                 $("#maincontainer").find(".failTips").remove();      //将以前的提醒元素删除
                 $("#maincontainer").append('<span class="failTips">' + dataInfo + '</span>');     //登录失败时向用户显示错误信息
+=======
+                window.location.href=encodeURI("self.html"+"?"+"account="+dataKey[0].name);  //login成功时默认返回首页并向首页传送用户昵称
+             }else if(dataCode=="203"){
+              //  alert("success");
+                $("#maincontainer").find(".failTips").remove();      //将以前的提醒元素删除
+                $("#maincontainer").append('<span class="failTips">' + dataInfo + '</span>');     //login失败时向用户显示错误信息
+>>>>>>> 788c19862694d662bee5075a7e06a78d66ca52b3
              }
             },
             error:function(data){                          //请求失败时调用此函数

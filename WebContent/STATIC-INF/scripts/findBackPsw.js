@@ -1,8 +1,8 @@
 $(function(){
     $("#goback").hover(function(){
-        $(this).find("img").attr("src","../images/找回密码/goback_hover.png");
+        $(this).find("img").attr("src","../images/pwdBack/goback_hover.png");
     },function(){
-        $(this).find("img").attr("src","../images/找回密码/goback.png");
+        $(this).find("img").attr("src","../images/pwdBack/goback.png");
 
     });
 
