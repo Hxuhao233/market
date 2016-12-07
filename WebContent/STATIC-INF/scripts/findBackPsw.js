@@ -134,25 +134,37 @@ $(function(){
     });
 });*/
 
+function getData() {
+    var data = {
+        data: 
+            [{
+                account:$("#username").val(),//向服务器传递用户名密码重新输入的密码及验证码
+                password:$("#password").val(),
+                variCode:$("#variCode").val()
+            }]
+    };
+    return data;
+}
+
 $(function(){
     $("#submit").click(function(){
         if(validateAccount()&&validatePassword()&&validateReInputPsw()&&validateVariCode()){
             $.ajax({
                 type:"POST",//请求方式
-                url:"http://192.168.1.117/",//发送请求的地址
-                data:JSON.stringify({"account":$("#username").val(),//向服务器传递用户名密码重新输入的密码及验证码
-                                     "password":$("#password").val(),
-                                     "variCode":$("#variCode").val()}),//js数据值转成json格式
+                url:"http://192.168.1.174:8080/market/User/forgetpwd",//发送请求的地址
+                contentType: "application/json; charset=utf-8",
+                data:JSON.stringify(getData()),//js数据值转成json格式
                 dataType:"json",//预期服务器返回的数据类型
                 cache:false,//不从浏览器缓存中加载信息
-                processData:false,//发送的数据不转换
                 success:function(data,textStatus){//请求成功调用
                     if(data.code=="200"){
-                        window.location.href=encodeURI("../index.html"+"?"+"nickname="+data.nickname);//不是很清楚成功后跳转到哪里
+                        window.location.href=encodeURI("../about/self.html"+"?"+"account="+data.nickname);//不是很清楚成功后跳转到哪里
                     }else if(data.code=="203"){
                         $("#maincontainer").find(".failTips").remove();
                         $("#maincontainer").apend('<span class= "failTips">'+data.info+'</span>');
 
+                    } else if(data.code=="207") {
+                        alert("用户不存在");
                     }
                 },
                 error:function(data){ //请求失败调用
