@@ -55,5 +55,22 @@ public class StudentServiceImpl implements IStudentService{
 		return studentDao.selectAccount(name);
 	}
 	
+	@Override
+	public boolean forgetPwd(String account,String variCode,String newPassword)
+	{
+		boolean isVerify=false;
+		//TODO 在StudentMapper里添加函数检测account与variCode是否匹配，返回给isVerify
+		isVerify=true;
+		if (isVerify)
+		{
+			//修改密码
+			Student u=studentDao.selectByAccount(account);
+			u.setPassword(newPassword);
+			studentDao.updateByPrimaryKeySelective(u);
+		}
+		
+		return isVerify;
+	}
+
 	
 }

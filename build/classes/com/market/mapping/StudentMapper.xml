@@ -34,6 +34,15 @@
       password = md5(#{password,jdbcType=VARCHAR})
     </if>
   </select>
+  
+  <select id="selectByAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Student
+    where account = #{account,jdbcType=VARCHAR}
+  </select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from Student
     where id = #{id,jdbcType=INTEGER}

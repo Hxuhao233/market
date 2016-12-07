@@ -21,5 +21,7 @@ public interface StudentMapper {
     
     Student selectByKey(Map<String, String> accountAndPassword);
     
+    Student selectByAccount(String account);
+    
    // Student selectByAccountAndPassword(String account,String password);
 }

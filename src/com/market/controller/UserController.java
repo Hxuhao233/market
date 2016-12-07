@@ -30,14 +30,14 @@ import com.market.service.IStudentService;
 import com.market.tools.Message;
 import com.market.tools.RequestData;
 import com.market.tools.ResponeData;
-@RequestMapping(value="/User/")
+@RequestMapping(value="/User")
 @Controller
 public class UserController {
 	
 	@Autowired
 	private IStudentService iStudentService;
 	
-	@RequestMapping(value="check",method=RequestMethod.POST)
+	@RequestMapping(value="/check",method=RequestMethod.POST)
 	public @ResponseBody ResponeData checkRepeatAccount(@RequestBody RequestData userData){
 		String username = userData.getData().get(0).get("account");
 		ResponeData message = new ResponeData();
@@ -53,7 +53,7 @@ public class UserController {
 	
 	
 	// 用户注册
-	@RequestMapping(value="signup",method=RequestMethod.POST)
+	@RequestMapping(value="/signup",method=RequestMethod.POST)
 	public @ResponseBody Message signUp(@RequestBody Student student){
 		int id = iStudentService.register(student);
 		Message message = new Message();
@@ -125,6 +125,47 @@ public class UserController {
         }
 		return ret;
 	}
+	
+	
+	@ResponseBody
+	@RequestMapping(value="/forgetpwd",method=RequestMethod.POST)
+	public  Message forgetPwd (@RequestBody RequestData userData){
+		Message ret = new Message();
+		
+		String account = userData.getData().get(0).get("account");
+		String variCode = userData.getData().get(0).get("variCode");
+		String newpassword = userData.getData().get(0).get("password");
+		
+		if (iStudentService.checkRepeatAccount(account)==0){
+			System.out.println("修改密码错误！不存在的用户");
+			ret.setCode(207);
+			ret.setInfo("不存在的用户");
+		}
+		else if (account != null && newpassword !=null && variCode!=null && !account.equals("") && !newpassword.equals("") && !variCode.equals("")){
+			boolean isVerify=false;
+			isVerify=iStudentService.forgetPwd(account, variCode, newpassword);
+			if (isVerify){
+				//通过验证
+				ret.setCode(200);
+				ret.setInfo("修改密码成功");
+			}
+			else {
+				//未通过验证
+				ret.setCode(203);
+				ret.setInfo("验证码错误");
+			}
+			
+			
+		}
+		else {
+			ret.setCode(202);
+			ret.setInfo("未输入用户名或新密码或验证码");
+		}
+		
+		return ret;
+	}
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value="/check",method=RequestMethod.GET)

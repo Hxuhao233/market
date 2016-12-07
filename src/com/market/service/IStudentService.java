@@ -16,4 +16,6 @@ public interface IStudentService {
 	public Student logIn(String account,String password);
 	
 	public int logOut(int studentId);
+	
+	public boolean forgetPwd(String account,String variCode,String newPassword);
 }
