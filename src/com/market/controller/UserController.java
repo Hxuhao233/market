@@ -106,18 +106,7 @@ public class UserController {
 				ret.setInfo("登录成功");
 				ret.setData(infoItems);
 				
-				int ret1 = 0;
-				 System.out.println("");
-			        System.out.println("*** Session data ***");
-			        Enumeration<String> e = session.getAttributeNames();
-			        while (e.hasMoreElements()) {
-			        	
-			            String s = e.nextElement();
-			            System.out.println(s + " == " + session.getAttribute(s));
-			            System.out.println(s + " max time :" + session.getMaxInactiveInterval());
-			            ret1++;
-			            
-			        }
+			
 			}else{
 				ret.setCode(203);
 				ret.setInfo( "用户名或密码错误");
@@ -133,19 +122,7 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public Message logout(HttpSession session){
-		
-		int ret1 = 0;
-		 System.out.println("");
-	        System.out.println("*** Session data ***");
-	        Enumeration<String> e = session.getAttributeNames();
-	        while (e.hasMoreElements()) {
-	        	
-	            String s = e.nextElement();
-	            System.out.println(s + " == " + session.getAttribute(s));
-	            System.out.println(s + " max time :" + session.getMaxInactiveInterval());
-	            ret1++;
-	            
-	        }
+
 		Student student = (Student)session.getAttribute("student");
 		//System.out.println(u.getUsername() + "logout");
 		Message ret = new Message();

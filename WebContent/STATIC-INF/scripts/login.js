@@ -35,7 +35,7 @@ $(function(){
         if(validateAccount()&&validatePassword()){               //判断账号是否合法
         $.ajax({                                                 //使用post方法向服务器传送json字符串
             type:"POST",
-            url:"http://192.168.1.174:8080/market/User/login",
+            url:"../../User/login",
             contentType:"application/json;charset=utf-8",
             data:JSON.stringify(getData()),
             dataType:"json",
@@ -48,19 +48,11 @@ $(function(){
 
              if(dataCode=="200"){
              //   alert(data.info);
-<<<<<<< HEAD
-                window.location.href=encodeURI("self.html"+"?"+"account="+dataKey[0].name);  //登录成功时默认返回首页并向首页传送用户昵称
-             }else if(dataCode=="203"){
-              //  alert("success");
-                $("#maincontainer").find(".failTips").remove();      //将以前的提醒元素删除
-                $("#maincontainer").append('<span class="failTips">' + dataInfo + '</span>');     //登录失败时向用户显示错误信息
-=======
                 window.location.href=encodeURI("self.html"+"?"+"account="+dataKey[0].name);  //login成功时默认返回首页并向首页传送用户昵称
              }else if(dataCode=="203"){
               //  alert("success");
                 $("#maincontainer").find(".failTips").remove();      //将以前的提醒元素删除
                 $("#maincontainer").append('<span class="failTips">' + dataInfo + '</span>');     //login失败时向用户显示错误信息
->>>>>>> 788c19862694d662bee5075a7e06a78d66ca52b3
              }
             },
             error:function(data){                          //请求失败时调用此函数
