@@ -12,7 +12,7 @@ import java.util.Map;
 public class ResponeData {
 	private int code;			
 	private String info;
-	private String auth;
+//	private String auth;
 	private List<Map<String, String>> data;
 	
 
@@ -20,7 +20,7 @@ public class ResponeData {
 
 	}
 	
-	
+	/*
 	public String getAuth() {
 		return auth;
 	}
@@ -28,7 +28,7 @@ public class ResponeData {
 	public void setAuth(String auth) {
 		this.auth = auth;
 	}
-
+*/
 	public ResponeData(int c,String i){
 		code = c;
 		info = i;

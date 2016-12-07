@@ -2,7 +2,10 @@ package com.market.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -73,10 +76,10 @@ public class UserController {
 	
 	@ResponseBody
 	@RequestMapping(value="/login",method=RequestMethod.POST)
-	public Message login(@RequestBody RequestData userData,HttpSession session){
+	public ResponeData login(@RequestBody RequestData userData,HttpSession session){
 		//System.out.println("account" + account);
 	//	String password = "";
-		Message ret = new Message();
+		ResponeData ret = new ResponeData();
 		Student u  = (Student) session.getAttribute("student");
 		String account  = userData.getData().get(0).get("account");
 		String password = userData.getData().get(0).get("password");
@@ -90,12 +93,31 @@ public class UserController {
 			Student student = iStudentService.logIn(account,password);
 			
 			if(student != null){
-				System.out.println("user " + student.getId() + " login!");
+				System.out.println("user " + student.getId() + "" + student.getName() + " login!");
 				//session.setMaxInactiveInterval(10); 			// 10s 
 				session.setAttribute("student",student);
-
+				
+				Map<String,String> userInfo = new HashMap<String,String>();
+				userInfo.put("name", student.getName());
+				ArrayList<Map<String,String>> infoItems = new ArrayList<Map<String,String>>();
+				infoItems.add(userInfo);
+				
 				ret.setCode(200);
 				ret.setInfo("登录成功");
+				ret.setData(infoItems);
+				
+				int ret1 = 0;
+				 System.out.println("");
+			        System.out.println("*** Session data ***");
+			        Enumeration<String> e = session.getAttributeNames();
+			        while (e.hasMoreElements()) {
+			        	
+			            String s = e.nextElement();
+			            System.out.println(s + " == " + session.getAttribute(s));
+			            System.out.println(s + " max time :" + session.getMaxInactiveInterval());
+			            ret1++;
+			            
+			        }
 			}else{
 				ret.setCode(203);
 				ret.setInfo( "用户名或密码错误");
@@ -111,6 +133,19 @@ public class UserController {
 	@ResponseBody
 	@RequestMapping(value="/logout",method=RequestMethod.GET)
 	public Message logout(HttpSession session){
+		
+		int ret1 = 0;
+		 System.out.println("");
+	        System.out.println("*** Session data ***");
+	        Enumeration<String> e = session.getAttributeNames();
+	        while (e.hasMoreElements()) {
+	        	
+	            String s = e.nextElement();
+	            System.out.println(s + " == " + session.getAttribute(s));
+	            System.out.println(s + " max time :" + session.getMaxInactiveInterval());
+	            ret1++;
+	            
+	        }
 		Student student = (Student)session.getAttribute("student");
 		//System.out.println(u.getUsername() + "logout");
 		Message ret = new Message();
@@ -120,7 +155,7 @@ public class UserController {
         	ret.setInfo("注销成功");
         	
         }else{
-        	ret.setCode(203);
+        	ret.setCode(204);
         	ret.setInfo("注销失败");
         }
 		return ret;

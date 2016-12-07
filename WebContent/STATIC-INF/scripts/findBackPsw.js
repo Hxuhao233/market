@@ -159,7 +159,7 @@ $(function(){
                 success:function(data,textStatus){//请求成功调用
                     if(data.code=="200"){
                         window.location.href=encodeURI("../about/self.html"+"?"+"account="+data.nickname);//不是很清楚成功后跳转到哪里
-                    }else if(data.code=="203"){
+                    }else if(data.code=="205"){
                         $("#maincontainer").find(".failTips").remove();
                         $("#maincontainer").apend('<span class= "failTips">'+data.info+'</span>');
 

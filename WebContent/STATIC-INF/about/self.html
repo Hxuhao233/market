@@ -110,16 +110,6 @@
 
 		}
 
-		.exit:link {
-			background: url(../images/个人主页/exit.png);	
-
-		}
-
-		.exit:hover {
-			background: url(../images/个人主页/exithover.png);	
-
-		}
-
 		.subul2 {
 			display: none;
 			position: absolute;
@@ -251,6 +241,30 @@
 			$(menu).addClass('sel');
 		}
 
+		function logoutFunc() {
+			$.ajax({
+					type: "GET",
+					contentType: "application/json; charset=utf-8",
+					url: "http://192.168.1.174:8080/market/User/logout",
+	        		dataType: "json",
+	        		success: function(message) {
+	        			//window.location.href = "../index.html";
+	        			console.log(message.code);
+	        			if (message.code == "200") {
+	        				window.location.href = "login.html";
+	        			} else if (message.code == "204") {
+	        				alert("注销失败！");
+	        			} else {
+	        				alert("发生错误，稍后重试!");
+	        			}
+	        			console.log("Success" + message);
+	        		},
+	        		error: function(err) {
+	        			console.log("Error" + err);
+	        		}
+	        	});
+		}
+
 		$('Document').ready(function(){
 			$("#menu").find('a').each(function() {
 				$(this).click(function() {
@@ -269,6 +283,10 @@
 				$("#downPic").rotate({
 					animateTo: 0
 				});
+			});
+
+			$(".logout").parent().click(function() {
+				logoutFunc();
 			});
 
 			$("#backTop").children().children().mouseover(function(){
@@ -333,7 +351,6 @@
 							</ul>
 						</li>
 						<li><a href="#" class="logout"></a></li>
-						<li><a href="#" class="exit"></a></li>
 					</ul>
 				</li>
 			</ul>
