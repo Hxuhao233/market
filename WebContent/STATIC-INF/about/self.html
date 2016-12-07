@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>个人主页</title>
+	<title>self</title>
 	<style type="text/css">
 		html {
 			width: 1200px;
@@ -32,7 +32,7 @@
 		#content {
 			width: 1200px;
 			height: 1229px;
-			background: url("../images/个人主页/background.png") center no-repeat;
+			background: url("../images/self/background.png") center no-repeat;
 		}
 
 		#headPic {
@@ -86,37 +86,27 @@
 		}
 
 		.schoolID:link {
-			background: url(../images/个人主页/code.png);
+			background: url(../images/self/code.png);
 		}
 
 		.schoolID:hover {
-			background: url(../images/个人主页/codehover.png);			
+			background: url(../images/self/codehover.png);			
 		}
 
 		.account:link {
-			background: url(../images/个人主页/account.png);
+			background: url(../images/self/account.png);
 		}
 
 		.account:hover {
-			background: url(../images/个人主页/accounthover.png);			
+			background: url(../images/self/accounthover.png);			
 		}
 
 		.logout:link {
-			background: url(../images/个人主页/logout.png);		
+			background: url(../images/self/logout.png);		
 		}
 
 		.logout:hover {
-			background: url(../images/个人主页/logouthover.png);	
-
-		}
-
-		.exit:link {
-			background: url(../images/个人主页/exit.png);	
-
-		}
-
-		.exit:hover {
-			background: url(../images/个人主页/exithover.png);	
+			background: url(../images/self/logouthover.png);	
 
 		}
 
@@ -134,29 +124,29 @@
 		}
 
 		.pwdChange:link {
-			background: url(../images/个人主页/password.png);	
+			background: url(../images/self/password.png);	
 
 		}
 
 		.pwdChange:hover {
-			background: url(../images/个人主页/passwordhover.png);	
+			background: url(../images/self/passwordhover.png);	
 
 		}
 
 		.picLoad:link {
-			background: url(../images/个人主页/headload.png);	
+			background: url(../images/self/headload.png);	
 		}
 
 		.picLoad:hover {
-			background: url(../images/个人主页/headloadhover.png);	
+			background: url(../images/self/headloadhover.png);	
 		}
 
 		.infoChange:link {
-			background: url(../images/个人主页/selfmsg.png);	
+			background: url(../images/self/selfmsg.png);	
 		}
 
 		.infoChange:hover {
-			background: url(../images/个人主页/selfmsghover.png);	
+			background: url(../images/self/selfmsghover.png);	
 		}
 
 		#menu {
@@ -187,51 +177,51 @@
 		}
 
 		.page1:link {
-			background: url(../images/个人主页/mymessageDefault.png) center no-repeat;
+			background: url(../images/self/mymessageDefault.png) center no-repeat;
 		}
 
 		.page1:hover {
-			background: url(../images/个人主页/mymessageOver.png) center no-repeat;			
+			background: url(../images/self/mymessageOver.png) center no-repeat;			
 		}
 
 		.page1.sel {
-			background: url(../images/个人主页/mymessageSelected.png) center no-repeat;						
+			background: url(../images/self/mymessageSelected.png) center no-repeat;						
 		}
 
 		.page2:link {
-			background: url(../images/个人主页/myreleaseDefault.png) center no-repeat;
+			background: url(../images/self/myreleaseDefault.png) center no-repeat;
 		}
 
 		.page2:hover {
-			background: url(../images/个人主页/myreleaseOver.png) center no-repeat;			
+			background: url(../images/self/myreleaseOver.png) center no-repeat;			
 		}
 
 		.page2.sel {
-			background: url(../images/个人主页/myreleaseSelected.png) center no-repeat;						
+			background: url(../images/self/myreleaseSelected.png) center no-repeat;						
 		}
 
 		.page3:link {
-			background: url(../images/个人主页/myharvestDefault.png) center no-repeat;
+			background: url(../images/self/myharvestDefault.png) center no-repeat;
 		}
 
 		.page3:hover {
-			background: url(../images/个人主页/myharvestOver.png) center no-repeat;			
+			background: url(../images/self/myharvestOver.png) center no-repeat;			
 		}
 
 		.page3.sel {
-			background: url(../images/个人主页/myharvestSelected.png) center no-repeat;						
+			background: url(../images/self/myharvestSelected.png) center no-repeat;						
 		}
 
 		.page4:link {
-			background: url(../images/个人主页/mycollectionDefault.png) center no-repeat;
+			background: url(../images/self/mycollectionDefault.png) center no-repeat;
 		}
 
 		.page4:hover {
-			background: url(../images/个人主页/mycollectionOver.png) center no-repeat;			
+			background: url(../images/self/mycollectionOver.png) center no-repeat;			
 		}
 
 		.page4.sel {
-			background: url(../images/个人主页/mycollectionSelected.png) center no-repeat;						
+			background: url(../images/self/mycollectionSelected.png) center no-repeat;						
 		}
 
 		#content iframe {
@@ -249,6 +239,30 @@
 		function changeSelMenu(menu) {
 			$("#menu a.sel").removeClass('sel');
 			$(menu).addClass('sel');
+		}
+
+		function logoutFunc() {
+			$.ajax({
+					type: "GET",
+					contentType: "application/json; charset=utf-8",
+					url: "http://192.168.1.174:8080/market/User/logout",
+	        		dataType: "json",
+	        		success: function(message) {
+	        			//window.location.href = "../index.html";
+	        			console.log(message.code);
+	        			if (message.code == "200") {
+	        				window.location.href = "login.html";
+	        			} else if (message.code == "204") {
+	        				alert("注销失败！");
+	        			} else {
+	        				alert("发生错误，稍后重试!");
+	        			}
+	        			console.log("Success" + message);
+	        		},
+	        		error: function(err) {
+	        			console.log("Error" + err);
+	        		}
+	        	});
 		}
 
 		$('Document').ready(function(){
@@ -271,10 +285,14 @@
 				});
 			});
 
+			$(".logout").parent().click(function() {
+				logoutFunc();
+			});
+
 			$("#backTop").children().children().mouseover(function(){
-				$(this).attr("src", "../images/个人主页/backHover.png");
+				$(this).attr("src", "../images/self/backHover.png");
 			}).mouseout(function(){
-				$(this).attr("src", "../images/个人主页/backDefault.png");
+				$(this).attr("src", "../images/self/backDefault.png");
 			});
 
 			$(".page1").click(function() {
@@ -312,16 +330,16 @@
 		</div>
 		<div id="backTop">
 			<a href="log.html" id="btnL">
-				<img src="../images/个人主页/backDefault.png" alt="返回" />
+				<img src="../images/self/backDefault.png" alt="返回" />
 			</a>
 		</div>
 		<div id="headPic">
-			<img src="../images/个人主页/headPic.png" alt="大头像" />
+			<img src="../images/self/headPic.png" alt="大头像" />
 		</div>
 		<div id="setting">
 			<ul>
 				<li>
-					<a href="#">个人设置<img src="../images/个人主页/down.png" id="downPic" alt="Down箭头"></a>
+					<a href="#">个人设置<img src="../images/self/down.png" id="downPic" alt="Down箭头"></a>
 					<ul class="subul1">
 						<li><a href="#" class="schoolID"></a></li>
 						<li>
@@ -333,7 +351,6 @@
 							</ul>
 						</li>
 						<li><a href="#" class="logout"></a></li>
-						<li><a href="#" class="exit"></a></li>
 					</ul>
 				</li>
 			</ul>

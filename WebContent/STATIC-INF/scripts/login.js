@@ -1,38 +1,58 @@
 $(function(){
     $("#goback").hover(function(){                //为返回按钮添加鼠标悬浮效果
-      $(this).find("img").attr("src","../images/登录/goback_hover.png");
+      $(this).find("img").attr("src","../images/login/goback_hover.png");
     },function(){
-      $(this).find("img").attr("src","../images/登录/goback.png");
+      $(this).find("img").attr("src","../images/login/goback.png");
     });
     $('#goback').click(function(){                //点击返回首页
         window.location.href="../index.html";
     });
 });
 
+function getData() {
+    var data = {
+        data: [{
+            account: $("#username").val(),
+            password: $("#password").val()
+        }]
+    };
+    return data;
+}
+
+function getJsonData(data) {
+    var jsonData = data;
+    var dataKey = jsonData.data;
+    var dataInfo = jsonData.info;
+    var dataCode = jsonData.code;
+
+    for(var i=0; i<dataKey.length; i++) {
+        console.log("code:" + dataCode + " info:" + dataInfo + " name:" + dataKey[i].name);
+    }
+}
+
 $(function(){
     $("#submit").click(function(){
         if(validateAccount()&&validatePassword()){               //判断账号是否合法
         $.ajax({                                                 //使用post方法向服务器传送json字符串
             type:"POST",
-            url:"/User/login",
-         //   contentType:"application/json;charset=utf-8",
-            data:JSON.stringify({"account":$("#username").val(),      //向服务器传送用户账号与密码
-                                 "password":$("#password").val()}),
+            url:"http://192.168.1.174:8080/market/User/login",
+            contentType:"application/json;charset=utf-8",
+            data:JSON.stringify(getData()),
             dataType:"json",
-            headers:{
-                Accept:"application/json",
-                "Content-Type":"application/json"
-            },
             cache:false,
-            processData:false,
-            success:function(data,textStatus){              //请求成功后的返回函数
-             if(data.code=="200"){
+            success:function(data){              //请求成功后的返回函数
+            var jsonData = data;
+            var dataKey = jsonData.data;
+            var dataInfo = jsonData.info;
+            var dataCode = jsonData.code;
+
+             if(dataCode=="200"){
              //   alert(data.info);
-                window.location.href=encodeURI("../index.html"+"?"+"nickname="+data.nickname);  //登录成功时默认返回首页并向首页传送用户昵称
-             }else if(data.code=="203"){
+                window.location.href=encodeURI("self.html"+"?"+"account="+dataKey[0].name);  //login成功时默认返回首页并向首页传送用户昵称
+             }else if(dataCode=="203"){
               //  alert("success");
                 $("#maincontainer").find(".failTips").remove();      //将以前的提醒元素删除
-                $("#maincontainer").append('<span class="failTips">'+data.info+'</span>');     //登录失败时向用户显示错误信息
+                $("#maincontainer").append('<span class="failTips">' + dataInfo + '</span>');     //login失败时向用户显示错误信息
              }
             },
             error:function(data){                          //请求失败时调用此函数

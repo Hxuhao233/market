@@ -2,15 +2,15 @@ $(function(){
 	
 	//返回按钮鼠标悬浮效果
 	$("#goback").hover(function(){
-        $(this).find("img").attr("src","../../images/个人主页/我的消息/goback_hover.png");
+        $(this).find("img").attr("src","../../../images/self/message/goback_hover.png");
 	},function(){
-		$(this).find("img").attr("src","../../images/个人主页/我的消息/goback.png");
+		$(this).find("img").attr("src","../../../images/self/message/goback.png");
 	});
 	//发送消息按钮鼠标悬浮效果
 	$("#send").hover(function(){
-        $(this).find("img").attr("src","../../images/个人主页/我的消息/sendout_hover.png");
+        $(this).find("img").attr("src","../../../images/self/message/sendout_hover.png");
 	},function(){
-		$(this).find("img").attr("src","../../images/个人主页/我的消息/sendout.png");
+		$(this).find("img").attr("src","../../../images/self/message/sendout.png");
 	});
 });
 //设置卖家头像以及发送的消息
