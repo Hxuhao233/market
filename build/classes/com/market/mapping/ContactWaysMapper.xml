@@ -5,10 +5,10 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="GoodsId" jdbcType="INTEGER" property="goodsid" />
     <result column="QQNum" jdbcType="VARCHAR" property="qqnum" />
-    <result column="mailNum" jdbcType="VARCHAR" property="mailnum" />
+    <result column="phoneNum" jdbcType="VARCHAR" property="phonenum" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, GoodsId, QQNum, mailNum
+    id, GoodsId, QQNum, phoneNum
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -22,9 +22,9 @@
   </delete>
   <insert id="insert" parameterType="com.market.model.ContactWays">
     insert into ContactWays (id, GoodsId, QQNum, 
-      mailNum)
+      phoneNum)
     values (#{id,jdbcType=INTEGER}, #{goodsid,jdbcType=INTEGER}, #{qqnum,jdbcType=VARCHAR}, 
-      #{mailnum,jdbcType=VARCHAR})
+      #{phonenum,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.market.model.ContactWays">
     insert into ContactWays
@@ -38,8 +38,8 @@
       <if test="qqnum != null">
         QQNum,
       </if>
-      <if test="mailnum != null">
-        mailNum,
+      <if test="phonenum != null">
+        phoneNum,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -52,8 +52,8 @@
       <if test="qqnum != null">
         #{qqnum,jdbcType=VARCHAR},
       </if>
-      <if test="mailnum != null">
-        #{mailnum,jdbcType=VARCHAR},
+      <if test="phonenum != null">
+        #{phonenum,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -66,8 +66,8 @@
       <if test="qqnum != null">
         QQNum = #{qqnum,jdbcType=VARCHAR},
       </if>
-      <if test="mailnum != null">
-        mailNum = #{mailnum,jdbcType=VARCHAR},
+      <if test="phonenum != null">
+        phoneNum = #{phonenum,jdbcType=VARCHAR},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
@@ -76,7 +76,7 @@
     update ContactWays
     set GoodsId = #{goodsid,jdbcType=INTEGER},
       QQNum = #{qqnum,jdbcType=VARCHAR},
-      mailNum = #{mailnum,jdbcType=VARCHAR}
+      phoneNum = #{phonenum,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

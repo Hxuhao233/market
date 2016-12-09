@@ -22,50 +22,63 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.market.model.ContactWays;
 import com.market.model.Goods;
 import com.market.service.IGoodsService;
 
 import com.market.tools.GoodsInfo;
+
 @Controller
-@RequestMapping(value="/Goods")
+@RequestMapping(value = "/Goods")
 public class GoodsController {
-	
+
 	@Autowired
 	private IGoodsService iGoodsService;
-	
-	@RequestMapping(value="/Goods",method=RequestMethod.POST)
-	public @ResponseBody GoodsInfo  publishGoods(Goods goods,@RequestParam(value = "file", required = true) MultipartFile[] files,HttpServletRequest request) {
+
+	@RequestMapping(value = "/Goods", method = RequestMethod.POST)
+	public @ResponseBody GoodsInfo publishGoods(Goods goods,
+			@RequestParam(value = "files", required = true) MultipartFile[] files,ContactWays contactWays ,HttpServletRequest request) {
 		GoodsInfo goodsInfo = new GoodsInfo();
 		System.out.println(goods.getGoodsname());
-		if(goods.getCategoryid() == null)
+		if (goods.getCategoryid() == null)
 			goods.setCategoryid(1);
-		System.out.println(files.length);
 
+
+		//	保存商品基本信息
 		int ret = iGoodsService.publishGoods(goods);
-		System.out.println(goods.getId());
-		String pathRoot = request.getSession().getServletContext().getRealPath("/") + "../static";
 		
-		if(goods.getId()>0 && files.length>0){
-			goodsInfo.setGood(goods);
-			List<String>filePaths = iGoodsService.uploadImages(goods.getId(),pathRoot, files);
-			goodsInfo.setPictureAddr( filePaths);
+		String pathRoot = request.getSession().getServletContext().getRealPath("/") + "../static";
+		goodsInfo.setGood(goods);
+		System.out.println("发布商品 :" + goods.getId());
+		
+		// 保存图片
+		if (goods.getId() > 0 && files.length > 0) {
+			
+			System.out.println(files.length);
+			List<String> filePaths = iGoodsService.uploadImages(goods.getId(), pathRoot, files);
+			goodsInfo.setPictureAddr(filePaths);
 		}
 		
-
+		//	保存联系方式
+		System.out.println(contactWays.getPhonenum());
+		if(!"".equals(contactWays.getPhonenum()) || !"".equals(contactWays.getQqnum())){
+			contactWays.setGoodsid(goods.getId());
+			iGoodsService.uploadContactWay(contactWays);
+		}
 		return goodsInfo;
 	}
-	
-	@RequestMapping(value="/Goods/{id}",method=RequestMethod.PUT)
-	public ResponseEntity<Void> updateGoodsInfo(@PathVariable("id")int id, @RequestBody  Goods goods) {
+
+	@RequestMapping(value = "/Goods/{id}", method = RequestMethod.PUT)
+	public ResponseEntity<Void> updateGoodsInfo(@PathVariable("id") int id, @RequestBody Goods goods) {
 		return null;
 	}
-	
-	@RequestMapping(value="/Goods",method=RequestMethod.GET)
+
+	@RequestMapping(value = "/Goods", method = RequestMethod.GET)
 	public @ResponseBody int deleteGoods() {
 		return 1;
 	}
-	
-	public ResponseEntity<Goods> queryGoods(@RequestBody  Goods goods, UriComponentsBuilder ucbuilder) {
+
+	public ResponseEntity<Goods> queryGoods(@RequestBody Goods goods, UriComponentsBuilder ucbuilder) {
 		return null;
 	}
 }

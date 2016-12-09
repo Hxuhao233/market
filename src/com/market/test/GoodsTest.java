@@ -7,15 +7,14 @@ import com.market.model.Goods;
 
 import com.market.service.IGoodsService;
 
-
 public class GoodsTest {
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		ApplicationContext ac = new ClassPathXmlApplicationContext(new String[] { "spring-mybatis.xml" });
-		IGoodsService iGoodsService = (IGoodsService)ac.getBean("goodsService");
+		IGoodsService iGoodsService = (IGoodsService) ac.getBean("goodsService");
 		Goods goods = new Goods();
 		goods.setCategoryid(1);
 		goods.setDescription("2333");
 		System.out.println(iGoodsService.publishGoods(goods));
-		((ClassPathXmlApplicationContext)ac).close();
+		((ClassPathXmlApplicationContext) ac).close();
 	}
 }

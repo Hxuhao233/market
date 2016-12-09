@@ -3,163 +3,163 @@ package com.market.model;
 import java.util.Date;
 
 public class Goods {
-    private Integer id;
+	private Integer id;
 
-    private Integer publisherid;
+	private Integer publisherid;
 
-    private Integer contactwayid;
+	private Integer contactwayid;
 
-    private Integer categoryid;
+	private Integer categoryid;
 
-    private String goodsname;
+	private String goodsname;
 
-    private Double originalprice;
+	private Double originalprice;
 
-    private Double nowprice;
+	private Double nowprice;
 
-    private Integer newdegree;
+	private Integer newdegree;
 
-    private String description;
+	private String description;
 
-    private Integer totalnum;
+	private Integer totalnum;
 
-    private Integer residualnum;
+	private Integer residualnum;
 
-    private Byte ispublished;
+	private Byte ispublished;
 
-    private Date publishtime;
+	private Date publishtime;
 
-    private Integer praisetimes;
+	private Integer praisetimes;
 
-    private Integer collectedtimes;
+	private Integer collectedtimes;
 
-    private Date durabilityperiod;
+	private Date durabilityperiod;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getPublisherid() {
-        return publisherid;
-    }
+	public Integer getPublisherid() {
+		return publisherid;
+	}
 
-    public void setPublisherid(Integer publisherid) {
-        this.publisherid = publisherid;
-    }
+	public void setPublisherid(Integer publisherid) {
+		this.publisherid = publisherid;
+	}
 
-    public Integer getContactwayid() {
-        return contactwayid;
-    }
+	public Integer getContactwayid() {
+		return contactwayid;
+	}
 
-    public void setContactwayid(Integer contactwayid) {
-        this.contactwayid = contactwayid;
-    }
+	public void setContactwayid(Integer contactwayid) {
+		this.contactwayid = contactwayid;
+	}
 
-    public Integer getCategoryid() {
-        return categoryid;
-    }
+	public Integer getCategoryid() {
+		return categoryid;
+	}
 
-    public void setCategoryid(Integer categoryid) {
-        this.categoryid = categoryid;
-    }
+	public void setCategoryid(Integer categoryid) {
+		this.categoryid = categoryid;
+	}
 
-    public String getGoodsname() {
-        return goodsname;
-    }
+	public String getGoodsname() {
+		return goodsname;
+	}
 
-    public void setGoodsname(String goodsname) {
-        this.goodsname = goodsname == null ? null : goodsname.trim();
-    }
+	public void setGoodsname(String goodsname) {
+		this.goodsname = goodsname == null ? null : goodsname.trim();
+	}
 
-    public Double getOriginalprice() {
-        return originalprice;
-    }
+	public Double getOriginalprice() {
+		return originalprice;
+	}
 
-    public void setOriginalprice(Double originalprice) {
-        this.originalprice = originalprice;
-    }
+	public void setOriginalprice(Double originalprice) {
+		this.originalprice = originalprice;
+	}
 
-    public Double getNowprice() {
-        return nowprice;
-    }
+	public Double getNowprice() {
+		return nowprice;
+	}
 
-    public void setNowprice(Double nowprice) {
-        this.nowprice = nowprice;
-    }
+	public void setNowprice(Double nowprice) {
+		this.nowprice = nowprice;
+	}
 
-    public Integer getNewdegree() {
-        return newdegree;
-    }
+	public Integer getNewdegree() {
+		return newdegree;
+	}
 
-    public void setNewdegree(Integer newdegree) {
-        this.newdegree = newdegree;
-    }
+	public void setNewdegree(Integer newdegree) {
+		this.newdegree = newdegree;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getDescription() {
+		return description;
+	}
 
-    public void setDescription(String description) {
-        this.description = description == null ? null : description.trim();
-    }
+	public void setDescription(String description) {
+		this.description = description == null ? null : description.trim();
+	}
 
-    public Integer getTotalnum() {
-        return totalnum;
-    }
+	public Integer getTotalnum() {
+		return totalnum;
+	}
 
-    public void setTotalnum(Integer totalnum) {
-        this.totalnum = totalnum;
-    }
+	public void setTotalnum(Integer totalnum) {
+		this.totalnum = totalnum;
+	}
 
-    public Integer getResidualnum() {
-        return residualnum;
-    }
+	public Integer getResidualnum() {
+		return residualnum;
+	}
 
-    public void setResidualnum(Integer residualnum) {
-        this.residualnum = residualnum;
-    }
+	public void setResidualnum(Integer residualnum) {
+		this.residualnum = residualnum;
+	}
 
-    public Byte getIspublished() {
-        return ispublished;
-    }
+	public Byte getIspublished() {
+		return ispublished;
+	}
 
-    public void setIspublished(Byte ispublished) {
-        this.ispublished = ispublished;
-    }
+	public void setIspublished(Byte ispublished) {
+		this.ispublished = ispublished;
+	}
 
-    public Date getPublishtime() {
-        return publishtime;
-    }
+	public Date getPublishtime() {
+		return publishtime;
+	}
 
-    public void setPublishtime(Date publishtime) {
-        this.publishtime = publishtime;
-    }
+	public void setPublishtime(Date publishtime) {
+		this.publishtime = publishtime;
+	}
 
-    public Integer getPraisetimes() {
-        return praisetimes;
-    }
+	public Integer getPraisetimes() {
+		return praisetimes;
+	}
 
-    public void setPraisetimes(Integer praisetimes) {
-        this.praisetimes = praisetimes;
-    }
+	public void setPraisetimes(Integer praisetimes) {
+		this.praisetimes = praisetimes;
+	}
 
-    public Integer getCollectedtimes() {
-        return collectedtimes;
-    }
+	public Integer getCollectedtimes() {
+		return collectedtimes;
+	}
 
-    public void setCollectedtimes(Integer collectedtimes) {
-        this.collectedtimes = collectedtimes;
-    }
+	public void setCollectedtimes(Integer collectedtimes) {
+		this.collectedtimes = collectedtimes;
+	}
 
-    public Date getDurabilityperiod() {
-        return durabilityperiod;
-    }
+	public Date getDurabilityperiod() {
+		return durabilityperiod;
+	}
 
-    public void setDurabilityperiod(Date durabilityperiod) {
-        this.durabilityperiod = durabilityperiod;
-    }
+	public void setDurabilityperiod(Date durabilityperiod) {
+		this.durabilityperiod = durabilityperiod;
+	}
 }

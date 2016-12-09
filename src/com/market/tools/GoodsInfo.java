@@ -10,7 +10,6 @@ import com.market.model.Goods;
 public class GoodsInfo {
 	private Goods Good;
 	private List<String> pictureAddr;
-	
 
 	public Goods getGood() {
 		return Good;
@@ -28,8 +27,8 @@ public class GoodsInfo {
 		this.pictureAddr = pictureAddr;
 	}
 
-	public GoodsInfo(){
-		
+	public GoodsInfo() {
+
 		pictureAddr = new ArrayList<String>();
 	}
 }

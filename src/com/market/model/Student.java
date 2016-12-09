@@ -3,83 +3,83 @@ package com.market.model;
 import java.util.Date;
 
 public class Student {
-    private Integer id;
+	private Integer id;
 
-    private Integer universityid;
+	private Integer universityid;
 
-    private String account;
+	private String account;
 
-    private String password;
+	private String password;
 
-    private String name;
+	private String name;
 
-    private String studentnum;
+	private String studentnum;
 
-    private Date birthdate;
+	private Date birthdate;
 
-    private String iconaddr;
+	private String iconaddr;
 
-    public Integer getId() {
-        return id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public Integer getUniversityid() {
-        return universityid;
-    }
+	public Integer getUniversityid() {
+		return universityid;
+	}
 
-    public void setUniversityid(Integer universityid) {
-        this.universityid = universityid;
-    }
+	public void setUniversityid(Integer universityid) {
+		this.universityid = universityid;
+	}
 
-    public String getAccount() {
-        return account;
-    }
+	public String getAccount() {
+		return account;
+	}
 
-    public void setAccount(String account) {
-        this.account = account == null ? null : account.trim();
-    }
+	public void setAccount(String account) {
+		this.account = account == null ? null : account.trim();
+	}
 
-    public String getPassword() {
-        return password;
-    }
+	public String getPassword() {
+		return password;
+	}
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+	public void setPassword(String password) {
+		this.password = password == null ? null : password.trim();
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+	public void setName(String name) {
+		this.name = name == null ? null : name.trim();
+	}
 
-    public String getStudentnum() {
-        return studentnum;
-    }
+	public String getStudentnum() {
+		return studentnum;
+	}
 
-    public void setStudentnum(String studentnum) {
-        this.studentnum = studentnum == null ? null : studentnum.trim();
-    }
+	public void setStudentnum(String studentnum) {
+		this.studentnum = studentnum == null ? null : studentnum.trim();
+	}
 
-    public Date getBirthdate() {
-        return birthdate;
-    }
+	public Date getBirthdate() {
+		return birthdate;
+	}
 
-    public void setBirthdate(Date birthdate) {
-        this.birthdate = birthdate;
-    }
+	public void setBirthdate(Date birthdate) {
+		this.birthdate = birthdate;
+	}
 
-    public String getIconaddr() {
-        return iconaddr;
-    }
+	public String getIconaddr() {
+		return iconaddr;
+	}
 
-    public void setIconaddr(String iconaddr) {
-        this.iconaddr = iconaddr == null ? null : iconaddr.trim();
-    }
+	public void setIconaddr(String iconaddr) {
+		this.iconaddr = iconaddr == null ? null : iconaddr.trim();
+	}
 }

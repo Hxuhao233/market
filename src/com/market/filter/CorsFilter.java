@@ -17,12 +17,12 @@ import javax.servlet.http.HttpServletResponse;
 @WebFilter("/CorsFilter")
 public class CorsFilter implements Filter {
 
-    /**
-     * Default constructor. 
-     */
-    public CorsFilter() {
-        // TODO Auto-generated constructor stub
-    }
+	/**
+	 * Default constructor.
+	 */
+	public CorsFilter() {
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see Filter#destroy()
@@ -34,20 +34,21 @@ public class CorsFilter implements Filter {
 	/**
 	 * @see Filter#doFilter(ServletRequest, ServletResponse, FilterChain)
 	 */
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 		// TODO Auto-generated method stub
 		// place your code here
-	//	HttpServletRequest req = (HttpServletRequest) request;
-	
-		HttpServletResponse res = (HttpServletResponse) response;  
-		//res.setContentType("application/json;charset=UTF-8");  
-		res.setHeader("Access-Control-Allow-Origin", "*");  
-		res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");  
-		res.setHeader("Access-Control-Max-Age", "100000");  
-		res.setHeader("Access-Control-Allow-Headers", "accept, content-type, x-pingother");  
-		//res.setHeader("Access-Control-Allow-Credentials", "true");  
-		//res.setHeader("XDomainRequestAllowed","1");  
-		
+		// HttpServletRequest req = (HttpServletRequest) request;
+
+		HttpServletResponse res = (HttpServletResponse) response;
+		// res.setContentType("application/json;charset=UTF-8");
+		res.setHeader("Access-Control-Allow-Origin", "*");
+		res.setHeader("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+		res.setHeader("Access-Control-Max-Age", "100000");
+		res.setHeader("Access-Control-Allow-Headers", "accept, content-type, x-pingother");
+		// res.setHeader("Access-Control-Allow-Credentials", "true");
+		// res.setHeader("XDomainRequestAllowed","1");
+
 		System.out.println("Allow cross");
 		// pass the request along the filter chain
 		chain.doFilter(request, response);

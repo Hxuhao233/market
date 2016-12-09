@@ -8,16 +8,15 @@ import com.market.model.University;
 import com.market.service.IUniversityService;
 
 @Service("universityService")
-public class UniversityServiceImpl implements IUniversityService{
-	
+public class UniversityServiceImpl implements IUniversityService {
+
 	@Autowired
-	private UniversityMapper universityDao; 
-	
-	
+	private UniversityMapper universityDao;
+
 	@Override
 	public University getUniversityById(int id) {
 		// TODO Auto-generated method stub
-		
+
 		return universityDao.selectByPrimaryKey(id);
 	}
 
@@ -26,5 +25,5 @@ public class UniversityServiceImpl implements IUniversityService{
 		// TODO Auto-generated method stub
 		universityDao.insertSelective(university);
 	}
-	
+
 }
