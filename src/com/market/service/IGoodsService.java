@@ -8,7 +8,7 @@ import com.market.model.ContactWays;
 import com.market.model.Goods;
 
 public interface IGoodsService {
-	public int publishGoods(Goods goods); // 发布商品
+	public int publishGoods(Goods goods,String imagePath); // 发布商品
 
 	public int deleteGoods(); // 删除已发布商品
 

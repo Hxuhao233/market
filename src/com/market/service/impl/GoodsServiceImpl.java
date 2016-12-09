@@ -29,9 +29,19 @@ public class GoodsServiceImpl implements IGoodsService {
 	
 	
 	@Override
-	public int publishGoods(Goods goods) {
+	public int publishGoods(Goods goods,String imagePath) {
 		// TODO Auto-generated method stub
-		return goodsDao.insertSelective(goods);
+		int ret =  goodsDao.insertSelective(goods);
+		if(ret > 0){
+			if (!imagePath.trim().equals("")) {
+				GoodsPictures image = new GoodsPictures();
+				image.setGoodsid(goods.getId());
+				
+				image.setPictureaddr(imagePath);
+				System.out.println("uploadImage: " + goodsPicturesDao.insertSelective(image));
+			}
+		}
+		return ret;
 	}
 
 	@Override
@@ -55,7 +65,6 @@ public class GoodsServiceImpl implements IGoodsService {
 	@Override
 	public List<String> uploadImages(int goodsid, String pathRoot, MultipartFile[] files) {
 		// TODO Auto-generated method stub
-		// TODO Auto-generated method stub
 
 		List<String> filePaths = new ArrayList<String>();
 
@@ -70,7 +79,8 @@ public class GoodsServiceImpl implements IGoodsService {
 				String contentType = files[i].getContentType();
 				// 获得文件后缀名称
 				String imageName = contentType.substring(contentType.indexOf("/") + 1);
-				path = "/images/" + uuid + "." + imageName.trim();
+				pathRoot = "/images/" ;
+				path =   uuid + "." + imageName.trim();
 
 				try {
 					files[i].transferTo(new File(pathRoot + path));
@@ -86,18 +96,15 @@ public class GoodsServiceImpl implements IGoodsService {
 			System.out.println(pathRoot + path);
 
 			// request.setAttribute("imagesPath", "../../static" + path);
-			filePaths.add("../../static" + path);
-			if (!path.trim().equals("")) {
-				GoodsPictures image = new GoodsPictures();
-				image.setGoodsid(goodsid);
-				;
-				image.setPictureaddr(path);
-				System.out.println("uploadImage: " + goodsPicturesDao.insertSelective(image));
-			}
+			filePaths.add("../../static/image/" + path);
+			
 		}
 		
 		return filePaths;
 	}
+	
+	
+	
 	
 	@Override
 	public int uploadContactWay(ContactWays contactWays){

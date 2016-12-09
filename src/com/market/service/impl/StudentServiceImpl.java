@@ -69,5 +69,26 @@ public class StudentServiceImpl implements IStudentService {
 
 		return isVerify;
 	}
+	
+	
+	@Override
+	public boolean changePwd(String account, String oldPwd, String newPwd) {
+		boolean isChange=false;
+		Map<String,String> param = new HashMap<String,String>();
+		param.put("account", account);
+		param.put("password", oldPwd);
+		Student s = studentDao.selectByKey(param);
+		if(s != null){
+			//密码用户匹配成功
+			s.setPassword(newPwd);
+			studentDao.updateByPrimaryKeySelective(s);
+			isChange=true;
+		}
+		else{
+			//密码用户匹配失败
+			isChange=false;
+		}
+		return isChange;
+	}
 
 }

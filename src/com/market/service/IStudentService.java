@@ -17,4 +17,6 @@ public interface IStudentService {
 	public int logOut(int studentId);						//　注销
 
 	public boolean forgetPwd(String account, String variCode, String newPassword);		//　忘记密码
+	
+	public boolean changePwd(String account,String oldPwd,String newPwd); // 修改密码
 }

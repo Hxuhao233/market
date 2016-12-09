@@ -14,7 +14,7 @@ public class GoodsTest {
 		Goods goods = new Goods();
 		goods.setCategoryid(1);
 		goods.setDescription("2333");
-		System.out.println(iGoodsService.publishGoods(goods));
+		System.out.println(iGoodsService.publishGoods(goods,""));
 		((ClassPathXmlApplicationContext) ac).close();
 	}
 }

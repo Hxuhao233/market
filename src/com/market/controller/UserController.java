@@ -39,6 +39,7 @@ public class UserController {
 	@Autowired
 	private IStudentService iStudentService;
 
+	// 用户名查重
 	@RequestMapping(value = "/check", method = RequestMethod.POST)
 	public @ResponseBody ResponeData checkRepeatAccount(@RequestBody RequestData userData) {
 		String username = userData.getData().get(0).get("account");
@@ -70,6 +71,7 @@ public class UserController {
 		return message;
 	}
 
+	// 用户登录
 	@ResponseBody
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponeData login(@RequestBody RequestData userData, HttpSession session) {
@@ -113,6 +115,7 @@ public class UserController {
 		return ret;
 	}
 
+	// 用户注销
 	@ResponseBody
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public Message logout(HttpSession session) {
@@ -132,6 +135,7 @@ public class UserController {
 		return ret;
 	}
 
+	//　忘记密码
 	@ResponseBody
 	@RequestMapping(value = "/forgetpwd", method = RequestMethod.POST)
 	public Message forgetPwd(@RequestBody RequestData userData) {
@@ -167,6 +171,46 @@ public class UserController {
 		return ret;
 	}
 
+	//修改密码
+	@ResponseBody
+	@RequestMapping(value="/changepwd",method=RequestMethod.POST)
+	public  Message changepwd (@RequestBody RequestData userData){
+		Message ret = new Message();
+		
+		String account = userData.getData().get(0).get("account");
+		String oldpassword = userData.getData().get(0).get("oldpassword");
+		String newpassword = userData.getData().get(0).get("newpassword");
+		
+		if (iStudentService.checkRepeatAccount(account)==0){
+			System.out.println("修改密码错误！不存在的用户");
+			ret.setCode(207);
+			ret.setInfo("不存在的用户");
+		}
+		else if (account!=null && oldpassword!=null && newpassword!=null && !account.equals("") && !oldpassword.equals("") && !newpassword.equals("")){
+			boolean isChange=false;
+			isChange=iStudentService.changePwd(account, oldpassword, newpassword);
+			if (isChange){
+				//已修改
+				ret.setCode(200);
+				ret.setInfo("修改密码成功");
+			}
+			else {
+				//未修改
+				ret.setCode(203);
+				ret.setInfo("修改密码失败");
+			}
+		}
+		else {
+			ret.setCode(202);
+			ret.setInfo("未输入用户名或新旧密码");
+		}
+		return ret;
+	}
+
+	
+	
+	
+	// Session测试
 	@ResponseBody
 	@RequestMapping(value = "/check", method = RequestMethod.GET)
 	public int check(HttpSession session) {
