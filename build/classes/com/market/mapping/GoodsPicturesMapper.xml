@@ -15,6 +15,16 @@
     from GoodsPictures
     where id = #{id,jdbcType=INTEGER}
   </select>
+ 
+  <select id="selectByKey" parameterType="java.lang.Integer" resultType="java.lang.String">
+  	select
+  	pictureAddr
+  	from GoodsPictures
+    where Goodsid = #{gid,jdbcType=INTEGER}
+  	
+  </select>
+ 
+ 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from GoodsPictures
     where id = #{id,jdbcType=INTEGER}

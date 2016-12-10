@@ -1,5 +1,9 @@
 package com.market.tools;
 
+/**
+ * 商品简要信息
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -9,8 +13,8 @@ import com.market.model.Goods;
 
 public class GoodsInfo {
 	private Goods Good;
-	private List<String> pictureAddr;
-
+	private String pictureAddr;
+	
 	public Goods getGood() {
 		return Good;
 	}
@@ -19,16 +23,23 @@ public class GoodsInfo {
 		Good = good;
 	}
 
-	public List<String> getPictureAddr() {
+	public String getPictureAddr() {
 		return pictureAddr;
 	}
 
-	public void setPictureAddr(List<String> pictureAddr) {
+	public void setPictureAddr(String pictureAddr) {
 		this.pictureAddr = pictureAddr;
 	}
 
 	public GoodsInfo() {
-
-		pictureAddr = new ArrayList<String>();
+		
 	}
+
+	public GoodsInfo(Goods good, String pictureAddr) {
+		super();
+		Good = good;
+		this.pictureAddr = pictureAddr;
+	}
+	
+		
 }

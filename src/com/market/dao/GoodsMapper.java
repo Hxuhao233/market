@@ -1,5 +1,7 @@
 package com.market.dao;
 
+import java.util.List;
+
 import com.market.model.Goods;
 
 public interface GoodsMapper {
@@ -10,6 +12,8 @@ public interface GoodsMapper {
 	int insertSelective(Goods record);
 
 	Goods selectByPrimaryKey(Integer id);
+	
+	List<Goods>  selectByKey(Integer pid);
 
 	int updateByPrimaryKeySelective(Goods record);
 

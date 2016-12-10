@@ -5,6 +5,11 @@ import java.util.List;
 import com.market.model.ContactWays;
 import com.market.model.Goods;
 
+/**
+ * 用来存放一个商品包含的所有数据
+ * @author hxuhao
+ *
+ */
 public class GoodsData {
 	private String imagePath;
 	private Goods goods;

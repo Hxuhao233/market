@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 返回给网页的消息对象
+ * 响应信息包装类 携带复杂数据
  * 
  * @author hxuhao
  *

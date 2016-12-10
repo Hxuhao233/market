@@ -1,5 +1,9 @@
 package com.market.tools;
 
+/**
+ * 用户请求数据包装类　
+ */
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

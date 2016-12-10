@@ -1,7 +1,7 @@
 package com.market.tools;
 
 /**
- * 返回给网页的消息对象
+ * 响应信息包装类 不带复杂数据
  * 
  * @author hxuhao
  *

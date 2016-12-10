@@ -17,6 +17,7 @@ import com.market.model.ContactWays;
 import com.market.model.Goods;
 import com.market.model.GoodsPictures;
 import com.market.service.IGoodsService;
+import com.market.tools.GoodsInfo;
 
 @Service("goodsService")
 public class GoodsServiceImpl implements IGoodsService {
@@ -56,11 +57,6 @@ public class GoodsServiceImpl implements IGoodsService {
 		return 0;
 	}
 
-	@Override
-	public List<Object> queryGoods() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<String> uploadImages(int goodsid, String pathRoot, MultipartFile[] files) {
@@ -112,6 +108,26 @@ public class GoodsServiceImpl implements IGoodsService {
 		int ret = contatctWaysDao.insertSelective(contactWays);
 		return ret;
 		
+	}
+
+	@Override
+	public Object queryGoods(int uid, int pid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<GoodsInfo> queryGoods(int pid) {
+		// TODO Auto-generated method stub
+		int gid;
+		List<GoodsInfo> goodsInfoList = new ArrayList<GoodsInfo>();
+		List<Goods> goodsList = goodsDao.selectByKey(pid);
+		for(Goods goodsItem : goodsList ){
+			gid = goodsItem.getId();
+			List<String> pictureAddrs = goodsPicturesDao.selectByKey(gid);
+			goodsInfoList.add(new GoodsInfo(goodsItem,pictureAddrs.get(0)));
+		}
+		return goodsInfoList;
 	}
 	
 }

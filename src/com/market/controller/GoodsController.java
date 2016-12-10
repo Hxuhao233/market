@@ -31,6 +31,9 @@ import com.market.model.Student;
 import com.market.service.IGoodsService;
 import com.market.tools.GoodsData;
 import com.market.tools.GoodsInfo;
+import com.market.tools.GoodsInfoData;
+import com.market.tools.RequestData;
+import com.market.tools.ResponeData;
 
 @Controller
 @RequestMapping(value = "/Goods")
@@ -40,10 +43,15 @@ public class GoodsController {
 	private IGoodsService iGoodsService;
 
 	@RequestMapping(value = "/publishGoods", method = RequestMethod.POST)
-	public @ResponseBody GoodsInfo publishGoods(@RequestBody GoodsData goodsData ,HttpServletRequest request) {
+	public @ResponseBody GoodsInfo publishGoods(@RequestBody GoodsData goodsData ,HttpServletRequest request,HttpSession session) {
 		GoodsInfo goodsInfo = new GoodsInfo();
 		
+
+		Student user = (Student)session.getAttribute("student");
+		int uid = user != null ? user.getId() : 1;
+		
 		Goods goods = goodsData.getGoods();
+		goods.setPublisherid(uid);
 		ContactWays contactWays = goodsData.getContactWays();
 		
 		System.out.println(goods.getGoodsname());
@@ -54,7 +62,7 @@ public class GoodsController {
 		int ret = iGoodsService.publishGoods(goods,goodsData.getImagePath());
 
 		goodsInfo.setGood(goods);
-		
+		goodsInfo.setPictureAddr(goodsData.getImagePath());
 		System.out.println("发布商品 :" + goods.getId());
 		
 		/*
@@ -109,7 +117,22 @@ public class GoodsController {
 		return 1;
 	}
 
-	public ResponseEntity<Goods> queryGoods(@RequestBody Goods goods, UriComponentsBuilder ucbuilder) {
-		return null;
+	
+	@ResponseBody
+	@RequestMapping(value = "/queryPublishedGoods/{pid}",method = RequestMethod.GET)
+	// 查询已发布商品
+	public GoodsInfoData queryGoods(@PathVariable("pid") int pid,HttpSession session) {
+		GoodsInfoData goodsInfoData;
+		Student user = (Student)session.getAttribute("student");
+		int pid1 = user != null ? user.getId() : Integer.valueOf(pid);
+		
+		List<GoodsInfo> goodsInfoList = iGoodsService.queryGoods(pid1); 
+		
+		if(goodsInfoList.size()==0){
+			goodsInfoData = new GoodsInfoData(404, null);
+		}else{
+			goodsInfoData = new GoodsInfoData(200, goodsInfoList);
+		}
+		return goodsInfoData;
 	}
 }
