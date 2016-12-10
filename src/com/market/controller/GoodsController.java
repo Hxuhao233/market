@@ -32,6 +32,7 @@ import com.market.service.IGoodsService;
 import com.market.tools.GoodsData;
 import com.market.tools.GoodsInfo;
 import com.market.tools.GoodsInfoData;
+import com.market.tools.Message;
 import com.market.tools.RequestData;
 import com.market.tools.ResponeData;
 
@@ -43,8 +44,8 @@ public class GoodsController {
 	private IGoodsService iGoodsService;
 
 	@RequestMapping(value = "/publishGoods", method = RequestMethod.POST)
-	public @ResponseBody GoodsInfo publishGoods(@RequestBody GoodsData goodsData ,HttpServletRequest request,HttpSession session) {
-		GoodsInfo goodsInfo = new GoodsInfo();
+	public @ResponseBody Message publishGoods(@RequestBody GoodsData goodsData ,HttpServletRequest request,HttpSession session) {
+		Message response = new Message();
 		
 
 		Student user = (Student)session.getAttribute("student");
@@ -60,11 +61,15 @@ public class GoodsController {
 
 		//	保存商品基本信息
 		int ret = iGoodsService.publishGoods(goods,goodsData.getImagePath());
+		if(ret > 0){
+			response.setCode(200);
+			response.setInfo("发布商品成功");
+			System.out.println("发布商品 :" + goods.getId());
+		}else{
+			response.setCode(401);
+			response.setInfo("发布商品失败");
+		}
 
-		goodsInfo.setGood(goods);
-		goodsInfo.setPictureAddr(goodsData.getImagePath());
-		System.out.println("发布商品 :" + goods.getId());
-		
 		/*
 		// 保存图片
 		 * 		
@@ -82,7 +87,7 @@ public class GoodsController {
 			contactWays.setGoodsid(goods.getId());
 			iGoodsService.uploadContactWay(contactWays);
 		}
-		return goodsInfo;
+		return response;
 	}
 	
 	// 保存图片
@@ -112,9 +117,27 @@ public class GoodsController {
 		return null;
 	}
 
-	@RequestMapping(value = "/Goods", method = RequestMethod.GET)
-	public @ResponseBody int deleteGoods() {
-		return 1;
+	@ResponseBody
+	@RequestMapping(value = "/deleteGoods{gid}", method = RequestMethod.GET)
+	public  GoodsInfoData deleteGoods(@PathVariable("gid") int pid,HttpSession session) {
+		GoodsInfoData goodsInfoData = new GoodsInfoData();
+		
+		Student user = (Student)session.getAttribute("student");
+		int pid1 = user != null ? user.getId() : Integer.valueOf(pid);
+	
+		if(iGoodsService.deleteGoods()>0){
+			List<GoodsData> goodsInfoList = iGoodsService.queryGoods(pid1); 
+			
+			if(goodsInfoList.size()==0){
+				goodsInfoData.setCode(404);
+			}else{
+				goodsInfoData = new GoodsInfoData(200, goodsInfoList);
+			}
+			
+		}else{
+			goodsInfoData.setCode(500);
+		}
+		return goodsInfoData;
 	}
 
 	

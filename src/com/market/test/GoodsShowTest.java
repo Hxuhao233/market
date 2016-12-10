@@ -1,18 +1,24 @@
 package com.market.test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.market.model.Comments;
 import com.market.service.IGoodsShowService;
+import com.market.tools.GoodsData;
 
 public class GoodsShowTest {
 	
 	ApplicationContext ac = new ClassPathXmlApplicationContext(new String[] { "spring-mybatis.xml" });
 	IGoodsShowService iGoodsShowService = (IGoodsShowService) ac.getBean("goodsShowService");
 	
-	@Test
+	//@Test
 	public void addTest(){
 
 		//点赞
@@ -25,7 +31,16 @@ public class GoodsShowTest {
 	}
 	
 	@Test
-	public void queryTest(){
+	// 查找商品
+	public void queryTest() throws JsonProcessingException{
+		List<GoodsData> goodsDataList = new ArrayList<GoodsData>();
+		goodsDataList = iGoodsShowService.getGoods("praiseTimes","desc");
+		ObjectMapper mapper = new ObjectMapper();
+		for(GoodsData goodsData : goodsDataList){
+			
+			String item = mapper.writeValueAsString(goodsData);
+			System.out.println(item);
+		}
 		
 	}
 	

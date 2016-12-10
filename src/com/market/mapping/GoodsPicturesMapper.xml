@@ -16,7 +16,7 @@
     where id = #{id,jdbcType=INTEGER}
   </select>
  
-  <select id="selectByKey" parameterType="java.lang.Integer" resultType="java.lang.String">
+  <select id="selectByGoodsId" parameterType="java.lang.Integer" resultType="java.lang.String">
   	select
   	pictureAddr
   	from GoodsPictures

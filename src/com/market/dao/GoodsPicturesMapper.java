@@ -13,7 +13,7 @@ public interface GoodsPicturesMapper {
 
 	GoodsPictures selectByPrimaryKey(Integer id);
 	
-	List <String> selectByKey(Integer gid);
+	List <String> selectByGoodsId(Integer gid);
 	
 	int updateByPrimaryKeySelective(GoodsPictures record);
 

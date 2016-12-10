@@ -11,9 +11,10 @@ public interface IGoodsShowService {
 	
 	int addComments(Comments comments);			//　提交商品评论
 	
-	List<GoodsData> getGoods(String sortWay);												//　查看排序商品
+	List<GoodsData> getGoods(String sortField,String sortType);												//　查看排序商品
 	
-	List<GoodsData> getGoods(String sortWay,String category);						//　查看排序商品 + 目录
+	List<GoodsData> getGoods(String sortField,String sortType,int category);						//　查看排序商品 + 目录
 	
-	List<GoodsData> getGoods(String sortWay,String category,String info);						//　查看排序商品 + 目录 + 搜索
+
+	List<GoodsData> getGoods(String sortField,String sortType,int category,String info);						//　查看排序商品 + 目录 + 搜索
 }

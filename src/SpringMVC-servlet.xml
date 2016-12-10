@@ -16,6 +16,14 @@
 
 	<!-- if you use annotation you must configure following setting -->
 
+	<mvc:interceptors>  
+		<mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean id= "loginInterceptor" class="com.market.interceptor.LoginInterceptor" />  
+        </mvc:interceptor>
+	</mvc:interceptors>  
+
+
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 			<!-- 字符串格式处理器 -->

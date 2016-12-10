@@ -16,6 +16,12 @@
     from Comments
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectByGoodsId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+  	select 
+    <include refid="Base_Column_List" />
+    from Comments
+    where GoodsId = #{gid,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from Comments
     where id = #{id,jdbcType=INTEGER}

@@ -39,7 +39,7 @@ public class GoodsServiceImpl implements IGoodsService {
 			if (!imagePath.trim().equals("")) {
 				GoodsPictures image = new GoodsPictures();
 				image.setGoodsid(goods.getId());
-				
+				System.out.println("cid:" + goods.getCategoryid());
 				image.setPictureaddr(imagePath);
 				System.out.println("uploadImage: " + goodsPicturesDao.insertSelective(image));
 			}
@@ -126,7 +126,7 @@ public class GoodsServiceImpl implements IGoodsService {
 		List<Goods> goodsList = goodsDao.selectByKey(pid);
 		for(Goods goodsItem : goodsList ){
 			gid = goodsItem.getId();
-			List<String> pictureAddrs = goodsPicturesDao.selectByKey(gid);
+			List<String> pictureAddrs = goodsPicturesDao.selectByGoodsId(gid);
 			ContactWays contactWays = contatctWaysDao.selectByKey(gid);
 			goodsInfoList.add(new GoodsData(goodsItem,contactWays,pictureAddrs.get(0)));
 		}

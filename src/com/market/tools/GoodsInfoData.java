@@ -26,5 +26,8 @@ public class GoodsInfoData {
 		this.code = code;
 		this.data = data;
 	}
+	public GoodsInfoData() {
+
+	}
 	
 }

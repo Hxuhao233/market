@@ -1,7 +1,7 @@
 package com.market.tools;
 
 /**
- * 商品简要信息
+ * 商品简要信息 主要用于商品展示主页
  */
 
 import java.util.ArrayList;
