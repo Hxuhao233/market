@@ -10,6 +10,8 @@ public interface ContactWaysMapper {
 	int insertSelective(ContactWays record);
 
 	ContactWays selectByPrimaryKey(Integer id);
+	
+	ContactWays selectByKey(Integer gid);
 
 	int updateByPrimaryKeySelective(ContactWays record);
 

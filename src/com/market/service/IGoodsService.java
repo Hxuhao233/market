@@ -6,6 +6,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.market.model.ContactWays;
 import com.market.model.Goods;
+import com.market.tools.GoodsData;
 import com.market.tools.GoodsInfo;
 
 public interface IGoodsService {
@@ -17,7 +18,7 @@ public interface IGoodsService {
 	
 	public Object queryGoods(int uid,int pid); // 查询指定商品详情
 	
-	public List<GoodsInfo> queryGoods(int uid); // 查询所有已发布商品
+	public List<GoodsData> queryGoods(int uid); // 查询所有已发布商品
 
 	public List<String> uploadImages(int userId, String path, MultipartFile[] files);		//　添加商品图片
 	

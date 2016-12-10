@@ -11,6 +11,12 @@ import com.market.model.Goods;
  *
  */
 public class GoodsData {
+	public GoodsData(Goods goods, ContactWays contactWays,String imagePath ) {
+		super();
+		this.imagePath = imagePath;
+		this.goods = goods;
+		this.contactWays = contactWays;
+	}
 	private String imagePath;
 	private Goods goods;
 	private ContactWays contactWays;

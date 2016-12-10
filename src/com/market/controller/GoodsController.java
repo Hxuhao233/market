@@ -126,7 +126,7 @@ public class GoodsController {
 		Student user = (Student)session.getAttribute("student");
 		int pid1 = user != null ? user.getId() : Integer.valueOf(pid);
 		
-		List<GoodsInfo> goodsInfoList = iGoodsService.queryGoods(pid1); 
+		List<GoodsData> goodsInfoList = iGoodsService.queryGoods(pid1); 
 		
 		if(goodsInfoList.size()==0){
 			goodsInfoData = new GoodsInfoData(404, null);

@@ -3,6 +3,7 @@ package com.market.controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.market.tools.GoodsData;
 import com.market.tools.GoodsInfoData;
 
 /**
@@ -15,7 +16,7 @@ import com.market.tools.GoodsInfoData;
 public class GoodsShowController {
 	
 	@ResponseBody
-	public GoodsInfoData ShowGoods(){
+	public GoodsData ShowGoods(){
 		return null;
 		
 	}

@@ -13,10 +13,12 @@ import org.springframework.web.multipart.MultipartFile;
 import com.market.dao.ContactWaysMapper;
 import com.market.dao.GoodsMapper;
 import com.market.dao.GoodsPicturesMapper;
+import com.market.model.Comments;
 import com.market.model.ContactWays;
 import com.market.model.Goods;
 import com.market.model.GoodsPictures;
 import com.market.service.IGoodsService;
+import com.market.tools.GoodsData;
 import com.market.tools.GoodsInfo;
 
 @Service("goodsService")
@@ -117,15 +119,16 @@ public class GoodsServiceImpl implements IGoodsService {
 	}
 
 	@Override
-	public List<GoodsInfo> queryGoods(int pid) {
+	public List<GoodsData> queryGoods(int pid) {
 		// TODO Auto-generated method stub
 		int gid;
-		List<GoodsInfo> goodsInfoList = new ArrayList<GoodsInfo>();
+		List<GoodsData> goodsInfoList = new ArrayList<GoodsData>();
 		List<Goods> goodsList = goodsDao.selectByKey(pid);
 		for(Goods goodsItem : goodsList ){
 			gid = goodsItem.getId();
 			List<String> pictureAddrs = goodsPicturesDao.selectByKey(gid);
-			goodsInfoList.add(new GoodsInfo(goodsItem,pictureAddrs.get(0)));
+			ContactWays contactWays = contatctWaysDao.selectByKey(gid);
+			goodsInfoList.add(new GoodsData(goodsItem,contactWays,pictureAddrs.get(0)));
 		}
 		return goodsInfoList;
 	}
