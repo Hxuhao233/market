@@ -36,6 +36,14 @@
   	from Goods
   	where publisherId = #{pid,jdbcType=INTEGER}
   </select>
+  
+  <select id="selectWithRules" parameterType="java.lang.String" resultMap="BaseResultMap">
+  	select
+  	 <include refid="Base_Column_List"/>
+  	from Goods
+  	where publisherId = #{pid,jdbcType=INTEGER}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from Goods
     where id = #{id,jdbcType=INTEGER}
@@ -226,5 +234,10 @@
       collectedTimes = #{collectedtimes,jdbcType=INTEGER},
       durabilityPeriod = #{durabilityperiod,jdbcType=DATE}
     where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="addOne" >
+  	update Goods
+  	set  praiseTimes = praisetimes + 1
+  	where id = #{gid,jdbcType=INTEGER};
   </update>
 </mapper>

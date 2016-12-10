@@ -55,4 +55,7 @@
     set categoryName = #{categoryname,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
+  
+  
 </mapper>
