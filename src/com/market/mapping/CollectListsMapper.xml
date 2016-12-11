@@ -15,9 +15,25 @@
     from CollectLists
     where id = #{id,jdbcType=INTEGER}
   </select>
+  <select id="selectGoodsIdByStudentId" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    select 
+    GoodsId
+    from CollectLists
+    where StudentId = #{id,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from CollectLists
     where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByStudentId" parameterType="java.lang.Integer">
+    delete from CollectLists
+    where StudentId = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByStudentIdAndGoodsId" parameterType="map">
+    delete from CollectLists
+    where StudentId = #{studentid,jdbcType=INTEGER}
+    and GoodsId = #{goodsid,jdbcType=INTEGER}
+    
   </delete>
   <insert id="insert" parameterType="com.market.model.CollectLists">
     insert into CollectLists (id, StudentId, GoodsId
@@ -26,7 +42,7 @@
       )
   </insert>
   <insert id="insertSelective" parameterType="com.market.model.CollectLists">
-    insert into CollectLists
+    insert ignore into CollectLists
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
         id,

@@ -32,7 +32,7 @@ import com.market.service.IGoodsService;
 import com.market.tools.GoodsData;
 import com.market.tools.GoodsInfo;
 import com.market.tools.GoodsInfoData;
-import com.market.tools.Message;
+import com.market.tools.BaseResponeData;
 import com.market.tools.RequestData;
 import com.market.tools.ResponeData;
 
@@ -44,9 +44,9 @@ public class GoodsController {
 	private IGoodsService iGoodsService;
 
 	@RequestMapping(value = "/publishGoods", method = RequestMethod.POST)
-	public @ResponseBody Message publishGoods(@RequestBody GoodsData goodsData, HttpServletRequest request,
+	public @ResponseBody BaseResponeData publishGoods(@RequestBody GoodsData goodsData, HttpServletRequest request,
 			HttpSession session) {
-		Message response = new Message();
+		BaseResponeData response = new BaseResponeData();
 
 		Student user = (Student) session.getAttribute("student");
 		int uid = user != null ? user.getId() : 1;

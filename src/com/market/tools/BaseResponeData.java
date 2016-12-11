@@ -6,15 +6,15 @@ package com.market.tools;
  * @author hxuhao
  *
  */
-public class Message {
+public class BaseResponeData {
 	private int code;
 	private String info;
 
-	public Message() {
+	public BaseResponeData() {
 
 	}
 
-	public Message(int c, String i) {
+	public BaseResponeData(int c, String i) {
 		code = c;
 		info = i;
 	}

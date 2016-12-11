@@ -30,7 +30,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.market.model.Student;
 import com.market.service.IStudentService;
-import com.market.tools.Message;
+import com.market.tools.BaseResponeData;
 import com.market.tools.RequestData;
 import com.market.tools.ResponeData;
 
@@ -58,9 +58,9 @@ public class UserController {
 
 	// 用户注册
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
-	public @ResponseBody Message signUp(@RequestBody Student student) {
+	public @ResponseBody BaseResponeData signUp(@RequestBody Student student) {
 		int id = iStudentService.register(student);
-		Message message = new Message();
+		BaseResponeData message = new BaseResponeData();
 
 		if (id > 0) {
 			message.setCode(200);
@@ -120,11 +120,11 @@ public class UserController {
 	// 用户注销
 	@ResponseBody
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public Message logout(HttpSession session) {
+	public BaseResponeData logout(HttpSession session) {
 
 		Student student = (Student) session.getAttribute("student");
 		// System.out.println(u.getUsername() + "logout");
-		Message ret = new Message();
+		BaseResponeData ret = new BaseResponeData();
 		if (student != null) {
 			session.removeAttribute("student");
 			ret.setCode(200);
@@ -140,8 +140,8 @@ public class UserController {
 	// 忘记密码
 	@ResponseBody
 	@RequestMapping(value = "/forgetpwd", method = RequestMethod.POST)
-	public Message forgetPwd(@RequestBody RequestData userData) {
-		Message ret = new Message();
+	public BaseResponeData forgetPwd(@RequestBody RequestData userData) {
+		BaseResponeData ret = new BaseResponeData();
 
 		String account = userData.getData().get(0).get("account");
 		String variCode = userData.getData().get(0).get("variCode");
@@ -176,8 +176,8 @@ public class UserController {
 	// 修改密码
 	@ResponseBody
 	@RequestMapping(value = "/changepwd", method = RequestMethod.POST)
-	public Message changepwd(@RequestBody RequestData userData) {
-		Message ret = new Message();
+	public BaseResponeData changepwd(@RequestBody RequestData userData) {
+		BaseResponeData ret = new BaseResponeData();
 
 		String account = userData.getData().get(0).get("account");
 		String oldpassword = userData.getData().get(0).get("oldpassword");
@@ -210,9 +210,9 @@ public class UserController {
 	// 上传头像
 	@ResponseBody
 	@RequestMapping(value = "/uploadUserIcon", method = RequestMethod.POST)
-	public Message uploadUserIcon(@RequestParam(value = "file", required = false) MultipartFile file,
+	public BaseResponeData uploadUserIcon(@RequestParam(value = "file", required = false) MultipartFile file,
 			HttpServletRequest request, HttpSession session) {
-		Message response = new Message();
+		BaseResponeData response = new BaseResponeData();
 
 		Student user = (Student) session.getAttribute("student");
 		int uid = user != null ? user.getId() : 1;

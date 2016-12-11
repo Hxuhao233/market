@@ -250,7 +250,14 @@
   </update>
   <update id="addOne" >
   	update Goods
-  	set  praiseTimes = praisetimes + 1
+  	set  
+	${field} = ${field} + 1
+  	where id = #{gid,jdbcType=INTEGER};
+  </update>
+    <update id="subtractOne" >
+  	update Goods
+  	set  
+	${field} = ${field} - 1
   	where id = #{gid,jdbcType=INTEGER};
   </update>
 </mapper>

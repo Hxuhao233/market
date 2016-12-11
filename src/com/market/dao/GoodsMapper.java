@@ -26,4 +26,6 @@ public interface GoodsMapper {
 	int updateByPrimaryKey(Goods record);
 
 	int addOne(@Param("gid") Integer gid, @Param("field") String field);
+
+	int subtractOne(@Param("gid") Integer gid, @Param("field") String field);
 }
