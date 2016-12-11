@@ -117,13 +117,17 @@ body {
 	background: url(../../../images/self/release/commentBg.png);
 }
 
+.commentDiv.hover {
+	width: 425px;
+}
+
 .commentDiv p {
 	margin: 25px 20px 0 20px;
 	font-size: 14px;
 	color: rgb(107, 107, 107);
 }
 
-.retrive {
+.retrive:link {
 	float: right;
 	position: relative;
 	top: 30px;
@@ -131,8 +135,63 @@ body {
 	width: 55px;
 	height: 31px;
 	margin: 0;
+	background: url(../../../images/self/release/retrive_default.png);
+}
+
+.retrive:hover {
+	background: url(../../../images/self/release/retrive_hover.png);
 }
 </style>
+<script type="text/javascript" src="../../../scripts/jquery-1.6.2.js"></script>
+<script type="text/javascript"
+	src="../../../scripts/jquery.rotate.min.js"></script>
+<script type="text/javascript">
+		var greatNormal = true; // true:normal false:highlighted
+		$("Document").ready(function() {
+			$(".commentDiv").mouseover(function() {
+				$(this).animate({
+					width: "425px"
+				}, 'fast');
+			}).mouseout(function() {
+				$(this).animate({
+					width: "375px"
+				}, 'fast');
+			});
+
+			$("#header img").mouseover(function() {
+				$(this).rotate({
+					animateTo: 90
+				});
+			}).mouseout(function() {
+				$(this).rotate({
+					animateTo: 0
+				});
+			});
+
+			$(".great").mouseover(function() {
+				$(this).animate({
+					top: "39px",
+					right: "11px"
+				}, 'fast');
+			}).mouseout(function() {
+				$(this).animate({
+					top: "40px",
+					right: "10px"
+				}, 'fast');
+			});
+
+			$(".great").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../../images/self/release/great.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../../images/self/release/great_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
+
+		});
+	</script>
 </head>
 <body>
 	<div id="header">
@@ -156,9 +215,7 @@ body {
 			<div class="commentDiv">
 				<p>哇，看着确实挺不错的</p>
 			</div>
-			<a href="#" class="retrive"> <img
-				src="../../../images/self/release/retrive_default.png" alt="回复" />
-			</a>
+			<a href="#" class="retrive"></a>
 		</div>
 	</div>
 </body>

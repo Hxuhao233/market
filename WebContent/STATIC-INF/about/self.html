@@ -18,6 +18,11 @@ body {
 	top: 0;
 }
 
+a {
+	text-decoration: none;
+	display: block;
+}
+
 #all {
 	width: 1200px;
 	height: 1295px;
@@ -58,13 +63,13 @@ body {
 	top: -40px;
 }
 
-#setting ul {
-	list-style: none;
+#setting a {
+	color: #333333;
+	font-size: 14px;
 }
 
-a {
-	text-decoration: none;
-	display: block;
+#setting ul {
+	list-style: none;
 }
 
 #setting img {
@@ -242,7 +247,7 @@ a {
 			$.ajax({
 					type: "GET",
 					contentType: "application/json; charset=utf-8",
-					url: "../../User/logout",
+					url: "http://115.28.158.106:8080/market/User/logout",
 	        		dataType: "json",
 	        		success: function(message) {
 	        			//window.location.href = "../index.html";

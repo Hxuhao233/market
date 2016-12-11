@@ -1,0 +1,585 @@
+   *{
+		margin:0;
+		padding:0;
+		border:0;
+	}
+	:focus{
+    	outline: none;
+    }
+    html{
+        width: 100%;
+        height: 2460px;
+    }
+	#mainWindow{
+		width: 100%;
+		height: 2460px;
+		margin-left: auto;
+		margin-right: auto;
+		font-size: 14px;
+		font-family:'微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+		color: #ffffff;
+	}
+	#mainWindow a{
+	    text-decoration: none;	
+	    color: #ffffff;
+	    cursor: pointer;
+	}
+	#mainWindow a:hover{
+		text-decoration: underline;
+	}
+	#topNavBar{
+		position: fixed;
+	    top:-4px;
+		width: 100%;
+		height: 54px;
+		background-image: url(../images/main/fixed_navigation.png);
+		background-repeat: no-repeat;
+		background-color: transparent;
+        background-size: 100% 100%;
+		display: none;
+		z-index: 2;
+	}
+    #NavWrapper{
+       margin-left: auto;
+       margin-right: auto;
+       width: 1100px;
+       height: 54px;
+    }
+	#NavWrapper a{
+		position: relative;
+		top: 18px;
+	}
+	#NavWrapper img{
+		position: relative;
+		top: 22px;
+		width: 16px;
+		height: 16px;
+	}
+	#bookNav{left: 40px;}
+	#vehicleNav{left: 120px;}
+	#electronNav{left: 200px;}
+	#clothingNav{left:280px;}
+	#sportNav{left: 360px;}
+	#goodsNav{left:440px;}
+	#makeupNav{left: 520px;}
+	#next1{left: 80px;}
+	#next2{left: 160px;}
+	#next3{left: 240px;}
+	#next4{left: 320px;}
+	#next5{left: 400px;}
+	#next6{left: 480px;}
+	#top-head{
+		background-image: url(../images/main/top-header.png);
+		background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: 102% 100%;
+        width: 100%;
+        height:42px;
+        position: relative;
+        top: -1px;
+	}
+    #topHeaderWrapper{
+        width: 1200px;
+        height: 43px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+	#greeting{
+		position: relative;
+		float: left;
+		top:12px;
+	}
+	#login{
+		position: relative;
+		top: 12px;
+		left: 30px;
+	}
+	#or{
+        border:none;
+        border-left:1px solid #ffffff;
+        height:15px;
+        width:1px;
+        position: relative;
+        left: 70px;
+        top: -4px;
+       }
+    #register{
+    	position: relative;
+    	top: -22px;
+    	left: 140px;
+    }
+    #offerHelp{
+        position: relative;
+        left:1020px;
+        top: -22px;
+    }
+    #accountName{
+        position: relative;
+        left: 1060px;
+        top:-22px;
+    }
+    #mainheader{
+    	background-image: url(../images/main/mainHeader.png);
+    	background-repeat: no-repeat;
+    	background-color: transparent;
+    	background-size: 102% 100%;
+    	width: 100%;
+    	height: 134px;
+    	position: relative;
+    	top: -6px;
+    }
+    #mainheaderWrapper{
+        width: 1200px;
+        height: 92px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #logo{
+    	width: 214px;
+    	height: 60px;
+    	position: relative;
+    	left: 10px;
+    	top:40px;
+    }
+    #homePage{
+    	display: inline;
+    }
+    #homeLink img{
+    	width: 32px;
+    	height: 32px;
+    	position: relative;
+    	left: 60px;
+    	top: 40px;
+    }
+    #underline{
+    	border:none;
+        border-top:1px solid #ffffff;
+        height: 1px;
+        width: 28px;
+        position: relative;
+        top: 36px;
+        left: 280px;
+    }
+    #freeLink{
+    	position: relative;
+    	left: 340px;
+    	top: 14px;
+    	font-size: 16px;
+    	font-weight: bold;
+        letter-spacing: 1px;
+        line-height: 120%;
+    }
+    #billingLink{
+    	position: relative;
+    	left: 360px;
+    	top: 14px;
+    	font-size: 16px;
+    	font-weight: bold;
+    	letter-spacing: 1px;
+    	line-height: 120%;
+    }
+    #searchFrame{
+    	position: relative;
+    	left: 890px;
+    	top: -30px;
+    	width: 150px;
+    	height: 28px;
+        border: 1px solid #E4E4E4;   
+        font-size: 14px;
+        font-family: '微软雅黑','Hiragino Sans GB', "Corbel",'Microsoft Yahei', sans-serif;
+        color: #434343;
+    }
+    #search_btn{
+    	background-repeat: no-repeat;
+    	background-color: transparent;
+    	width: 36px;
+    	height: 32px;
+    	position: relative;
+    	left: 885px;
+    	top: -19px;
+    }
+    .search_btn_default{
+        background-image: url(../images/main/search.png);
+    }
+    .search_btn_hover{
+    	background-image: url(../images/main/search_btn_hover.png);
+    }
+    #favorite{
+        position: relative;
+        left: 1100px;
+        top: -65px;
+        width: 100px;
+        height: 50px;
+    }
+    #collect_btn{
+    	position: relative;
+    }
+    #collect{
+    	position: relative;
+        left: 22px;
+        top: -20px;
+    }
+    #mainContainer{
+    	background-image: url(../images/main/background_body.png);
+    	background-repeat: no-repeat;
+    	background-color: transparent;
+    	width: 100%;
+    	height: 2184px;
+    	position: relative;
+    	background-size:102% 100%;
+    	top: -8px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #classifyArea{
+    	width: 1072px;
+    	height: 60px;
+    	position: relative;
+    	top: 30px;
+    	margin-left: auto;
+        margin-right: auto;
+    }
+    #classifyTitle{
+    	width: 1068px;
+    	height: 60px;
+    }
+    #classifyTitle p{
+    	position: relative;
+    	top: -24px;
+    	left: 40px;
+    	font-size: 20px;
+    	color: #868686;
+    	cursor: pointer;
+        max-width: 100px;
+        min-height: 120px;
+    }
+    #classifyTitle img{
+        width: 32px;
+        height: 32px;
+        position: relative;
+        top: 10px;
+    }
+    #classifyContent{
+    	background-image: url(../images/main/background-for-classification.png);
+    	background-repeat: no-repeat;
+    	background-color: transparent;
+    	background-size: 100% 100%;
+    	width: 1072px;
+    	height: 401px;
+    	position: absolute;
+    	top: 80px;
+        z-index: 1;
+        visibility: hidden;
+    }
+    #classifyContent>div{
+    	position: relative;
+    	display: inline-block;
+    	width: 132px;
+    	height: 72px;
+    }
+    #classifyContent div>img{
+     	width: 72px;
+     	height: 72px;
+    }
+    #book{top: 80px;left: 100px;}
+    #vehicle{top: 80px;left: 200px;}
+    #electron{top: 80px;left: 300px;}
+    #clothing{top: 80px;left: 400px;}
+    #sport{top: 250px;left: -445px;}
+    #goods{top: 250px;left: -345px;}
+    #makeup{top: 250px;left: -245px;}
+    #classifyContent div>a{
+    	color: black;
+    	font-size: 76%;
+        position: relative;
+    	top: -20px;
+    }
+    #classifyContent div>a:hover{
+        text-decoration: none;
+        color: #52cf93;
+    }
+    #showArea{
+    	width: 1068px;
+    	height: 400px;
+    	position: relative;
+    	margin-left: auto;
+        margin-right: auto;
+    	top: 50px;
+    } 
+    #focus{
+        height: 400px;
+        width: 1068px;
+        position: relative;
+        overflow: hidden;
+    }
+    #focus ul{
+        position: absolute;
+    }
+    #focus ul li{
+        float: left;
+        width: 1068px;
+        height: 400px;
+        list-style: none;
+    }
+    #showArea img{
+        width: 1067px;
+    	height: 400px;
+    }
+    #focus .preNext{
+        width: 60px;
+        height: 60px;
+        position: absolute;
+        cursor: pointer;
+        opacity: 0;
+    }
+    .preNext img{
+        width: 60px;
+        height: 60px;
+    }
+    #focus .pre{
+        background: url(../images/main/turnleft.png) no-repeat transparent;
+        left: 30px;
+        top:170px;
+    }
+    #focus .next{
+        background: url(../images/main/turnright.png) no-repeat transparent;
+        right: 25px;
+        top: 180px;
+    }
+    #cutLine{
+    	border:none;
+        border-top:1px solid #d7d7d7;
+        height: 1px;
+        width: 1068px;
+        position: relative;
+        margin-left: auto;
+        margin-right: auto;
+        top: 110px;
+    }
+    #footer{
+    	background-image: url(../images/main/footer.png);
+    	background-repeat: no-repeat;
+    	background-color: transparent;
+        background-size: 102% 100%;
+    	width: 100%;
+    	height: 144px;
+    	position: relative;
+    	top: -9px;
+    }
+    #hyperLink ul{
+    	display: inline-block;
+    	position: relative;
+    	line-height: 26px;
+    }
+    #hyperLink ul>p{
+        margin-bottom: 5px;
+        font-size: 110%;
+        position: relative;
+        left: -14px;
+    }
+    #hyperLink ul>li{
+     	font-size: 76%;
+     	list-style: none;
+    }
+    .about{left: 70px;top: 20px;}
+    .service{left: 170px;top: -8px;}
+    .product{left: 270px;top: -8px;}
+    #sideFrame{
+        position: fixed;
+        top: 350px;
+        right: 20px;
+        width: 52px;
+        height: 238px;
+        z-index: 3;
+    }
+    #dt_wrap1>.li_default{
+        background: url(../images/main/synsort.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap2>.li_default{
+        background: url(../images/main/timesort.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap3>.li_default{
+        background: url(../images/main/comsort.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap4>.li_default{
+        background: url(../images/main/laudsort.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap1>.li_click{
+        background: url(../images/main/synsort_click.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap2>.li_click{
+        background: url(../images/main/timesort_click.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap3>.li_click{
+        background: url(../images/main/comsort_click.png) no-repeat;
+        background-color: transparent;
+    }
+    #dt_wrap4>.li_click{
+        background: url(../images/main/laudsort_click.png) no-repeat;
+        background-color: transparent;
+    }
+    #sorting div{
+        width: 52px;
+        height: 60px;
+        position: relative;
+    }
+    #sorting li{
+        width: 52px;
+        height: 60px;
+        position: relative;
+        list-style: none;
+    }
+    #timesort{
+        top: -10px;
+    }
+    #comsort{
+        top: -20px;
+    }
+    #laudsort{
+        top: -30px;
+    }
+    input[type="radio"]{
+        opacity: 0;
+        width: 52px;
+        height: 60px;
+        z-index: 4;
+        cursor: pointer;
+    }
+    #warefList{
+        position: relative;
+        top: 170px;
+        margin-left: auto;
+        margin-right: auto;
+        height: 1500px;
+        width: 1080px;
+    }
+    .box{
+        position: relative;
+        float: left;
+        width: 200px;
+        height: auto;
+        text-align: center;
+        padding: 8px;
+        padding-bottom: 4px;
+    }
+    u{
+        width: 198px;
+        border:1px solid rgba(0,0,0,.08);
+        display: block;
+    }
+    .box>u{
+        position: relative;
+        top: -5px;
+    }
+    .a img{
+        position: relative;
+        width: 200px;
+        height: auto;
+    }
+    .detail{
+        position: absolute;
+        width: 200px;
+        background-image: url(../images/main/mask.png);
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: 100% 100%;
+        top: 9px;
+        height: auto;
+        color: black;
+        visibility: hidden;
+    }
+    .introscr,.sellerInfo{
+        position: absolute;
+    }
+    .introscr>h6,p{
+        padding-bottom:10px;
+        margin-left: 14px;
+        margin-right: 14px;
+    }
+    .introscr p{
+        font-size: 88%;
+        padding-bottom:16px;
+    }
+    .sellerInfo h6{
+        position: relative;
+        float: left;
+        left: 10px;
+    }
+    .sellerInfo p{
+        position: relative;
+        float: right;
+        font-size: 80%;
+        top: 12px;
+        right: -10px;
+    }
+    .seeDetail{
+        width: 81px;
+        height: 25px;
+    }
+    .wooscr{
+        position: relative;
+        top: -4px;
+        color: #868686;
+    }
+    .gensum,.popularity{
+        background-image: url(../images/main/shading.png);
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: 100% 100%;
+        width: 200px;
+        height: 40px;
+    }
+    .popularity{
+        position: relative;
+        top: -1px;
+    }
+    .popularity div{
+        display: inline-block;
+        position: relative;
+        width: 80px;
+        height:26px;
+    }
+    .gensum p{
+        display: inline;
+        position: relative;
+        top: 14px;
+        font-size: 90%;
+    }
+    .leavings{
+        float: left;
+        left:2px;
+    }
+    .value{
+        float: right;
+        right: 10px;
+    }
+    .collbtn{       
+        float: left;
+        left:-10px;
+        top: 6px;
+    }
+    .laudbtn{
+        float: right;
+        right: 14px;
+        top: 6px;
+    }
+    .collbtn img{
+        width: 26px;
+        height: 26px;
+    }
+    .laudbtn img{
+        width: 24px;
+        height: 24px;
+    }
+    .popularity p{
+        position: relative;
+        top: -20px;
+        left: 26px;
+        color: #868686;
+    }

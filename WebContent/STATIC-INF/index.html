@@ -1,0 +1,641 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>主页</title>
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+    <div id="mainWindow">
+	    <div id="header">
+	        <div id="topNavBar">
+	            <div id="NavWrapper">
+	        	    <a href="" id="bookNav">书本试卷</a>
+	        	    <img src="images/main/next.png" id="next1">
+	        	    <a href="#" id="vehicleNav">车辆</a>
+	        	    <img src="images/main/next.png" id="next2">
+	        	    <a href="#" id="electronNav">电子产品</a>
+	        	    <img src="images/main/next.png" id="next3">
+	        	    <a href="#" id="clothingNav">衣物鞋子</a>
+	        	    <img src="images/main/next.png" id="next4">
+	        	    <a href="#" id="sportNav">体育用品</a>
+	        	    <img src="images/main/next.png" id="next5">
+	        	    <a href="#" id="goodsNav">生活用品</a>
+	        	    <img src="images/main/next.png" id="next6">
+	        	    <a href="#" id="makeupNav">化妆饰品</a>
+	        	</div>
+	        </div>
+		    <div id="top-head">
+		        <div id="topHeaderWrapper">
+			       <p id="greeting">你好</p>
+			       <a href="about/login.html" id="login">登录</a>
+			       <hr id="or" />
+			       <a href="about/register.html" id="register">注册</a>
+			       <a href="#" id="offerHelp">帮助</a>
+			       <a href="#" id="accountName">用户名</a>
+			    </div>
+		    </div>
+		    <div id="mainheader">
+		        <div id="mainheaderWrapper">
+		    	   <img src="images/main/logo.png" id="logo">
+		    	   <div id="homePage">
+		    	      <a href="#" id="homeLink"><img src="images/main/home.png"></a>
+		    	      <hr id="underline" />
+		    	    </div>
+		    	    <a href="#" id="freeLink">免费区</a>
+		    	    <a href="#" id="billingLink">付费区</a>
+		    	    <div id="search">
+		    		   <input type="text" id="searchFrame" placeholder="请输入关键字">
+		    		   <button type="button" id="search_btn"class="search_btn_default"></button>
+		    	    </div>
+		    	    <div id="favorite">
+		    		    <a href="#" id="collect_btn"><img src="images/main/collect.png"></a>
+		    		    <p id="collect">收藏夹</p>
+		    	    </div>
+		    	</div>
+		    </div>
+	    </div>
+	    <div id="mainContainer">
+           <div id="topContainer">
+		        <div id="classifyArea">
+		   	        <div id="classifyTitle">
+		   	   	        <img src="images/main/doubleArrow.png">
+		   	   	        <p>分类</p>
+		   	        </div>
+		   	        <div id="classifyContent">
+		   	   	        <div id="book">
+		   	   	   	    	<img src="images/main/book.png" alt="books">
+		   	   	   			<a href="#">书本试卷</a>
+		   	   	   		</div>
+		   	   	   		<div id="vehicle">
+		   	   	   			<img src="images/main/vehicle.png" alt="books">
+		   	   	   			<a href="#">车辆</a>
+		   	   	   		</div>
+		   	   	   		<div id="electron">
+		   	   	   			<img src="images/main/electron.png" alt="books">
+		   	   	   			<a href="#">电子产品</a>
+		   	   	   		</div>
+		   	   	   		<div id="clothing">
+		   	   	   			<img src="images/main/clothing.png" alt="books">
+		   	   	   			<a href="#">衣物鞋子</a>
+		   	   	   		</div>
+		   	   	   		<div id="sport">
+		   	   	   			<img src="images/main/sport.png" alt="books">
+		   	   	   			<a href="#">体育用品</a>
+		   	   	   		</div>
+		   	   	   		<div id="goods">
+		   	   	   			<img src="images/main/goods.png" alt="books">
+		   	   	   			<a href="#">生活用品</a>
+		   	   	   		</div>
+		   	   	   		<div id="makeup">
+		   	   	   			<img src="images/main/makeup.png" alt="books">
+		   	   	   			<a href="#">化妆饰品</a>
+		   	   	   		</div>
+		   	   		</div>
+		   		</div>
+		   		<div id="showArea">	
+		   		    <div id="focus">
+		   		    	<ul>
+		   		    		<li><a href="#"><img src="images/main/show1.png"></a></li>
+		   		    		<li><a href="#"><img src="images/main/show2.png"></a></li>
+		   		    		<li><a href="#"><img src="images/main/show3.png"></a></li>
+		   		    		<li><a href="#"><img src="images/main/show4.png"></a></li>
+		   		    	</ul>
+		   		    	<div class="preNext pre"></div>
+		   		    	<div class="preNext next"></div>
+		   		    </div>  	    
+		   		</div>
+		   </div>
+		   <hr id="cutLine" />
+		   <div id="sideFrame">
+		   	    <form id="sorting">
+		   	    	<div id="dt_wrap1"><li id="synsort" class="li_default"><input type="radio" name="sortStyle" value="synsort"/></li></div>
+		   	    	<div id="dt_wrap2"><li id="timesort" class="li_default"><input type="radio" name="sortStyle"value="timesort"/></li></div>
+		   	    	<div id="dt_wrap3"><li id="comsort" class="li_default"><input type="radio" name="sortStyle" value="comsort"/></li></div>		   	    	
+		   	    	<div id="dt_wrap4"><li id="laudsort" class="li_default"><input type="radio" name="sortStyle" value="laudsort"/></li></div>
+		   	    </form>
+		   </div>
+		   <div id="warefList">
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico1.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	      <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico2.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#"class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">54</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico3.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico4.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico5.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico6.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico7.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico8.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico9.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico10.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png">
+		   	    				<p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico11.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico12.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico13.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico14.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   	    <div class="box">
+		   	    	<div class="mdpho">
+		   	    		<a href="#" class="a">
+		   	    		    <u></u><img src="images/main/ico15.png">
+		   	    		</a>
+		   	    		<div class="detail">
+		   	    		    <div class="introscr">
+		   	    			   <h6>标题</h6>
+		   	    			   <p>这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了</p>
+		   	    			   <a href="#" class="seeDetail"><img src="images/main/see.png"></a>
+		   	    			</div>
+		   	    			<div class="sellerInfo">
+		   	    				<h6>用户名</h6>
+		   	    				<p class="timescr"><span>发布于</span><span class="timeslot">2016年09月13日</span></p>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<div class="wooscr">
+		   	    		<div class="gensum">
+		   	    			<p  class="leavings"><span>剩余数量：</span><span class="rest">1</span></p>
+		   	    			<p class="value"><span class="RMB">￥</span><span class="price">45</span><span class="unit">/份</span></p>
+		   	    		</div>
+		   	    		<div class="popularity">
+		   	    			<div class="collbtn">
+		   	    				<a href="#"><img src="images/main/collbtn.png"><p class="collnum">7</p></a>
+		   	    			</div>
+		   	    			<div class="laudbtn">
+		   	    				<a href="#"><img src="images/main/laudbtn.png"><p class="laudnum">56</p></a>
+		   	    			</div>
+		   	    		</div>
+		   	    	</div>
+		   	    	<u></u>
+		   	    </div>
+		   </div>
+	    </div>
+	    <div id="footer">
+            <div id="hyperLink">
+		        <ul class="about">
+		    	    <p>关于</p>
+		    	    <li><a href="#">关于我们</a></li>
+		    	    <li><a href="#">加入我们</a></li>
+		    	    <li><a href="#">团队</a></li>
+		        </ul>
+		        <ul class="service">
+		    	    <p>服务</p>
+		    	    <li><a href="#">服务条款</a></li>
+		    	    <li><a href="#">隐私协议</a></li>
+		        </ul>
+		        <ul class="product">
+		    	    <p>产品</p>
+		    	    <li><a href="#">如何使用</a></li>
+		    	    <li><a href="#">更新历史</a></li>
+		        </ul>
+	        </div>
+	     </div>
+	</div>
+	<script src="scripts/jquery-1.6.2.js"></script>
+	<script src="scripts/index.js"></script>
+</body>
+</html>

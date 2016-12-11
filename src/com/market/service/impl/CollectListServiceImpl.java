@@ -16,7 +16,7 @@ import com.market.service.ICollectListService;
 public class CollectListServiceImpl implements ICollectListService {
 
 	@Autowired
-	CollectListsMapper collectListDao;
+	public CollectListsMapper collectListDao;
 	@Autowired
 	public GoodsMapper goodsDao;
 

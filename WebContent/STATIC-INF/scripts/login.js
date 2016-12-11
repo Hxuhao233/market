@@ -35,7 +35,7 @@ $(function(){
         if(validateAccount()&&validatePassword()){               //判断账号是否合法
         $.ajax({                                                 //使用post方法向服务器传送json字符串
             type:"POST",
-            url:"../../User/login",
+            url:"http://115.28.158.106:8080/market/User/login",
             contentType:"application/json;charset=utf-8",
             data:JSON.stringify(getData()),
             dataType:"json",

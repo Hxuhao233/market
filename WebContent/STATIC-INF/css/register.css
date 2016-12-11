@@ -1,0 +1,250 @@
+html
+{
+    width: 1100px;
+    height: 1064px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body
+{
+    top: 0;
+
+    width: 1100px;
+    height: 1064px;
+    margin: 0;
+
+    background: url('../images/register/background.png') no-repeat top center;
+}
+
+.little_Font
+{
+    font-size: 12px;
+
+    margin-top: 5px;
+
+    color: rgb(134, 134, 134);
+}
+
+.label
+{
+    font-size: 14px;
+
+    margin: 0;
+    padding: 20px 0 5px 0;
+
+    text-align: left;
+}
+
+.register_Btn_onTouch
+{
+    background: url('../images/register/register_Btn_touch.png');
+}
+
+#all
+{
+    font-family: '微软雅黑 Regular', 微软雅黑;
+    font-weight: 400;
+    font-style: normal;
+
+    width: 1100px;
+    height: 1064px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 0;
+}
+
+#back_Btn
+{
+    float: left;
+
+    width: 550px;
+    height: 100px;
+}
+
+#back_Btn a
+{
+    display: block;
+}
+
+#back_Btn img
+{
+    position: relative;
+    top: 50px;
+    left: 50px;
+
+    width: 40px;
+    height: 40px;
+}
+
+#back_Btn p
+{
+    font-size: 20px;
+
+    position: relative;
+    top: 5px;
+    left: 110px;
+
+    width: 40px;
+    height: 20px;
+    margin: 0;
+    padding: 10px;
+
+    text-align: center;
+
+    color: white;
+}
+
+#help_Btn
+{
+    float: right;
+
+    width: 550px;
+    height: 100px;
+}
+
+#help_Btn div
+{
+    position: relative;
+    top: 30px;
+    right: 50px;
+
+    float: right;
+
+    width: 183px;
+    height: 86px;
+
+    background: url('../images/register/help.png');
+}
+
+#help_Btn p
+{
+    margin: 18px 0 0 0;
+
+    text-align: center;
+}
+
+#help_Btn .little_Font
+{
+    margin: 5px 0 0 0 ;
+}
+
+#content_Table
+{
+    clear: left;
+
+    width: 695px;
+    height: 681px;
+    margin: 0 0 0 120px;
+
+    background: url('../images/register/smallbackground.png');
+}
+
+#register_Form
+{
+    padding: 70px 0 0 170px;
+}
+
+#register_Form input
+{
+    font-size: 14px;
+
+    width: 328px;
+    height: 30px;
+
+    color: rgb(153, 153, 153);
+    border-image-source: url('../images/register/input.png');
+    border-image-slice: 1;
+    outline-color: #4cbd88;
+}
+
+#register_Form input.hover
+{
+    border-image-source: url('../images/register/input_hover.png');
+}
+
+#content_Table select
+{
+    font-size: 14px;
+
+    width: 332px;
+    height: 36px;
+    padding: 1px 0;
+
+    text-align: center;
+
+    color: rgb(153, 153, 153);
+    border-width: 2px;
+    border-color: rgb(153, 153, 153);
+    border-image-source: url('../images/register/input.png');
+    border-image-slice: 1;
+    outline-color: #4cbd88;
+}
+
+#content_Table select.hover
+{
+    border-image-source: url('../images/register/input_hover.png');
+}
+
+#register_Btn
+{
+    width: 328px;
+    height: 40px;
+
+    border: none;
+    outline: none;
+    background-image: url('../images/register/register_Btn_Default.png');
+}
+
+#register_Btn.hover
+{
+    background-image: url('../images/register/register_Btn_touch.png');
+}
+
+#login
+{
+    float: right;
+
+    margin: 50px 100px 0 0;
+
+    color: #4cbd88;
+}
+
+#login a
+{
+    color: #4cbd88;
+}
+
+#login a:hover
+{
+    color: green;
+}
+
+#twoSheep
+{
+    position: relative;
+    top: -50px;
+    right: 100px;
+
+    float: right;
+}
+
+#leftSheep
+{
+    position: relative;
+    top: 155px;
+    left: 175px;
+}
+
+#rightSheep
+{
+    position: relative;
+    top: 100px;
+    left: 400px;
+}
+
+.highlighted
+{
+    opacity: 0;
+    color: red;
+}

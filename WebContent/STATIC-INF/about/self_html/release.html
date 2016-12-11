@@ -223,6 +223,27 @@ body {
 			}).mouseout(function(){
 				$(this).children("ul").css("display", "none");
 			});
+
+
+			$(".greatPic").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../images/self/release/great.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../images/self/release/great_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
+
+			$(".starPic").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../images/self/release/star.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../images/self/release/star_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
 		});
 	</script>
 </head>
@@ -250,7 +271,7 @@ body {
 			</div>
 			<div class="twoMethods">
 				<div class="comments">
-					<a href="release/comments.html">查看评论(<span>0</span>)
+					<a href="release/comments.html">查看评论(<span>1</span>)
 					</a>
 				</div>
 				<div class="edit">
@@ -277,7 +298,7 @@ body {
 			</div>
 			<div class="twoMethods">
 				<div class="comments">
-					<a href="release/comments.html">查看评论(<span>0</span>)
+					<a href="release/comments.html">查看评论(<span>1</span>)
 					</a>
 				</div>
 				<div class="edit">
@@ -304,7 +325,7 @@ body {
 			</div>
 			<div class="twoMethods">
 				<div class="comments">
-					<a href="release/comments.html">查看评论(<span>0</span>)
+					<a href="release/comments.html">查看评论(<span>1</span>)
 					</a>
 				</div>
 				<div class="edit">
@@ -331,7 +352,7 @@ body {
 			</div>
 			<div class="twoMethods">
 				<div class="comments">
-					<a href="release/comments.html">查看评论(<span>0</span>)
+					<a href="release/comments.html">查看评论(<span>1</span>)
 					</a>
 				</div>
 				<div class="edit">
