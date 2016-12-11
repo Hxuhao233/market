@@ -3,63 +3,63 @@ package com.market.model;
 import java.util.Date;
 
 public class Message {
-	private Integer id;
+    private Integer id;
 
-	private Integer senderid;
+    private Integer senderid;
 
-	private Integer receiverid;
+    private Integer receiverid;
 
-	private String message;
+    private String message;
 
-	private Date time;
+    private Date time;
 
-	private Integer isreceived;
+    private Integer isreceived;
 
-	public Integer getId() {
-		return id;
-	}
+    public Integer getId() {
+        return id;
+    }
 
-	public void setId(Integer id) {
-		this.id = id;
-	}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-	public Integer getSenderid() {
-		return senderid;
-	}
+    public Integer getSenderid() {
+        return senderid;
+    }
 
-	public void setSenderid(Integer senderid) {
-		this.senderid = senderid;
-	}
+    public void setSenderid(Integer senderid) {
+        this.senderid = senderid;
+    }
 
-	public Integer getReceiverid() {
-		return receiverid;
-	}
+    public Integer getReceiverid() {
+        return receiverid;
+    }
 
-	public void setReceiverid(Integer receiverid) {
-		this.receiverid = receiverid;
-	}
+    public void setReceiverid(Integer receiverid) {
+        this.receiverid = receiverid;
+    }
 
-	public String getMessage() {
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 
-	public void setMessage(String message) {
-		this.message = message == null ? null : message.trim();
-	}
+    public void setMessage(String message) {
+        this.message = message == null ? null : message.trim();
+    }
 
-	public Date getTime() {
-		return time;
-	}
+    public Date getTime() {
+        return time;
+    }
 
-	public void setTime(Date time) {
-		this.time = time;
-	}
+    public void setTime(Date time) {
+        this.time = time;
+    }
 
-	public Integer getIsreceived() {
-		return isreceived;
-	}
+    public Integer getIsreceived() {
+        return isreceived;
+    }
 
-	public void setIsreceived(Integer isreceived) {
-		this.isreceived = isreceived;
-	}
+    public void setIsreceived(Integer isreceived) {
+        this.isreceived = isreceived;
+    }
 }

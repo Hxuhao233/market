@@ -22,7 +22,7 @@ $(function(){
     var ico_src=tmp2.split("=")[1];
     var msg=tmp3.split("=")[1];   
     setDialogSize(msg.length);
-    $(".dialog").find("img").attr("src",ico_src);
+    $(".dialog").find("img").attr("src", "../" + ico_src);
     $(".dialog").find("p").text(msg);
 });
 //设置消息背景图片基本适应文字长度

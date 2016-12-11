@@ -151,14 +151,14 @@ $(function(){
         if(validateAccount()&&validatePassword()&&validateReInputPsw()&&validateVariCode()){
             $.ajax({
                 type:"POST",//请求方式
-                url:"http://115.28.158.106:8080/market/User/forgetpwd",//发送请求的地址
+                url:"../../User/forgetpwd",//发送请求的地址
                 contentType: "application/json; charset=utf-8",
                 data:JSON.stringify(getData()),//js数据值转成json格式
                 dataType:"json",//预期服务器返回的数据类型
                 cache:false,//不从浏览器缓存中加载信息
                 success:function(data,textStatus){//请求成功调用
                     if(data.code=="200"){
-                        window.location.href=encodeURI("../about/self.html"+"?"+"account="+data.nickname);//不是很清楚成功后跳转到哪里
+                        window.location.href=encodeURI("../about/login.html"+"?"+"account="+data.nickname);//不是很清楚成功后跳转到哪里
                     }else if(data.code=="205"){
                         $("#maincontainer").find(".failTips").remove();
                         $("#maincontainer").apend('<span class= "failTips">'+data.info+'</span>');

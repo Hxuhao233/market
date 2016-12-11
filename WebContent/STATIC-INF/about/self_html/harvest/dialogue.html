@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>会话框</title>
+<style type="text/css">
+* {
+	padding: 0;
+	border: 0;
+	margin: 0;
+}
+
+html {
+	width: 600px;
+	height: 624px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+body {
+	background-image: url(../../../images/self/message/framebackground.png);
+	background-repeat: no-repeat;
+	background-color: rgb(242, 242, 242);
+	background-size: 600px 624px;
+	font-family: '微软雅黑', 'Hiragino Sans GB', "Corbel", 'Microsoft Yahei',
+		sans-serif;
+	font-size: medium;
+	font-weight: normal;
+}
+
+#header {
+	width: 600px;
+	height: 100px;
+}
+
+#goback img {
+	width: 26px;
+	height: 26px;
+	position: relative;
+	top: 48px;
+	left: 30px;
+	cursor: pointer;
+}
+
+#title {
+	font-size: 120%;
+	color: #1B1B1B;
+	position: relative;
+	top: 20px;
+	left: 260px;
+}
+
+hr {
+	border: none;
+	border-top: 1px dotted #E4E4E4;
+	height: 1px;
+	width: 598px;
+	left: 1px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#header>hr {
+	margin-top: 40px;
+}
+
+#talkAbout {
+	width: 600px;
+	height: 60px;
+}
+
+#talkAbout p {
+	padding: 20px;
+	position: relative;
+	overflow: hidden;
+	font-size: 90%;
+}
+
+#topic {
+	position: absolute;
+	left: 36%;
+}
+
+#itemName {
+	position: absolute;
+	left: 50%;
+}
+
+#talkAbout hr {
+	margin-top: 20px;
+}
+
+.container {
+	width: 600px;
+	height: 400px;
+}
+
+.dialog {
+	height: 100px;
+	width: 600px;
+}
+
+.dialog img {
+	position: relative;
+	top: 10px;
+	left: 30px;
+	width: 56px;
+	height: 56px;
+}
+
+.msg {
+	background-image: url(../../../images/self/message/hostMsgbar.png);
+	background-repeat: no-repeat;
+	background-color: transparent;
+	background-size: 100% 100%;
+	width: 200px;
+	height: 56px;
+	position: relative;
+	top: -34px;
+	left: 90px;
+}
+
+.info {
+	color: #797979;
+	font-size: 30%;
+	max-width: 300px;
+	max-height: 90px;
+	position: relative;
+	top: 10px;
+	left: 30px;
+}
+
+.info_small {
+	width: 110px;
+	height: 50px;
+}
+
+.info_normal {
+	width: 160px;
+	height: 50px;
+}
+
+.info_big {
+	width: 210px;
+	height: 60px;
+}
+
+.info_xbig {
+	width: 300px;
+	height: 60px;
+}
+
+#lineBetween {
+	border-top: 1px solid #E4E4E4;
+	margin-top: 250px;
+}
+
+#inputmsg {
+	width: 500px;
+	height: 82px;
+	position: relative;
+	left: 10px;
+	resize: none;
+	overflow: hidden;
+}
+
+#send {
+	width: 44px;
+	height: 20px;
+	cursor: pointer;
+	position: relative;
+	left: 10px;
+}
+
+#bottomline {
+	width: 500px;
+	float: left;
+	position: relative;
+	left: 10px;
+	border-top: 2px solid #E4E4E4;
+}
+
+:focus {
+	outline: 0;
+}
+</style>
+</head>
+<body>
+	<div id="mainwindow">
+		<div id="header">
+			<a id="goback" href="comments.html"><img
+				src="../../../images/self/message/goback.png"></a>
+			<p id="title">会话框</p>
+			<hr />
+		</div>
+		<div id="talkAbout">
+			<p id="item">
+				<span id="topic">共同话题：</span> <span id="itemName">XX商品</span>
+			</p>
+			<hr />
+		</div>
+		<div id="container">
+			<div class="dialog">
+				<img src="../../../images/self/message/guestPortrait.png">
+				<div class="msg">
+					<p class="info info_normal">你那东西几成新的呀</p>
+				</div>
+			</div>
+		</div>
+		<hr id="lineBetween" />
+		<div id="footer">
+			<textarea id="inputmsg"></textarea>
+			<a id="send" href="#none"> <img
+				src="../../../images/self/message/sendout.png"></a>
+			<hr id="bottomline" />
+		</div>
+	</div>
+	<script src="../../../scripts/jquery-1.6.2.js"></script>
+	<script src="../../../scripts/dialogue.js"></script>
+</body>
+</html>

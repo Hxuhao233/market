@@ -16,9 +16,9 @@ import com.market.service.ICollectListService;
 public class CollectListServiceImpl implements ICollectListService {
 
 	@Autowired
-	public CollectListsMapper collectListDao;
+	private CollectListsMapper collectListDao;
 	@Autowired
-	public GoodsMapper goodsDao;
+	private GoodsMapper goodsDao;
 
 	@Override
 	public List<Integer> getCollectList(Integer studentId) {

@@ -244,6 +244,15 @@ body {
 					$(this).addClass("sel");
 				}
 			});
+
+
+			$(".delete").click(function() {
+				var a = $(this).parent().parent().parent().parent().parent().parent().parent();
+				$(a).fadeOut("slow", function() {
+					$(a).remove();
+					console.log("del");
+				});
+			});
 		});
 	</script>
 </head>

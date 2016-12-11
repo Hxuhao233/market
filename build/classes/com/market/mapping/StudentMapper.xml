@@ -1,151 +1,158 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.market.dao.StudentMapper">
-  <resultMap id="BaseResultMap" type="com.market.model.Student">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="universityId" jdbcType="INTEGER" property="universityid" />
-    <result column="account" jdbcType="CHAR" property="account" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
-    <result column="name" jdbcType="VARCHAR" property="name" />
-    <result column="studentNum" jdbcType="VARCHAR" property="studentnum" />
-    <result column="birthDate" jdbcType="DATE" property="birthdate" />
-    <result column="iconAddr" jdbcType="VARCHAR" property="iconaddr" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, universityId, account, password, name, studentNum, birthDate, iconAddr
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from Student
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectAccount" parameterType="java.lang.String"  resultType="java.lang.Integer">
-  	select count(account)
-  	from Student
-  	where account = #{account,jdbcType=VARCHAR}       
-  </select>
-  <select id="selectByKey" parameterType="map" resultMap="BaseResultMap">
-  	select <include refid="Base_Column_List" />
-  	from Student
-  	where account = #{account,jdbcType=VARCHAR} 
-	and  
-    <if test="password != null">
-      password = md5(#{password,jdbcType=VARCHAR})
-    </if>
-  </select>
-  
-  <select id="selectByAccount" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from Student
-    where account = #{account,jdbcType=VARCHAR}
-  </select>
-  
-  
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from Student
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.market.model.Student">
-    insert into Student (id, universityId, account, 
-      password, name, studentNum, 
-      birthDate, iconAddr)
-    values (#{id,jdbcType=INTEGER}, #{universityid,jdbcType=INTEGER}, #{account,jdbcType=CHAR}, 
-      #{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{studentnum,jdbcType=VARCHAR}, 
-      #{birthdate,jdbcType=DATE}, #{iconaddr,jdbcType=VARCHAR})
-  </insert>
-  <insert id="insertSelective" parameterType="com.market.model.Student" useGeneratedKeys="true" keyProperty="id">
-    insert into Student
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="universityid != null">
-        universityId,
-      </if>
-      <if test="account != null">
-        account,
-      </if>
-      <if test="password != null">
-        password,
-      </if>
-      <if test="name != null">
-        name,
-      </if>
-      <if test="studentnum != null">
-        studentNum,
-      </if>
-      <if test="birthdate != null">
-        birthDate,
-      </if>
-      <if test="iconaddr != null">
-        iconAddr,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="universityid != null">
-        #{universityid,jdbcType=INTEGER},
-      </if>
-      <if test="account != null">
-        #{account,jdbcType=CHAR},
-      </if>
-      <if test="password != null">
-        md5(#{password,jdbcType=VARCHAR}),
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="studentnum != null">
-        #{studentnum,jdbcType=VARCHAR},
-      </if>
-      <if test="birthdate != null">
-        #{birthdate,jdbcType=DATE},
-      </if>
-      <if test="iconaddr != null">
-        #{iconaddr,jdbcType=VARCHAR},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.market.model.Student">
-    update Student
-    <set>
-      <if test="universityid != null">
-        universityId = #{universityid,jdbcType=INTEGER},
-      </if>
-      <if test="account != null">
-        account = #{account,jdbcType=CHAR},
-      </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
-      <if test="studentnum != null">
-        studentNum = #{studentnum,jdbcType=VARCHAR},
-      </if>
-      <if test="birthdate != null">
-        birthDate = #{birthdate,jdbcType=DATE},
-      </if>
-      <if test="iconaddr != null">
-        iconAddr = #{iconaddr,jdbcType=VARCHAR},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.market.model.Student">
-    update Student
-    set universityId = #{universityid,jdbcType=INTEGER},
-      account = #{account,jdbcType=CHAR},
-      password = #{password,jdbcType=VARCHAR},
-      name = #{name,jdbcType=VARCHAR},
-      studentNum = #{studentnum,jdbcType=VARCHAR},
-      birthDate = #{birthdate,jdbcType=DATE},
-      iconAddr = #{iconaddr,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
+	<resultMap id="BaseResultMap" type="com.market.model.Student">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="universityId" jdbcType="INTEGER" property="universityid" />
+		<result column="account" jdbcType="CHAR" property="account" />
+		<result column="password" jdbcType="VARCHAR" property="password" />
+		<result column="name" jdbcType="VARCHAR" property="name" />
+		<result column="studentNum" jdbcType="VARCHAR" property="studentnum" />
+		<result column="birthDate" jdbcType="DATE" property="birthdate" />
+		<result column="iconAddr" jdbcType="VARCHAR" property="iconaddr" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, universityId, account, password, name, studentNum, birthDate,
+		iconAddr
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Student
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="selectAccount" parameterType="java.lang.String"
+		resultType="java.lang.Integer">
+		select count(account)
+		from Student
+		where account = #{account,jdbcType=VARCHAR}
+	</select>
+	<select id="selectByKey" parameterType="map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Student
+		where account = #{account,jdbcType=VARCHAR}
+		and
+		<if test="password != null">
+			password = md5(#{password,jdbcType=VARCHAR})
+		</if>
+	</select>
+
+	<select id="selectByAccount" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Student
+		where account = #{account,jdbcType=VARCHAR}
+	</select>
+
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from Student
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.market.model.Student">
+		insert into Student (id, universityId, account,
+		password, name, studentNum,
+		birthDate, iconAddr)
+		values (#{id,jdbcType=INTEGER}, #{universityid,jdbcType=INTEGER},
+		#{account,jdbcType=CHAR},
+		#{password,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{studentnum,jdbcType=VARCHAR},
+		#{birthdate,jdbcType=DATE}, #{iconaddr,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" parameterType="com.market.model.Student"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into Student
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="universityid != null">
+				universityId,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="password != null">
+				password,
+			</if>
+			<if test="name != null">
+				name,
+			</if>
+			<if test="studentnum != null">
+				studentNum,
+			</if>
+			<if test="birthdate != null">
+				birthDate,
+			</if>
+			<if test="iconaddr != null">
+				iconAddr,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="universityid != null">
+				#{universityid,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=CHAR},
+			</if>
+			<if test="password != null">
+				md5(#{password,jdbcType=VARCHAR}),
+			</if>
+			<if test="name != null">
+				#{name,jdbcType=VARCHAR},
+			</if>
+			<if test="studentnum != null">
+				#{studentnum,jdbcType=VARCHAR},
+			</if>
+			<if test="birthdate != null">
+				#{birthdate,jdbcType=DATE},
+			</if>
+			<if test="iconaddr != null">
+				#{iconaddr,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.market.model.Student">
+		update Student
+		<set>
+			<if test="universityid != null">
+				universityId = #{universityid,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				account = #{account,jdbcType=CHAR},
+			</if>
+			<if test="password != null">
+				password = md5(#{password,jdbcType=VARCHAR}),
+			</if>
+			<if test="name != null">
+				name = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="studentnum != null">
+				studentNum = #{studentnum,jdbcType=VARCHAR},
+			</if>
+			<if test="birthdate != null">
+				birthDate = #{birthdate,jdbcType=DATE},
+			</if>
+			<if test="iconaddr != null">
+				iconAddr = #{iconaddr,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.market.model.Student">
+		update Student
+		set universityId = #{universityid,jdbcType=INTEGER},
+		account = #{account,jdbcType=CHAR},
+		password = #{password,jdbcType=VARCHAR},
+		name = #{name,jdbcType=VARCHAR},
+		studentNum = #{studentnum,jdbcType=VARCHAR},
+		birthDate = #{birthdate,jdbcType=DATE},
+		iconAddr = #{iconaddr,jdbcType=VARCHAR}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
 </mapper>

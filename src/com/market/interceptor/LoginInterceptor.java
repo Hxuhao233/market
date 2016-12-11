@@ -16,8 +16,8 @@ import com.market.model.Student;
  */
 public class LoginInterceptor extends HandlerInterceptorAdapter {
 	// 允许不登录就访问的内容
-	private static final String[] IGNORE_URI = { "/login", "/GoodsShow/show", "/logout", "/images", "/register",
-			"/scripts" };
+	private static final String[] IGNORE_URI = { "/index","/login","/signup", "/GoodsShow/show", "/logout", "/images", "/register",
+			"/scripts","/register_html" };
 
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)

@@ -49,7 +49,7 @@ public class CorsFilter implements Filter {
 		// res.setHeader("Access-Control-Allow-Credentials", "true");
 		// res.setHeader("XDomainRequestAllowed","1");
 
-		System.out.println("Allow cross");
+		//System.out.println("Allow cross");
 		// pass the request along the filter chain
 		chain.doFilter(request, response);
 	}

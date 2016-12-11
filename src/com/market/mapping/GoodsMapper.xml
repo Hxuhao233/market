@@ -1,263 +1,271 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.market.dao.GoodsMapper">
-  <resultMap id="BaseResultMap" type="com.market.model.Goods">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="publisherId" jdbcType="INTEGER" property="publisherid" />
-    <result column="contactWayId" jdbcType="INTEGER" property="contactwayid" />
-    <result column="categoryId" jdbcType="INTEGER" property="categoryid" />
-    <result column="GoodsName" jdbcType="VARCHAR" property="goodsname" />
-    <result column="originalPrice" jdbcType="DOUBLE" property="originalprice" />
-    <result column="nowPrice" jdbcType="DOUBLE" property="nowprice" />
-    <result column="newDegree" jdbcType="INTEGER" property="newdegree" />
-    <result column="description" jdbcType="VARCHAR" property="description" />
-    <result column="totalNum" jdbcType="INTEGER" property="totalnum" />
-    <result column="residualNum" jdbcType="INTEGER" property="residualnum" />
-    <result column="isPublished" jdbcType="TINYINT" property="ispublished" />
-    <result column="publishTime" jdbcType="DATE" property="publishtime" />
-    <result column="praiseTimes" jdbcType="INTEGER" property="praisetimes" />
-    <result column="collectedTimes" jdbcType="INTEGER" property="collectedtimes" />
-    <result column="durabilityPeriod" jdbcType="DATE" property="durabilityperiod" />
-  </resultMap>
-  <sql id="Base_Column_List">
-    id, publisherId, contactWayId, categoryId, GoodsName, originalPrice, nowPrice, newDegree, 
-    description, totalNum, residualNum, isPublished, publishTime, praiseTimes, collectedTimes, 
-    durabilityPeriod
-  </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from Goods
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <select id="selectByKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-  	select
-  	 <include refid="Base_Column_List"/>
-  	from Goods
-  	where publisherId = #{pid,jdbcType=INTEGER}
-  </select>
-  
-  <select id="selectWithRules"  resultMap="BaseResultMap">
-  	select
-  	 <include refid="Base_Column_List"/>
-  	from Goods
-  	<where>
-  	 <if test="category!=0">
-  	 	categoryId = #{category,jdbcType=INTEGER}
-  	 </if>
-  	 <if test="info!=null">
-  	 	and GoodsName REGEXP #{info,jdbcType=VARCHAR} 
-  	 </if>
-  	</where> 
-  	<if test="sortField!=null">
-  	order by ${sortField}
-  	</if>
-  	<if test="sortType!=null">
-  	 ${sortType}
-  	</if>
-  </select>
-  
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from Goods
-    where id = #{id,jdbcType=INTEGER}
-  </delete>
-  <insert id="insert" parameterType="com.market.model.Goods">
-    insert into Goods (id, publisherId, contactWayId, 
-      categoryId, GoodsName, originalPrice, 
-      nowPrice, newDegree, description, 
-      totalNum, residualNum, isPublished, 
-      publishTime, praiseTimes, collectedTimes, 
-      durabilityPeriod)
-    values (#{id,jdbcType=INTEGER}, #{publisherid,jdbcType=INTEGER}, #{contactwayid,jdbcType=INTEGER}, 
-      #{categoryid,jdbcType=INTEGER}, #{goodsname,jdbcType=VARCHAR}, #{originalprice,jdbcType=DOUBLE}, 
-      #{nowprice,jdbcType=DOUBLE}, #{newdegree,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
-      #{totalnum,jdbcType=INTEGER}, #{residualnum,jdbcType=INTEGER}, #{ispublished,jdbcType=TINYINT}, 
-      #{publishtime,jdbcType=DATE}, #{praisetimes,jdbcType=INTEGER}, #{collectedtimes,jdbcType=INTEGER}, 
-      #{durabilityperiod,jdbcType=DATE})
-  </insert>
-  <insert id="insertSelective" parameterType="com.market.model.Goods"  useGeneratedKeys="true" keyProperty="id" >
-    insert into Goods
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        id,
-      </if>
-      <if test="publisherid != null">
-        publisherId,
-      </if>
-      <if test="contactwayid != null">
-        contactWayId,
-      </if>
-      <if test="categoryid != null">
-        categoryId,
-      </if>
-      <if test="goodsname != null">
-        GoodsName,
-      </if>
-      <if test="originalprice != null">
-        originalPrice,
-      </if>
-      <if test="nowprice != null">
-        nowPrice,
-      </if>
-      <if test="newdegree != null">
-        newDegree,
-      </if>
-      <if test="description != null">
-        description,
-      </if>
-      <if test="totalnum != null">
-        totalNum,
-      </if>
-      <if test="residualnum != null">
-        residualNum,
-      </if>
-      <if test="ispublished != null">
-        isPublished,
-      </if>
-      <if test="publishtime != null">
-        publishTime,
-      </if>
-      <if test="praisetimes != null">
-        praiseTimes,
-      </if>
-      <if test="collectedtimes != null">
-        collectedTimes,
-      </if>
-      <if test="durabilityperiod != null">
-        durabilityPeriod,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="id != null">
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="publisherid != null">
-        #{publisherid,jdbcType=INTEGER},
-      </if>
-      <if test="contactwayid != null">
-        #{contactwayid,jdbcType=INTEGER},
-      </if>
-      <if test="categoryid != null">
-        #{categoryid,jdbcType=INTEGER},
-      </if>
-      <if test="goodsname != null">
-        #{goodsname,jdbcType=VARCHAR},
-      </if>
-      <if test="originalprice != null">
-        #{originalprice,jdbcType=DOUBLE},
-      </if>
-      <if test="nowprice != null">
-        #{nowprice,jdbcType=DOUBLE},
-      </if>
-      <if test="newdegree != null">
-        #{newdegree,jdbcType=INTEGER},
-      </if>
-      <if test="description != null">
-        #{description,jdbcType=VARCHAR},
-      </if>
-      <if test="totalnum != null">
-        #{totalnum,jdbcType=INTEGER},
-      </if>
-      <if test="residualnum != null">
-        #{residualnum,jdbcType=INTEGER},
-      </if>
-      <if test="ispublished != null">
-        #{ispublished,jdbcType=TINYINT},
-      </if>
-      <if test="publishtime != null">
-        #{publishtime,jdbcType=DATE},
-      </if>
-      <if test="praisetimes != null">
-        #{praisetimes,jdbcType=INTEGER},
-      </if>
-      <if test="collectedtimes != null">
-        #{collectedtimes,jdbcType=INTEGER},
-      </if>
-      <if test="durabilityperiod != null">
-        #{durabilityperiod,jdbcType=DATE},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.market.model.Goods">
-    update Goods
-    <set>
-      <if test="publisherid != null">
-        publisherId = #{publisherid,jdbcType=INTEGER},
-      </if>
-      <if test="contactwayid != null">
-        contactWayId = #{contactwayid,jdbcType=INTEGER},
-      </if>
-      <if test="categoryid != null">
-        categoryId = #{categoryid,jdbcType=INTEGER},
-      </if>
-      <if test="goodsname != null">
-        GoodsName = #{goodsname,jdbcType=VARCHAR},
-      </if>
-      <if test="originalprice != null">
-        originalPrice = #{originalprice,jdbcType=DOUBLE},
-      </if>
-      <if test="nowprice != null">
-        nowPrice = #{nowprice,jdbcType=DOUBLE},
-      </if>
-      <if test="newdegree != null">
-        newDegree = #{newdegree,jdbcType=INTEGER},
-      </if>
-      <if test="description != null">
-        description = #{description,jdbcType=VARCHAR},
-      </if>
-      <if test="totalnum != null">
-        totalNum = #{totalnum,jdbcType=INTEGER},
-      </if>
-      <if test="residualnum != null">
-        residualNum = #{residualnum,jdbcType=INTEGER},
-      </if>
-      <if test="ispublished != null">
-        isPublished = #{ispublished,jdbcType=TINYINT},
-      </if>
-      <if test="publishtime != null">
-        publishTime = #{publishtime,jdbcType=DATE},
-      </if>
-      <if test="praisetimes != null">
-        praiseTimes = #{praisetimes,jdbcType=INTEGER},
-      </if>
-      <if test="collectedtimes != null">
-        collectedTimes = #{collectedtimes,jdbcType=INTEGER},
-      </if>
-      <if test="durabilityperiod != null">
-        durabilityPeriod = #{durabilityperiod,jdbcType=DATE},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.market.model.Goods">
-    update Goods
-    set publisherId = #{publisherid,jdbcType=INTEGER},
-      contactWayId = #{contactwayid,jdbcType=INTEGER},
-      categoryId = #{categoryid,jdbcType=INTEGER},
-      GoodsName = #{goodsname,jdbcType=VARCHAR},
-      originalPrice = #{originalprice,jdbcType=DOUBLE},
-      nowPrice = #{nowprice,jdbcType=DOUBLE},
-      newDegree = #{newdegree,jdbcType=INTEGER},
-      description = #{description,jdbcType=VARCHAR},
-      totalNum = #{totalnum,jdbcType=INTEGER},
-      residualNum = #{residualnum,jdbcType=INTEGER},
-      isPublished = #{ispublished,jdbcType=TINYINT},
-      publishTime = #{publishtime,jdbcType=DATE},
-      praiseTimes = #{praisetimes,jdbcType=INTEGER},
-      collectedTimes = #{collectedtimes,jdbcType=INTEGER},
-      durabilityPeriod = #{durabilityperiod,jdbcType=DATE}
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="addOne" >
-  	update Goods
-  	set  
-	${field} = ${field} + 1
-  	where id = #{gid,jdbcType=INTEGER};
-  </update>
-    <update id="subtractOne" >
-  	update Goods
-  	set  
-	${field} = ${field} - 1
-  	where id = #{gid,jdbcType=INTEGER};
-  </update>
+	<resultMap id="BaseResultMap" type="com.market.model.Goods">
+		<id column="id" jdbcType="INTEGER" property="id" />
+		<result column="publisherId" jdbcType="INTEGER" property="publisherid" />
+		<result column="contactWayId" jdbcType="INTEGER" property="contactwayid" />
+		<result column="categoryId" jdbcType="INTEGER" property="categoryid" />
+		<result column="GoodsName" jdbcType="VARCHAR" property="goodsname" />
+		<result column="originalPrice" jdbcType="DOUBLE" property="originalprice" />
+		<result column="nowPrice" jdbcType="DOUBLE" property="nowprice" />
+		<result column="newDegree" jdbcType="INTEGER" property="newdegree" />
+		<result column="description" jdbcType="VARCHAR" property="description" />
+		<result column="totalNum" jdbcType="INTEGER" property="totalnum" />
+		<result column="residualNum" jdbcType="INTEGER" property="residualnum" />
+		<result column="isPublished" jdbcType="TINYINT" property="ispublished" />
+		<result column="publishTime" jdbcType="DATE" property="publishtime" />
+		<result column="praiseTimes" jdbcType="INTEGER" property="praisetimes" />
+		<result column="collectedTimes" jdbcType="INTEGER" property="collectedtimes" />
+		<result column="durabilityPeriod" jdbcType="DATE" property="durabilityperiod" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id, publisherId, contactWayId, categoryId, GoodsName, originalPrice,
+		nowPrice, newDegree,
+		description, totalNum, residualNum, isPublished, publishTime, praiseTimes,
+		collectedTimes,
+		durabilityPeriod
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Goods
+		where id = #{id,jdbcType=INTEGER}
+	</select>
+	<select id="selectByKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Goods
+		where publisherId = #{pid,jdbcType=INTEGER}
+	</select>
+
+	<select id="selectWithRules" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from Goods
+		<where>
+			<if test="category!=0">
+				categoryId = #{category,jdbcType=INTEGER}
+			</if>
+			<if test="info!=null">
+				and GoodsName REGEXP #{info,jdbcType=VARCHAR}
+			</if>
+		</where>
+		<if test="sortField!=null">
+			order by ${sortField}
+		</if>
+		<if test="sortType!=null">
+			${sortType}
+		</if>
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from Goods
+		where id = #{id,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="com.market.model.Goods">
+		insert into Goods (id, publisherId, contactWayId,
+		categoryId, GoodsName, originalPrice,
+		nowPrice, newDegree, description,
+		totalNum, residualNum, isPublished,
+		publishTime, praiseTimes, collectedTimes,
+		durabilityPeriod)
+		values (#{id,jdbcType=INTEGER}, #{publisherid,jdbcType=INTEGER},
+		#{contactwayid,jdbcType=INTEGER},
+		#{categoryid,jdbcType=INTEGER}, #{goodsname,jdbcType=VARCHAR}, #{originalprice,jdbcType=DOUBLE},
+		#{nowprice,jdbcType=DOUBLE}, #{newdegree,jdbcType=INTEGER},
+		#{description,jdbcType=VARCHAR},
+		#{totalnum,jdbcType=INTEGER}, #{residualnum,jdbcType=INTEGER}, #{ispublished,jdbcType=TINYINT},
+		#{publishtime,jdbcType=DATE}, #{praisetimes,jdbcType=INTEGER},
+		#{collectedtimes,jdbcType=INTEGER},
+		#{durabilityperiod,jdbcType=DATE})
+	</insert>
+	<insert id="insertSelective" parameterType="com.market.model.Goods"
+		useGeneratedKeys="true" keyProperty="id">
+		insert into Goods
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				id,
+			</if>
+			<if test="publisherid != null">
+				publisherId,
+			</if>
+			<if test="contactwayid != null">
+				contactWayId,
+			</if>
+			<if test="categoryid != null">
+				categoryId,
+			</if>
+			<if test="goodsname != null">
+				GoodsName,
+			</if>
+			<if test="originalprice != null">
+				originalPrice,
+			</if>
+			<if test="nowprice != null">
+				nowPrice,
+			</if>
+			<if test="newdegree != null">
+				newDegree,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+			<if test="totalnum != null">
+				totalNum,
+			</if>
+			<if test="residualnum != null">
+				residualNum,
+			</if>
+			<if test="ispublished != null">
+				isPublished,
+			</if>
+			<if test="publishtime != null">
+				publishTime,
+			</if>
+			<if test="praisetimes != null">
+				praiseTimes,
+			</if>
+			<if test="collectedtimes != null">
+				collectedTimes,
+			</if>
+			<if test="durabilityperiod != null">
+				durabilityPeriod,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="publisherid != null">
+				#{publisherid,jdbcType=INTEGER},
+			</if>
+			<if test="contactwayid != null">
+				#{contactwayid,jdbcType=INTEGER},
+			</if>
+			<if test="categoryid != null">
+				#{categoryid,jdbcType=INTEGER},
+			</if>
+			<if test="goodsname != null">
+				#{goodsname,jdbcType=VARCHAR},
+			</if>
+			<if test="originalprice != null">
+				#{originalprice,jdbcType=DOUBLE},
+			</if>
+			<if test="nowprice != null">
+				#{nowprice,jdbcType=DOUBLE},
+			</if>
+			<if test="newdegree != null">
+				#{newdegree,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+			<if test="totalnum != null">
+				#{totalnum,jdbcType=INTEGER},
+			</if>
+			<if test="residualnum != null">
+				#{residualnum,jdbcType=INTEGER},
+			</if>
+			<if test="ispublished != null">
+				#{ispublished,jdbcType=TINYINT},
+			</if>
+			<if test="publishtime != null">
+				#{publishtime,jdbcType=DATE},
+			</if>
+			<if test="praisetimes != null">
+				#{praisetimes,jdbcType=INTEGER},
+			</if>
+			<if test="collectedtimes != null">
+				#{collectedtimes,jdbcType=INTEGER},
+			</if>
+			<if test="durabilityperiod != null">
+				#{durabilityperiod,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="com.market.model.Goods">
+		update Goods
+		<set>
+			<if test="publisherid != null">
+				publisherId = #{publisherid,jdbcType=INTEGER},
+			</if>
+			<if test="contactwayid != null">
+				contactWayId = #{contactwayid,jdbcType=INTEGER},
+			</if>
+			<if test="categoryid != null">
+				categoryId = #{categoryid,jdbcType=INTEGER},
+			</if>
+			<if test="goodsname != null">
+				GoodsName = #{goodsname,jdbcType=VARCHAR},
+			</if>
+			<if test="originalprice != null">
+				originalPrice = #{originalprice,jdbcType=DOUBLE},
+			</if>
+			<if test="nowprice != null">
+				nowPrice = #{nowprice,jdbcType=DOUBLE},
+			</if>
+			<if test="newdegree != null">
+				newDegree = #{newdegree,jdbcType=INTEGER},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=VARCHAR},
+			</if>
+			<if test="totalnum != null">
+				totalNum = #{totalnum,jdbcType=INTEGER},
+			</if>
+			<if test="residualnum != null">
+				residualNum = #{residualnum,jdbcType=INTEGER},
+			</if>
+			<if test="ispublished != null">
+				isPublished = #{ispublished,jdbcType=TINYINT},
+			</if>
+			<if test="publishtime != null">
+				publishTime = #{publishtime,jdbcType=DATE},
+			</if>
+			<if test="praisetimes != null">
+				praiseTimes = #{praisetimes,jdbcType=INTEGER},
+			</if>
+			<if test="collectedtimes != null">
+				collectedTimes = #{collectedtimes,jdbcType=INTEGER},
+			</if>
+			<if test="durabilityperiod != null">
+				durabilityPeriod = #{durabilityperiod,jdbcType=DATE},
+			</if>
+		</set>
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="com.market.model.Goods">
+		update Goods
+		set publisherId = #{publisherid,jdbcType=INTEGER},
+		contactWayId = #{contactwayid,jdbcType=INTEGER},
+		categoryId = #{categoryid,jdbcType=INTEGER},
+		GoodsName = #{goodsname,jdbcType=VARCHAR},
+		originalPrice = #{originalprice,jdbcType=DOUBLE},
+		nowPrice = #{nowprice,jdbcType=DOUBLE},
+		newDegree = #{newdegree,jdbcType=INTEGER},
+		description = #{description,jdbcType=VARCHAR},
+		totalNum = #{totalnum,jdbcType=INTEGER},
+		residualNum = #{residualnum,jdbcType=INTEGER},
+		isPublished = #{ispublished,jdbcType=TINYINT},
+		publishTime = #{publishtime,jdbcType=DATE},
+		praiseTimes = #{praisetimes,jdbcType=INTEGER},
+		collectedTimes = #{collectedtimes,jdbcType=INTEGER},
+		durabilityPeriod = #{durabilityperiod,jdbcType=DATE}
+		where id = #{id,jdbcType=INTEGER}
+	</update>
+	<update id="addOne">
+		update Goods
+		set
+		${field} = ${field} + 1
+		where id = #{gid,jdbcType=INTEGER};
+	</update>
+	<update id="subtractOne">
+		update Goods
+		set
+		${field} = ${field} - 1
+		where id = #{gid,jdbcType=INTEGER};
+	</update>
 </mapper>

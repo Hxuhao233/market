@@ -63,14 +63,14 @@ function register() {
     	$.ajax({
 			type: "POST",
 			contentType: "application/json; charset=utf-8",
-			url: "http://115.28.158.106:8080/market/User/signup",
+			url: "../../User/signup",
     		data: JSON.stringify(getData()),
     		dataType: "json",
     		success: function(message) {
     			//window.location.href = "../index.html";
     			console.log(message.code);
     			if (message.code == "200") {
-    				window.location.href = "about/register_html/register_Success.html?account=" + $("input[name='contactInfo']").val();
+    				window.location.href = "register_html/register_Success.html?account=" + $("input[name='contactInfo']").val();
     			} else if (message.code == "406") {
     				alert("手机号/邮箱: " + $("input[name='contactInfo']").val() + "已注册");
     			} else {

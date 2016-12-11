@@ -1,5 +1,7 @@
 package com.market.dao;
 
+import java.util.List;
+
 import com.market.model.Message;
 
 public interface MessageMapper {
@@ -14,4 +16,7 @@ public interface MessageMapper {
 	int updateByPrimaryKeySelective(Message record);
 
 	int updateByPrimaryKey(Message record);
+	
+	List<Message> selectByStudentId(Integer id);
+
 }

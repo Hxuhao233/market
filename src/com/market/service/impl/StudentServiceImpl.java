@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.market.dao.MessageMapper;
 import com.market.dao.StudentMapper;
+import com.market.model.Message;
 import com.market.model.Student;
 import com.market.service.IStudentService;
 
@@ -21,6 +23,8 @@ public class StudentServiceImpl implements IStudentService {
 
 	@Autowired
 	private StudentMapper studentDao;
+	@Autowired
+	private MessageMapper messageDao;
 
 	@Override
 	public int register(Student student) {
@@ -137,4 +141,36 @@ public class StudentServiceImpl implements IStudentService {
 		return filePath;
 
 	}
+
+	@Override
+	public boolean sendMessage(Integer senderId, Integer receiverId, String msg) {
+		boolean ret=false;
+		if (studentDao.selectByPrimaryKey(receiverId)!=null)
+		{
+			ret=true;
+			Message record=new Message();
+			record.setSenderid(senderId);
+			record.setReceiverid(receiverId);
+			record.setMessage(msg);
+			messageDao.insertSelective(record);
+		}
+		
+		return ret;
+	}
+
+	@Override
+	public List<Message> getMessage(Integer sid) {
+		List<Message>mList = messageDao.selectByStudentId(sid);
+		//置为已读(条件：消息未读且请求者为消息接收者)
+		for (int i = 0; i < mList.size(); i++) {
+			Message message=mList.get(i);
+			if (message.getIsreceived()==0 && message.getReceiverid()==sid)
+			{
+				message.setIsreceived(1);
+				messageDao.updateByPrimaryKey(message);
+			}
+		}
+		return mList;
+	}
+
 }

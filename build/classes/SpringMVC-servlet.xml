@@ -11,18 +11,14 @@
 	<context:component-scan base-package="com.market" />
 
 	<!-- handle the static resource -->
-	<mvc:default-servlet-handler /> 
+	<mvc:default-servlet-handler />
 
 
 	<!-- if you use annotation you must configure following setting -->
 
-	<mvc:interceptors>  
-		<mvc:interceptor>
-            <mvc:mapping path="/**"/>
-            <bean id= "loginInterceptor" class="com.market.interceptor.LoginInterceptor" />  
-        </mvc:interceptor>
-	</mvc:interceptors>  
-
+	<!-- <mvc:interceptors> <mvc:interceptor> <mvc:mapping path="/**"/> <bean 
+		id= "loginInterceptor" class="com.market.interceptor.LoginInterceptor" /> 
+		</mvc:interceptor> </mvc:interceptors> -->
 
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -65,7 +61,7 @@
 		<property name="maxInMemorySize" value="20480" />
 		<!-- 最大文件大小，-1为不限制大小 -->
 		<property name="maxUploadSize" value="2048000" />
-        <property name="resolveLazily" value="true"/>  
+		<property name="resolveLazily" value="true" />
 	</bean>
 
 

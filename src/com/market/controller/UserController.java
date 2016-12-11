@@ -28,11 +28,13 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.market.model.Message;
 import com.market.model.Student;
 import com.market.service.IStudentService;
 import com.market.tools.BaseResponeData;
 import com.market.tools.RequestData;
 import com.market.tools.ResponeData;
+import com.market.tools.ResponeDataForMessage;
 
 @RequestMapping(value = "/User")
 @Controller
@@ -259,5 +261,46 @@ public class UserController {
 		return ret;
 	}
 	
-
+	//发送消息
+	@ResponseBody
+	@RequestMapping(value = "/sendMessage", method = RequestMethod.POST)
+	public BaseResponeData sendMessage (@RequestBody RequestData userData,HttpSession session){
+		BaseResponeData ret=new BaseResponeData();
+		Integer receiverId=Integer.valueOf(userData.getData().get(0).get("receiverId"));
+		String Msg=userData.getData().get(0).get("msg");
+		Student student = (Student) session.getAttribute("student");
+		if (student==null){
+			ret.setCode(201);
+			ret.setInfo("帐号未登录");
+		}else {
+			if (iStudentService.sendMessage(student.getId(), receiverId, Msg)) {
+				ret.setCode(200);
+				ret.setInfo("发送成功");
+			}else{
+				ret.setCode(202);
+				ret.setInfo("发送失败（接受者不存在）");
+			}
+		}
+		return ret;
+	}
+	
+	
+	//查看消息
+	@ResponseBody
+	@RequestMapping(value = "/getMessage", method = RequestMethod.GET)
+	public ResponeDataForMessage getMessage (HttpSession session){
+		ResponeDataForMessage ret=new ResponeDataForMessage();
+		Student student = (Student) session.getAttribute("student");
+		if (student==null){
+			ret.setCode(201);
+			ret.setInfo("帐号未登录");
+		}else {
+			List<Message> mList=iStudentService.getMessage(student.getId()); 
+			ret.setCode(200);
+			ret.setData(mList);
+			ret.setInfo("获取消息成功");
+		}
+		return ret;
+	}
+	
 }

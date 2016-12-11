@@ -1,117 +1,131 @@
 <!doctype html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<title>物品详情页</title>
-	<link rel="stylesheet" type="text/css" href="../css/details.css">
+<meta charset="utf-8">
+<title>物品详情页</title>
+<link rel="stylesheet" type="text/css" href="../css/details.css">
 </head>
 <body>
-    <div id="mainWindow">
-    	<div id="header">
-    		<div id="logo">
-    	       <img src="../images/details/logo.png" alt="logo">
-    		</div>
-    	</div>
-    	<div id="mainContainer">
-    		<div id="topContainer">
-    		    <a href="../index.html" id="goback"><img src="../images/details/goback.png"></a>
-    			<div id="wrapper">
-    				<div id="details">
-    					<div class="popularity">
-		   	    			<div class="collbtn">
-		   	    				<a href="#"><img src="../images/details/collbtn.png"></a><p>收藏</p><p class="collnum">7</p>
-		   	    			</div>
-		   	    			<div class="laudbtn">
-		   	    				<a href="#"><img src="../images/details/laudbtn.png"></a><p>点赞</p><p class="laudnum">56</p>
-		   	    			</div>
-    				    </div>
-    				    <hr class="longLine top"/>
-    				    <div id="scr"><a href="#"><img src="../images/details/sticker.png"></a><p>物品大头贴</p>
-    				    <hr class="sLine leftLine"/>
-    		            </div>
-    		            <hr class="verLine" />
-    		            <div id="outlineMsg">
-    		               <div id="price">
-    		           	   <span>￥</span><span class="cost">45</span>
-    		           	   </div>
-    		           	   <div class="introscr">
-		   	    			   <h6>书包</h6>
-		   	    			   <p class="txt">这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了d</p>
-		   	    			   <p class="timescr">2016.09.13</p>
-		   	    		   </div>
-		   	    		   <hr class="sLine rightLine" />
-    		            </div>
-    		            <div class="sellerInfo">
-		   	    			<img src="../images/details/ico.png"><p class="userName">用户名</p>
-		   	    			<p class="phonumber"><span>手机号码：</span><span class="phpmo">18826075809</span></p>
-		   	    			<p class="QQnumber"><span>QQ号：</span><span class="qqdmo">暂无</span></p>
-		   	    	    </div>
-		   	    	    <div class="annexInfo">
-		   	    	    	<ul>
-		   	    	    		<li><span>原价：</span><span class="oriprice">暂无信息</span></li>
-		   	    	    		<li><span>几成新：</span><span class="newDeg">暂无信息</span></li>
-		   	    	    		<li><span>剩余数量：</span><span class="leavings">14</span></li>
-		   	    	    		<li><span>保质（修）期：</span><span class="shelfLife">暂无信息</span></li>
-		   	    	    	</ul>
-		   	    	    </div>
-		   	    	    <hr class="longLine bottom"/>
-		   	    	    <div class="chatBtn">
-		   	    	    	<img src="../images/details/chatBtn.png">
-		   	    	    	<a href="#">问卖家</a>
-		   	    	    </div>
-    				</div>
-    				<div id="chatFrame">
-    					<div id="minheader">
-    						<p class="frameName">聊天框</p>
-    						<a href="#" class="close"><img src="../images/details/close.png"></a>
-    						<p class="bmdp">收起</p>
-    						<hr class="longLine top"/>
-    					</div>
-    					<div id="msg"></div>
-    					<hr class="longLine" />
-    					<div id="inputFrame">
-    						<textarea id="inputmsg"></textarea>
-                            <a id="send" href="#none">
-                            <img src="../images/details/sendout.png"></a>
-                            <hr class="bottomline" />
-    					</div>
-    				</div>
-    			</div>
-    		</div>
-    		<div id="bottomContainer">
-    			<div id="disTitle">
-    				<div id="leftTit"> 
-                        <img src="../images/details/chevron_.png">
-                        <p><span class="span1">评论区</span><span  class="span2">(共</span><span class="span2" id="comnum">4</span>
-                        <span class="span2">条）</span></p>
-    				</div>
-    				<div id="rightTit">
-    					 <img src="../images/details/write.png">
-    					 <a href="#none">增加评论</a>
-    				</div>
-    			</div>
-    			<div id="commentBar">
-    			    <div id="state1">
-    			    	<input type="text" id="inputcnd" >
-    				    <hr class="sLine" id="scent"/>
-    				    <a href="#none" class="ahint" id="cancel1">取消</a>
-    				    <img src="../images/details/flower.png">
-    			    </div>
-    			    <div id="state2">
-    			    	<input type="text" id="input_focus" >
-    			    	<a href="#none" id="announce"><img src="../images/details/say.png"></a>
-    			    	<a href="#none" class="ahint" id="cancel2">取消</a>
-    				    <hr class="sLine" id="incise"/>
-    				    <img src="../images/details/flower.png">
-    			    </div>
-    			</div>
-    			<div id="comment">
-    				<iframe src="self_html/release/comments.html" frameborder="0" scrolling="no"></iframe>
-    			</div>
-    		</div>
-    	</div>
-    </div>
-    <script src="../scripts/jquery-1.6.2.js"></script>
+	<div id="mainWindow">
+		<div id="header">
+			<div id="logo">
+				<img src="../images/details/logo.png" alt="logo">
+			</div>
+		</div>
+		<div id="mainContainer">
+			<div id="topContainer">
+				<a href="../index.html" id="goback"><img
+					src="../images/details/goback.png"></a>
+				<div id="wrapper">
+					<div id="details">
+						<div class="popularity">
+							<div class="collbtn">
+								<a href="#"><img src="../images/details/collbtn.png"></a>
+								<p>收藏</p>
+								<p class="collnum">7</p>
+							</div>
+							<div class="laudbtn">
+								<a href="#"><img src="../images/details/laudbtn.png"></a>
+								<p>点赞</p>
+								<p class="laudnum">56</p>
+							</div>
+						</div>
+						<hr class="longLine top" />
+						<div id="scr">
+							<a href="#"><img src="../images/details/sticker.png"></a>
+							<p>物品大头贴</p>
+							<hr class="sLine leftLine" />
+						</div>
+						<hr class="verLine" />
+						<div id="outlineMsg">
+							<div id="price">
+								<span>￥</span><span class="cost">45</span>
+							</div>
+							<div class="introscr">
+								<h6>书包</h6>
+								<p class="txt">这个书包只陪我半个学期，几乎没有背过，很好看的哟，只是我包包太多了，所以想把它卖了d</p>
+								<p class="timescr">2016.09.13</p>
+							</div>
+							<hr class="sLine rightLine" />
+						</div>
+						<div class="sellerInfo">
+							<img src="../images/details/ico.png">
+							<p class="userName">用户名</p>
+							<p class="phonumber">
+								<span>手机号码：</span><span class="phpmo">18826075809</span>
+							</p>
+							<p class="QQnumber">
+								<span>QQ号：</span><span class="qqdmo">暂无</span>
+							</p>
+						</div>
+						<div class="annexInfo">
+							<ul>
+								<li><span>原价：</span><span class="oriprice">暂无信息</span></li>
+								<li><span>几成新：</span><span class="newDeg">暂无信息</span></li>
+								<li><span>剩余数量：</span><span class="leavings">14</span></li>
+								<li><span>保质（修）期：</span><span class="shelfLife">暂无信息</span></li>
+							</ul>
+						</div>
+						<hr class="longLine bottom" />
+						<div class="chatBtn">
+							<img src="../images/details/chatBtn.png"> <a href="#">问卖家</a>
+						</div>
+					</div>
+					<div id="chatFrame">
+						<div id="minheader">
+							<p class="frameName">聊天框</p>
+							<a href="#" class="close"><img
+								src="../images/details/close.png"></a>
+							<p class="bmdp">收起</p>
+							<hr class="longLine top" />
+						</div>
+						<div id="msg"></div>
+						<hr class="longLine" />
+						<div id="inputFrame">
+							<textarea id="inputmsg"></textarea>
+							<a id="send" href="#none"> <img
+								src="../images/details/sendout.png"></a>
+							<hr class="bottomline" />
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="bottomContainer">
+				<div id="disTitle">
+					<div id="leftTit">
+						<img src="../images/details/chevron_.png">
+						<p>
+							<span class="span1">评论区</span><span class="span2">(共</span><span
+								class="span2" id="comnum">4</span> <span class="span2">条）</span>
+						</p>
+					</div>
+					<div id="rightTit">
+						<img src="../images/details/write.png"> <a href="#none">增加评论</a>
+					</div>
+				</div>
+				<div id="commentBar">
+					<div id="state1">
+						<input type="text" id="inputcnd">
+						<hr class="sLine" id="scent" />
+						<a href="#none" class="ahint" id="cancel1">取消</a> <img
+							src="../images/details/flower.png">
+					</div>
+					<div id="state2">
+						<input type="text" id="input_focus"> <a href="#none"
+							id="announce"><img src="../images/details/say.png"></a> <a
+							href="#none" class="ahint" id="cancel2">取消</a>
+						<hr class="sLine" id="incise" />
+						<img src="../images/details/flower.png">
+					</div>
+				</div>
+				<div id="comment">
+					<iframe src="self_html/release/comments.html" frameborder="0"
+						scrolling="no"></iframe>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="../scripts/jquery-1.6.2.js"></script>
 	<script src="../scripts/details.js"></script>
 </body>
 </html>

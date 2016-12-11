@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.web.multipart.MultipartFile;
 
+import com.market.model.Message;
 import com.market.model.Student;
 
 public interface IStudentService {
@@ -25,4 +26,9 @@ public interface IStudentService {
 	public boolean forgetPwd(String account, String variCode, String newPassword); // 忘记密码
 
 	public boolean changePwd(String account, String oldPwd, String newPwd); // 修改密码
+	
+	public boolean sendMessage(Integer senderId,Integer receiverId,String msg);//发送消息
+	
+	public List<Message> getMessage(Integer sid);//查看消息
+
 }

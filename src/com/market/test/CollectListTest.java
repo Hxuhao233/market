@@ -12,9 +12,11 @@ import com.market.service.impl.CollectListServiceImpl;
 
 public class CollectListTest {
 
+	/*
 	ApplicationContext ac = new ClassPathXmlApplicationContext(new String[] { "spring-mybatis.xml" });
 	ICollectListService iCollectListService = (ICollectListService) ac.getBean("collectListService");
-
+	*/
+	/*
 	// @Test
 	// 获取用户收藏夹
 	public void getTest() {
@@ -28,7 +30,7 @@ public class CollectListTest {
 		}
 
 	}
-
+	
 	@Test
 	// 为收藏夹添加某件商品
 	public void addTest() {
@@ -63,4 +65,5 @@ public class CollectListTest {
 		System.out.println("清空后");
 		getTest();
 	}
+	*/
 }
