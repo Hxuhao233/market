@@ -30,10 +30,10 @@ public class CollectListServiceImpl implements ICollectListService {
 		CollectLists lists = new CollectLists();
 		lists.setGoodsid(goodsId);
 		lists.setStudentid(studentId);
-		
+
 		int ret = collectListDao.insertSelective(lists);
-		//System.out.println("infected row : " + ret);
-		if(ret>0){
+		// System.out.println("infected row : " + ret);
+		if (ret > 0) {
 			goodsDao.addOne(goodsId, "collectedTimes");
 		}
 	}

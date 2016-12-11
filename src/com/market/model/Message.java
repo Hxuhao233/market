@@ -3,53 +3,63 @@ package com.market.model;
 import java.util.Date;
 
 public class Message {
-    private Integer id;
+	private Integer id;
 
-    private Integer senderid;
+	private Integer senderid;
 
-    private Integer receiverid;
+	private Integer receiverid;
 
-    private String message;
+	private String message;
 
-    private Date time;
+	private Date time;
 
-    public Integer getId() {
-        return id;
-    }
+	private Integer isreceived;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public Integer getId() {
+		return id;
+	}
 
-    public Integer getSenderid() {
-        return senderid;
-    }
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void setSenderid(Integer senderid) {
-        this.senderid = senderid;
-    }
+	public Integer getSenderid() {
+		return senderid;
+	}
 
-    public Integer getReceiverid() {
-        return receiverid;
-    }
+	public void setSenderid(Integer senderid) {
+		this.senderid = senderid;
+	}
 
-    public void setReceiverid(Integer receiverid) {
-        this.receiverid = receiverid;
-    }
+	public Integer getReceiverid() {
+		return receiverid;
+	}
 
-    public String getMessage() {
-        return message;
-    }
+	public void setReceiverid(Integer receiverid) {
+		this.receiverid = receiverid;
+	}
 
-    public void setMessage(String message) {
-        this.message = message == null ? null : message.trim();
-    }
+	public String getMessage() {
+		return message;
+	}
 
-    public Date getTime() {
-        return time;
-    }
+	public void setMessage(String message) {
+		this.message = message == null ? null : message.trim();
+	}
 
-    public void setTime(Date time) {
-        this.time = time;
-    }
+	public Date getTime() {
+		return time;
+	}
+
+	public void setTime(Date time) {
+		this.time = time;
+	}
+
+	public Integer getIsreceived() {
+		return isreceived;
+	}
+
+	public void setIsreceived(Integer isreceived) {
+		this.isreceived = isreceived;
+	}
 }
