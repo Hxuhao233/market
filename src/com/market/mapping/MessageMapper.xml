@@ -6,6 +6,95 @@
     <result column="senderId" jdbcType="INTEGER" property="senderid" />
     <result column="receiverId" jdbcType="INTEGER" property="receiverid" />
     <result column="message" jdbcType="VARCHAR" property="message" />
+    <result column="time" jdbcType="TIMESTAMP" property="time" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, senderId, receiverId, message, time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from Message
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from Message
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.market.model.Message">
+    insert into Message (id, senderId, receiverId, 
+      message, time)
+    values (#{id,jdbcType=INTEGER}, #{senderid,jdbcType=INTEGER}, #{receiverid,jdbcType=INTEGER}, 
+      #{message,jdbcType=VARCHAR}, #{time,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.market.model.Message">
+    insert into Message
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="senderid != null">
+        senderId,
+      </if>
+      <if test="receiverid != null">
+        receiverId,
+      </if>
+      <if test="message != null">
+        message,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="senderid != null">
+        #{senderid,jdbcType=INTEGER},
+      </if>
+      <if test="receiverid != null">
+        #{receiverid,jdbcType=INTEGER},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.market.model.Message">
+    update Message
+    <set>
+      <if test="senderid != null">
+        senderId = #{senderid,jdbcType=INTEGER},
+      </if>
+      <if test="receiverid != null">
+        receiverId = #{receiverid,jdbcType=INTEGER},
+      </if>
+      <if test="message != null">
+        message = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.market.model.Message">
+    update Message
+    set senderId = #{senderid,jdbcType=INTEGER},
+      receiverId = #{receiverid,jdbcType=INTEGER},
+      message = #{message,jdbcType=VARCHAR},
+      time = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.market.model.Message">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="senderId" jdbcType="INTEGER" property="senderid" />
+    <result column="receiverId" jdbcType="INTEGER" property="receiverid" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
   </resultMap>
   <sql id="Base_Column_List">
     id, senderId, receiverId, message
