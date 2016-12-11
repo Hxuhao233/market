@@ -30,8 +30,17 @@
 			border-bottom: 2px solid rgb(242,242,242);
 		}
 
-		#header a {
+		#header a:link {
+			float: right;
 			display: block;
+			margin: 0 50px;
+			width: 38px;
+			height: 38px;
+			background: url(../../../images/self/release/close.png) center no-repeat;
+		}
+
+		#header a:hover {
+			background: url(../../../images/self/release/close_Big.png) center no-repeat;
 		}
 
 		#header p {
@@ -696,9 +705,7 @@
 <body>
 	<div id="header">
 		<p>添加发布</p>
-		<a href="../release.html">
-			<img src="../../../images/self/release/close.png" alt="关闭" />	
-		</a>
+		<a href="../release.html"></a>
 	</div>
 	<div id="releasePic">
 		<div id="releaseAddPic">

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>harvest</title>
+	<style type="text/css">
+		html {
+			width: 600px;
+			height: 957px;
+        	margin-right: auto;
+        	margin-left: auto;
+        	background: rgb(242,242,242);
+		}
+
+		body {
+			width: 600px;
+			height: 957px;
+			margin: 0;
+			top: 0;
+			background: url("../../images/self/harvest/framebackground.png");
+			font-weight: 400;
+			font-style: normal;
+			font-family: '微软雅黑 Regular', 微软雅黑;
+		}
+
+		#header {
+			width: 600px;
+			height: 100px;
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		#headPic {
+			width: 65px;
+			height: 65px;
+			float: left;
+			position: relative;
+			top: 17px;
+			left: 17px;
+		}
+
+		#deleteAll {
+			width: 132px;
+			height: 32px;
+			float: right;
+			position: relative;
+			right: 25px;
+			top: 50px;
+		}
+
+		#deleteAll a {
+			font-size: 12px;
+		}
+
+		#deleteAll a:link, a:visited {
+			color: rgb(121,121,121);
+		}
+
+		#deleteAll a:hover {
+			color: rgb(60,205,129);
+		}
+
+		#contents {
+			width: 600px;
+			height: 803px;
+		}
+
+		.goods {
+			width: 300px;
+			height: 400px;
+			float: left;
+		}
+
+		.goodsPic {
+			width: 205px;
+			height: 245px;
+			margin: 50px 47px 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+		}
+
+		.twoPics {
+			width: 205px;
+			height: 45px;
+			margin: 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		.greatPic {
+			float: left;
+			margin: 10px 0 11px 35px;
+			width: 24px;
+			height: 24px;
+		}
+
+		.greatTitle {
+			float: left;
+			font-size: 12px;
+			color: #C9C9C9;
+			width: 26px;
+			height: 12px;
+			margin: 20px 0 13px 5px;
+		}
+
+		.starPic {
+			float: right;
+			width: 26px;
+			height: 26px;
+			margin: 10px 5px 9px 14px; 
+		}
+
+		.starTitle {
+			float: right;
+			width: 24px;
+			height: 12px;
+			font-size: 12px;
+			color: #C9C9C9;
+			margin: 20px 20px 13px 0;
+		}
+
+		.twoMethods {
+			width: 205px;
+			height: 45px;
+			margin: 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		.twoMethods a {
+			text-decoration: none;
+			font-size: 12px;
+			color: #5DB75D;
+		}
+
+		.comments {
+			float: left;
+			width: 102px;
+			height: 45px;
+			border-right: 2px solid rgb(242,242,242);
+		}
+
+		.comments a {
+			display: block;
+			margin: 14px 6px 14px 20px;
+		}
+
+		.edit {
+			float: left;
+			position: relative;
+			width: 101px;
+			height: 45px;
+		}
+
+		.edit a {
+			display: block;
+			width: 48px;
+			margin: 14px 26px 14px 26px;
+		}
+
+		#bottom {
+			width: 600px;
+			height: 50px;
+			border-top: 2px solid rgb(242,242,242);
+		}
+
+		#others {
+			width: 140px;
+			height: 20px;
+			margin: 15px 230px;
+			font-size: 14px;
+			color: rgb(121,121,121);
+		}
+
+		#others img {
+			vertical-align: bottom;
+		}
+	</style>
+
+	<script type="text/javascript" src="../../scripts/jquery-1.6.2.js"></script>
+	<script type="text/javascript">
+		$('Document').ready(function(){
+			$("li").has("ul").mouseover(function(){
+				$(this).children("ul").css("display", "block");
+			}).mouseout(function(){
+				$(this).children("ul").css("display", "none");
+			});
+
+			$(".edit a").click(function() {
+				var divForDel = $(this).parent().parent().parent();
+				divForDel.fadeOut('slow', function() {
+					divForDel.remove();
+				});
+			});
+
+			$("#deleteAll a").click(function() {
+				$(".goods").each(function() {
+					$(this).fadeOut("slow", function() {
+						$(this).remove();
+					});
+				});
+			});
+
+
+			$(".greatPic").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../images/self/harvest/great.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../images/self/harvest/great_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
+
+			$(".starPic").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../images/self/harvest/star.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../images/self/harvest/star_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="header">
+		<div id="headPic">
+			<img src="../../images/self/harvest/headPic.png" alt="大头像" />
+		</div>
+		<div id="deleteAll">
+			<img src="../../images/self/harvest/writePic.png" alt="图标" />
+			<a href="#">清空已卖记录</a>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="goods">
+			<img src="../../images/self/harvest/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/self/harvest/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/harvest/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<a href="#">删除记录</a>
+				</div>
+			</div>
+		</div>
+		<div class="goods">
+			<img src="../../images/self/harvest/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/self/harvest/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/harvest/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<a href="#">删除记录</a>
+				</div>
+			</div>
+		</div>
+		<div class="goods">
+			<img src="../../images/self/harvest/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/self/harvest/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/harvest/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<a href="#">删除记录</a>
+				</div>
+			</div>
+		</div>
+		<div class="goods">
+			<img src="../../images/self/harvest/good.png" alt="商品" class="goodsPic">
+			<div class="twoPics">
+				<img src="../../images/self/harvest/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/harvest/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<div class="comments">
+					<a href="release/comments.html">查看评论(<span>0</span>)</a>	
+				</div>
+				<div class="edit">
+					<a href="#">删除记录</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<p href="#" id="others">查看其他已卖闲置&nbsp&nbsp<img src="../../images/self/harvest/jiantou.png"></p>
+	</div>
+</body>
+</html>

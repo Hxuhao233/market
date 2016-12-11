@@ -151,7 +151,7 @@ $(function(){
         if(validateAccount()&&validatePassword()&&validateReInputPsw()&&validateVariCode()){
             $.ajax({
                 type:"POST",//请求方式
-                url:"http://192.168.1.174:8080/market/User/forgetpwd",//发送请求的地址
+                url:"http://115.28.158.106:8080/market/User/forgetpwd",//发送请求的地址
                 contentType: "application/json; charset=utf-8",
                 data:JSON.stringify(getData()),//js数据值转成json格式
                 dataType:"json",//预期服务器返回的数据类型

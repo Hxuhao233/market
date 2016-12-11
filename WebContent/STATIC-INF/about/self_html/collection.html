@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>collection</title>
+	<style type="text/css">
+		html {
+			width: 600px;
+			height: 957px;
+        	margin-right: auto;
+        	margin-left: auto;
+        	background: rgb(242,242,242);
+		}
+
+		body {
+			width: 600px;
+			height: 957px;
+			margin: 0;
+			top: 0;
+			background: url("../../images/self/collection/framebackground.png");
+			font-weight: 400;
+			font-style: normal;
+			font-family: '微软雅黑 Regular', 微软雅黑;
+		}
+
+		#header {
+			width: 600px;
+			height: 100px;
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		#headPic {
+			width: 65px;
+			height: 65px;
+			float: left;
+			position: relative;
+			top: 17px;
+			left: 17px;
+		}
+
+		#deleteAll {
+			width: 132px;
+			height: 32px;
+			float: right;
+			position: relative;
+			right: 25px;
+			top: 50px;
+		}
+
+		#deleteAll a {
+			font-size: 12px;
+		}
+
+		#deleteAll a:link, a:visited {
+			color: rgb(121,121,121);
+		}
+
+		#deleteAll a:hover {
+			color: rgb(60,205,129);
+		}
+
+		#contents {
+			width: 600px;
+			height: 803px;
+		}
+
+		.goods {
+			width: 300px;
+			height: 400px;
+			float: left;
+		}
+
+		.picDiv {
+			position: relative;
+			width: 205px;
+			height: 245px;
+			margin: 50px 47px 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);			
+		}
+
+		.goodsPic {
+			width: 205px;
+			height: 245px;
+		}
+
+		.detailPic {
+			position: absolute;
+			display: none;
+			top: 0;
+			left: 0;
+			width: 205px;
+			height: 245px;
+			background-color: rgba(255, 255, 255, 0.8);
+		}
+
+		.detailPic h1 {
+			width: 205px;
+			margin-top: 30px; 
+			margin-bottom: 20px; 
+			font-size: 12px;
+			color: #686868;
+			text-align: center;
+		}
+
+		.discribe {
+			width: 120px;
+			height: 80px;
+			margin-left: 40px;
+			text-align: center;
+			font-size: 12px;
+			color: #686868;			
+		}
+
+		.detailPic h2 {
+			width: 290px; 
+			margin: 0;
+			margin-left: 15px;
+			margin-top: 20px;
+			font-size: 12px;
+			color: #686868;
+			text-align: left;			
+		}
+
+		.dateP {
+			width: 200px;
+			margin: 0;
+			margin-right: 5px;
+			font-size: 12px;
+			color: #686868;
+			text-align: right;
+		}
+
+		.detailPic a:link {
+			position: relative;
+			left: 62px;
+			display: block;
+			width: 81px;
+			height: 25px;
+			background: url(../../images/self/collection/lookup.png) center no-repeat;
+		}
+
+		.detailPic a:hover {
+			background: url(../../images/self/collection/lookup_hover.png) center no-repeat;
+		}
+
+		.details {
+			width: 205px;
+			height: 30px;
+			margin: 0 47px;
+		}
+
+		.details p {
+			float: left;
+			width: 102px;
+			height: 18px;
+			margin: 6px 0;
+			font-size: 12px;
+			color: #9DA5A7;
+			text-align: center;
+		}
+
+		.twoPics {
+			width: 205px;
+			height: 30px;
+			margin: 0 47px;
+			border: 2px solid rgb(242,242,242);
+		}
+
+		.greatPic {
+			float: left;
+			margin: 2px 0 4px 35px;
+			width: 24px;
+			height: 24px;
+		}
+
+		.greatTitle {
+			float: left;
+			font-size: 12px;
+			color: #C9C9C9;
+			width: 26px;
+			height: 12px;
+			margin: 12px 0 6px 5px;
+		}
+
+		.starPic {
+			float: right;
+			width: 26px;
+			height: 26px;
+			margin: 2px 5px 2px 14px; 
+		}
+
+		.starTitle {
+			float: right;
+			width: 24px;
+			height: 12px;
+			font-size: 12px;
+			color: #C9C9C9;
+			margin: 12px 20px 6px 0;
+		}
+
+		.twoMethods {
+			width: 205px;
+			height: 30px;
+			margin: 0 47px;
+			border-left: 2px solid rgb(242,242,242);
+			border-right: 2px solid rgb(242,242,242);
+			border-bottom: 2px solid rgb(242,242,242);
+		}
+
+		.twoMethods a {
+			width: 60px;
+			height: 18px;
+			text-decoration: none;
+			display: block;
+			position: relative;
+			top: 6px;
+			left: 72px;
+			font-size: 12px;
+			color: #5DB75D;
+		}
+
+		#bottom {
+			width: 600px;
+			height: 50px;
+			border-top: 2px solid rgb(242,242,242);
+		}
+
+		#others {
+			width: 120px;
+			height: 20px;
+			margin: 15px 240px;
+			font-size: 14px;
+			color: rgb(121,121,121);
+		}
+
+		#others img {
+			vertical-align: bottom;
+		}
+	</style>
+
+	<script type="text/javascript" src="../../scripts/jquery-1.6.2.js"></script>
+	<script type="text/javascript">
+		$('Document').ready(function(){
+			$("li").has("ul").mouseover(function(){
+				$(this).children("ul").css("display", "block");
+			}).mouseout(function(){
+				$(this).children("ul").css("display", "none");
+			});
+
+			$(".picDiv").mouseover(function() {
+				$(this).children(".detailPic").css("display", "block");
+			}).mouseout(function() {
+				$(this).children(".detailPic").css("display", "none");				
+			});
+
+			$(".twoMethods a").click(function() {
+				var divForDel = $(this).parent().parent();
+				divForDel.fadeOut('slow', function() {
+					divForDel.remove();
+				});
+			});
+
+			$("#deleteAll a").click(function() {
+				$(".goods").each(function() {
+					$(this).fadeOut("slow", function() {
+						$(this).remove();
+					});
+				});
+			});
+
+			$(".greatPic").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../images/self/collection/great.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../images/self/collection/great_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
+
+			$(".starPic").click(function() {
+				if ($(this).hasClass("sel")) {
+					$(this).attr("src", "../../images/self/collection/star.png");
+					$(this).removeClass("sel");
+				} else {
+					$(this).attr("src", "../../images/self/collection/star_Sel.png");
+					$(this).addClass("sel");
+				}
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="header">
+		<div id="headPic">
+			<img src="../../images/self/collection/headPic.png" alt="大头像" />
+		</div>
+		<div id="deleteAll">
+			<img src="../../images/self/collection/writePic.png" alt="图标" />
+			<a href="#">清空收藏夹</a>
+		</div>
+	</div>
+	<div id="contents">
+		<div class="goods">
+			<div class="picDiv">
+				<img src="../../images/self/collection/good.png" alt="商品" class="goodsPic">
+				<div class="detailPic">
+					<h1>洗面奶</h1>
+					<p class="discribe">&nbsp&nbsp这款洗面奶是我去年去泰国买的，几乎没有用过，喜欢的妹子考虑一下叭</p>
+					<a href="#"></a>
+					<h2>用户名</h2>
+					<p class="dateP">发表于&nbsp&nbsp&nbsp<span class="date">2016年9月13日</span></p>
+				</div>
+			</div>
+			<div class="details">
+				<p>剩余数量：<span class="lastNum">3</span></p>
+				<p>￥<span class="lastNum">45</span>/份</p>
+			</div>
+			<div class="twoPics">
+				<img src="../../images/self/collection/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/collection/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<a href="#">移除此收藏</a>
+			</div>
+		</div>
+		<div class="goods">
+			<div class="picDiv">
+				<img src="../../images/self/collection/good.png" alt="商品" class="goodsPic">
+				<div class="detailPic">
+					<h1>洗面奶</h1>
+					<p class="discribe">&nbsp&nbsp这款洗面奶是我去年去泰国买的，几乎没有用过，喜欢的妹子考虑一下叭</p>
+					<a href="#"></a>
+					<h2>用户名</h2>
+					<p class="dateP">发表于&nbsp&nbsp&nbsp<span class="date">2016年9月13日</span></p>
+				</div>
+			</div>
+			<div class="details">
+				<p>剩余数量：<span class="lastNum">3</span></p>
+				<p>￥<span class="lastNum">45</span>/份</p>
+			</div>
+			<div class="twoPics">
+				<img src="../../images/self/collection/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/collection/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<a href="#">移除此收藏</a>
+			</div>
+		</div>
+		<div class="goods">
+			<div class="picDiv">
+				<img src="../../images/self/collection/good.png" alt="商品" class="goodsPic">
+				<div class="detailPic">
+					<h1>洗面奶</h1>
+					<p class="discribe">&nbsp&nbsp这款洗面奶是我去年去泰国买的，几乎没有用过，喜欢的妹子考虑一下叭</p>
+					<a href="#"></a>
+					<h2>用户名</h2>
+					<p class="dateP">发表于&nbsp&nbsp&nbsp<span class="date">2016年9月13日</span></p>
+				</div>
+			</div>
+			<div class="details">
+				<p>剩余数量：<span class="lastNum">3</span></p>
+				<p>￥<span class="lastNum">45</span>/份</p>
+			</div>
+			<div class="twoPics">
+				<img src="../../images/self/collection/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/collection/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<a href="#">移除此收藏</a>
+			</div>
+		</div>
+		<div class="goods">
+			<div class="picDiv">
+				<img src="../../images/self/collection/good.png" alt="商品" class="goodsPic">
+				<div class="detailPic">
+					<h1>洗面奶</h1>
+					<p class="discribe">&nbsp&nbsp这款洗面奶是我去年去泰国买的，几乎没有用过，喜欢的妹子考虑一下叭</p>
+					<a href="#"></a>
+					<h2>用户名</h2>
+					<p class="dateP">发表于&nbsp&nbsp&nbsp<span class="date">2016年9月13日</span></p>
+				</div>
+			</div>
+			<div class="details">
+				<p>剩余数量：<span class="lastNum">3</span></p>
+				<p>￥<span class="lastNum">45</span>/份</p>
+			</div>
+			<div class="twoPics">
+				<img src="../../images/self/collection/great.png" alt="赞" class="greatPic">
+				<p class="greatTitle">0</p>
+				<p class="starTitle">0</p>
+				<img src="../../images/self/collection/star.png" alt="收藏" class="starPic">
+			</div>
+			<div class="twoMethods">
+				<a href="#">移除此收藏</a>
+			</div>
+		</div>
+	</div>
+	<div id="bottom">
+		<p href="#" id="others">查看其他收藏&nbsp&nbsp<img src="../../images/self/collection/jiantou.png"></p>
+	</div>
+</body>
+</html>
