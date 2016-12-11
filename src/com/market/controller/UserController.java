@@ -125,9 +125,10 @@ public class UserController {
 	public BaseResponeData logout(HttpSession session) {
 
 		Student student = (Student) session.getAttribute("student");
-		// System.out.println(u.getUsername() + "logout");
+
 		BaseResponeData ret = new BaseResponeData();
 		if (student != null) {
+			System.out.println(student.getAccount() + "logout");
 			session.removeAttribute("student");
 			ret.setCode(200);
 			ret.setInfo("注销成功");
