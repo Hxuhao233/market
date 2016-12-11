@@ -8,16 +8,17 @@ import com.market.tools.GoodsInfoData;
 
 /**
  * 商品展示
+ * 
  * @author hxuhao
  *
  */
 
 @RequestMapping("/GoodsShow")
 public class GoodsShowController {
-	
+
 	@ResponseBody
-	public GoodsData ShowGoods(){
+	public GoodsData ShowGoods() {
 		return null;
-		
+
 	}
 }

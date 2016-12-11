@@ -12,9 +12,9 @@ public interface CommentsMapper {
 	int insertSelective(Comments record);
 
 	Comments selectByPrimaryKey(Integer id);
-	
+
 	List<Comments> selectByGoodsId(Integer gid);
-	
+
 	int updateByPrimaryKeySelective(Comments record);
 
 	int updateByPrimaryKey(Comments record);

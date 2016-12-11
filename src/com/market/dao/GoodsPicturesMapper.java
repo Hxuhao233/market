@@ -12,9 +12,9 @@ public interface GoodsPicturesMapper {
 	int insertSelective(GoodsPictures record);
 
 	GoodsPictures selectByPrimaryKey(Integer id);
-	
-	List <String> selectByGoodsId(Integer gid);
-	
+
+	List<String> selectByGoodsId(Integer gid);
+
 	int updateByPrimaryKeySelective(GoodsPictures record);
 
 	int updateByPrimaryKey(GoodsPictures record);

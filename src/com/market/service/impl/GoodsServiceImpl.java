@@ -29,13 +29,12 @@ public class GoodsServiceImpl implements IGoodsService {
 	private GoodsPicturesMapper goodsPicturesDao;
 	@Autowired
 	private ContactWaysMapper contatctWaysDao;
-	
-	
+
 	@Override
-	public int publishGoods(Goods goods,String imagePath) {
+	public int publishGoods(Goods goods, String imagePath) {
 		// TODO Auto-generated method stub
-		int ret =  goodsDao.insertSelective(goods);
-		if(ret > 0){
+		int ret = goodsDao.insertSelective(goods);
+		if (ret > 0) {
 			if (!imagePath.trim().equals("")) {
 				GoodsPictures image = new GoodsPictures();
 				image.setGoodsid(goods.getId());
@@ -59,7 +58,6 @@ public class GoodsServiceImpl implements IGoodsService {
 		return 0;
 	}
 
-
 	@Override
 	public List<String> uploadImages(int goodsid, String pathRoot, MultipartFile[] files) {
 		// TODO Auto-generated method stub
@@ -77,8 +75,8 @@ public class GoodsServiceImpl implements IGoodsService {
 				String contentType = files[i].getContentType();
 				// 获得文件后缀名称
 				String imageName = contentType.substring(contentType.indexOf("/") + 1);
-				pathRoot = "/images/" ;
-				path =   uuid + "." + imageName.trim();
+				pathRoot = "/images/";
+				path = uuid + "." + imageName.trim();
 
 				try {
 					files[i].transferTo(new File(pathRoot + path));
@@ -95,21 +93,18 @@ public class GoodsServiceImpl implements IGoodsService {
 
 			// request.setAttribute("imagesPath", "../../static" + path);
 			filePaths.add("../../static/image/" + path);
-			
+
 		}
-		
+
 		return filePaths;
 	}
-	
-	
-	
-	
+
 	@Override
-	public int uploadContactWay(ContactWays contactWays){
-		
+	public int uploadContactWay(ContactWays contactWays) {
+
 		int ret = contatctWaysDao.insertSelective(contactWays);
 		return ret;
-		
+
 	}
 
 	@Override
@@ -124,13 +119,13 @@ public class GoodsServiceImpl implements IGoodsService {
 		int gid;
 		List<GoodsData> goodsInfoList = new ArrayList<GoodsData>();
 		List<Goods> goodsList = goodsDao.selectByKey(pid);
-		for(Goods goodsItem : goodsList ){
+		for (Goods goodsItem : goodsList) {
 			gid = goodsItem.getId();
 			List<String> pictureAddrs = goodsPicturesDao.selectByGoodsId(gid);
 			ContactWays contactWays = contatctWaysDao.selectByKey(gid);
-			goodsInfoList.add(new GoodsData(goodsItem,contactWays,pictureAddrs.get(0)));
+			goodsInfoList.add(new GoodsData(goodsItem, contactWays, pictureAddrs.get(0)));
 		}
 		return goodsInfoList;
 	}
-	
+
 }

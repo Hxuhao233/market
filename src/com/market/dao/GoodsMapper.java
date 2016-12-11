@@ -15,14 +15,15 @@ public interface GoodsMapper {
 	int insertSelective(Goods record);
 
 	Goods selectByPrimaryKey(Integer id);
-	
+
 	List<Goods> selectByKey(Integer pid);
-	
-	List<Goods> selectWithRules(@Param("sortField")String sortField,@Param("sortType")String sortType,@Param("category")int category,@Param("info")String info );
-	
+
+	List<Goods> selectWithRules(@Param("sortField") String sortField, @Param("sortType") String sortType,
+			@Param("category") int category, @Param("info") String info);
+
 	int updateByPrimaryKeySelective(Goods record);
 
 	int updateByPrimaryKey(Goods record);
-	
-	int addOne(@Param("gid")Integer gid,@Param("field")String field);
+
+	int addOne(@Param("gid") Integer gid, @Param("field") String field);
 }

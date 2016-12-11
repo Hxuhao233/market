@@ -3,6 +3,7 @@ package com.market.controller;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import com.market.model.Student;
@@ -135,7 +137,7 @@ public class UserController {
 		return ret;
 	}
 
-	//　忘记密码
+	// 忘记密码
 	@ResponseBody
 	@RequestMapping(value = "/forgetpwd", method = RequestMethod.POST)
 	public Message forgetPwd(@RequestBody RequestData userData) {
@@ -171,45 +173,70 @@ public class UserController {
 		return ret;
 	}
 
-	//修改密码
+	// 修改密码
 	@ResponseBody
-	@RequestMapping(value="/changepwd",method=RequestMethod.POST)
-	public  Message changepwd (@RequestBody RequestData userData){
+	@RequestMapping(value = "/changepwd", method = RequestMethod.POST)
+	public Message changepwd(@RequestBody RequestData userData) {
 		Message ret = new Message();
-		
+
 		String account = userData.getData().get(0).get("account");
 		String oldpassword = userData.getData().get(0).get("oldpassword");
 		String newpassword = userData.getData().get(0).get("newpassword");
-		
-		if (iStudentService.checkRepeatAccount(account)==0){
+
+		if (iStudentService.checkRepeatAccount(account) == 0) {
 			System.out.println("修改密码错误！不存在的用户");
 			ret.setCode(207);
 			ret.setInfo("不存在的用户");
-		}
-		else if (account!=null && oldpassword!=null && newpassword!=null && !account.equals("") && !oldpassword.equals("") && !newpassword.equals("")){
-			boolean isChange=false;
-			isChange=iStudentService.changePwd(account, oldpassword, newpassword);
-			if (isChange){
-				//已修改
+		} else if (account != null && oldpassword != null && newpassword != null && !account.equals("")
+				&& !oldpassword.equals("") && !newpassword.equals("")) {
+			boolean isChange = false;
+			isChange = iStudentService.changePwd(account, oldpassword, newpassword);
+			if (isChange) {
+				// 已修改
 				ret.setCode(200);
 				ret.setInfo("修改密码成功");
-			}
-			else {
-				//未修改
+			} else {
+				// 未修改
 				ret.setCode(203);
 				ret.setInfo("修改密码失败");
 			}
-		}
-		else {
+		} else {
 			ret.setCode(202);
 			ret.setInfo("未输入用户名或新旧密码");
 		}
 		return ret;
 	}
 
-	
-	
-	
+	// 上传头像
+	@ResponseBody
+	@RequestMapping(value = "/uploadUserIcon", method = RequestMethod.POST)
+	public Message uploadUserIcon(@RequestParam(value = "file", required = false) MultipartFile file,
+			HttpServletRequest request, HttpSession session) {
+		Message response = new Message();
+
+		Student user = (Student) session.getAttribute("student");
+		int uid = user != null ? user.getId() : 1;
+
+		String pathRoot = request.getSession().getServletContext().getRealPath("/") + "../static";
+		System.out.println(pathRoot);
+		if (file != null) {
+			String filePath = iStudentService.uploadImages(uid, pathRoot, file);
+			if (filePath != null) {
+				response.setCode(200);
+				response.setInfo(filePath);
+			} else {
+				response.setCode(500);
+				response.setInfo("图片上传失败");
+			}
+		} else {
+			response.setCode(402);
+			response.setInfo("图片为空");
+		}
+
+		return response;
+
+	}
+
 	// Session测试
 	@ResponseBody
 	@RequestMapping(value = "/check", method = RequestMethod.GET)

@@ -14,7 +14,7 @@ import com.market.model.Goods;
 public class GoodsInfo {
 	private Goods Good;
 	private String pictureAddr;
-	
+
 	public Goods getGood() {
 		return Good;
 	}
@@ -32,7 +32,7 @@ public class GoodsInfo {
 	}
 
 	public GoodsInfo() {
-		
+
 	}
 
 	public GoodsInfo(Goods good, String pictureAddr) {
@@ -40,6 +40,5 @@ public class GoodsInfo {
 		Good = good;
 		this.pictureAddr = pictureAddr;
 	}
-	
-		
+
 }

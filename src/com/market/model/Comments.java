@@ -9,28 +9,24 @@ public class Comments {
 
 	private Integer goodsid;
 
-	
-	
-	
-	
 	public Comments(Integer id, String comment, Integer studentid, Integer goodsid) {
 		this.id = id;
 		this.comment = comment;
 		this.studentid = studentid;
 		this.goodsid = goodsid;
 	}
-	
-	public Comments( String comment, Integer studentid, Integer goodsid) {
+
+	public Comments(String comment, Integer studentid, Integer goodsid) {
 
 		this.comment = comment;
 		this.studentid = studentid;
 		this.goodsid = goodsid;
 	}
 
-	public Comments(){
-		
+	public Comments() {
+
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -62,6 +58,5 @@ public class Comments {
 	public void setGoodsid(Integer goodsid) {
 		this.goodsid = goodsid;
 	}
-	
-	
+
 }

@@ -44,73 +44,72 @@ public class GoodsController {
 	private IGoodsService iGoodsService;
 
 	@RequestMapping(value = "/publishGoods", method = RequestMethod.POST)
-	public @ResponseBody Message publishGoods(@RequestBody GoodsData goodsData ,HttpServletRequest request,HttpSession session) {
+	public @ResponseBody Message publishGoods(@RequestBody GoodsData goodsData, HttpServletRequest request,
+			HttpSession session) {
 		Message response = new Message();
-		
 
-		Student user = (Student)session.getAttribute("student");
+		Student user = (Student) session.getAttribute("student");
 		int uid = user != null ? user.getId() : 1;
-		
+
 		Goods goods = goodsData.getGoods();
 		goods.setPublisherid(uid);
 		ContactWays contactWays = goodsData.getContactWays();
-		
+
 		System.out.println(goods.getGoodsname());
 		if (goods.getCategoryid() == null)
 			goods.setCategoryid(1);
 
-		//	保存商品基本信息
-		int ret = iGoodsService.publishGoods(goods,goodsData.getImagePath());
-		if(ret > 0){
+		// 保存商品基本信息
+		int ret = iGoodsService.publishGoods(goods, goodsData.getImagePath());
+		if (ret > 0) {
 			response.setCode(200);
 			response.setInfo("发布商品成功");
 			System.out.println("发布商品 :" + goods.getId());
-		}else{
+		} else {
 			response.setCode(401);
 			response.setInfo("发布商品失败");
 		}
 
 		/*
-		// 保存图片
-		 * 		
-		String pathRoot = request.getSession().getServletContext().getRealPath("/") + "../static";
-		if (goods.getId() > 0 && files.length > 0) {
-			
-			System.out.println(files.length);
-			List<String> filePaths = iGoodsService.uploadImages(goods.getId(), pathRoot, files);
-			goodsInfo.setPictureAddr(filePaths);
-		}
-		*/
-		//	保存联系方式
+		 * // 保存图片
+		 * 
+		 * String pathRoot =
+		 * request.getSession().getServletContext().getRealPath("/") +
+		 * "../static"; if (goods.getId() > 0 && files.length > 0) {
+		 * 
+		 * System.out.println(files.length); List<String> filePaths =
+		 * iGoodsService.uploadImages(goods.getId(), pathRoot, files);
+		 * goodsInfo.setPictureAddr(filePaths); }
+		 */
+		// 保存联系方式
 		System.out.println(contactWays.getPhonenum());
-		if(!"".equals(contactWays.getPhonenum()) || !"".equals(contactWays.getQqnum())){
+		if (!"".equals(contactWays.getPhonenum()) || !"".equals(contactWays.getQqnum())) {
 			contactWays.setGoodsid(goods.getId());
 			iGoodsService.uploadContactWay(contactWays);
 		}
 		return response;
 	}
-	
+
 	// 保存图片
 	@RequestMapping(value = "/uploadImage", method = RequestMethod.POST)
-	public ResponseEntity<Map<String,Object>> register(
-			@RequestParam(value = "files", required = false) MultipartFile[] files, HttpServletRequest request,HttpSession session) {
-		
-		Student user = (Student)session.getAttribute("student");
+	public ResponseEntity<Map<String, Object>> register(
+			@RequestParam(value = "files", required = false) MultipartFile[] files, HttpServletRequest request,
+			HttpSession session) {
+
+		Student user = (Student) session.getAttribute("student");
 		int uid = user != null ? user.getId() : 1;
-		
+
 		Map<String, Object> results = new HashMap<String, Object>();
 		String pathRoot = request.getSession().getServletContext().getRealPath("/") + "../static";
 		System.out.println(pathRoot);
-		if( files.length>0){
-			List<String>filePaths = iGoodsService.uploadImages(uid,pathRoot, files);
+		if (files.length > 0) {
+			List<String> filePaths = iGoodsService.uploadImages(uid, pathRoot, files);
 			results.put("imagePaths", filePaths);
 		}
-		
-		return new ResponseEntity<Map<String,Object>>(results,HttpStatus.CREATED) ;
-		
+
+		return new ResponseEntity<Map<String, Object>>(results, HttpStatus.CREATED);
 
 	}
-	
 
 	@RequestMapping(value = "/Goods/{id}", method = RequestMethod.PUT)
 	public ResponseEntity<Void> updateGoodsInfo(@PathVariable("id") int id, @RequestBody Goods goods) {
@@ -119,41 +118,40 @@ public class GoodsController {
 
 	@ResponseBody
 	@RequestMapping(value = "/deleteGoods{gid}", method = RequestMethod.GET)
-	public  GoodsInfoData deleteGoods(@PathVariable("gid") int pid,HttpSession session) {
+	public GoodsInfoData deleteGoods(@PathVariable("gid") int pid, HttpSession session) {
 		GoodsInfoData goodsInfoData = new GoodsInfoData();
-		
-		Student user = (Student)session.getAttribute("student");
+
+		Student user = (Student) session.getAttribute("student");
 		int pid1 = user != null ? user.getId() : Integer.valueOf(pid);
-	
-		if(iGoodsService.deleteGoods()>0){
-			List<GoodsData> goodsInfoList = iGoodsService.queryGoods(pid1); 
-			
-			if(goodsInfoList.size()==0){
+
+		if (iGoodsService.deleteGoods() > 0) {
+			List<GoodsData> goodsInfoList = iGoodsService.queryGoods(pid1);
+
+			if (goodsInfoList.size() == 0) {
 				goodsInfoData.setCode(404);
-			}else{
+			} else {
 				goodsInfoData = new GoodsInfoData(200, goodsInfoList);
 			}
-			
-		}else{
+
+		} else {
 			goodsInfoData.setCode(500);
 		}
 		return goodsInfoData;
 	}
 
-	
 	@ResponseBody
-	@RequestMapping(value = "/queryPublishedGoods/{pid}",method = RequestMethod.GET)
+	@RequestMapping(value = "/queryPublishedGoods/{pid}", method = RequestMethod.GET)
 	// 查询已发布商品
-	public GoodsInfoData queryGoods(@PathVariable("pid") int pid,HttpSession session) {
+	public GoodsInfoData queryGoods(@PathVariable("pid") int pid, HttpSession session) {
 		GoodsInfoData goodsInfoData;
-		Student user = (Student)session.getAttribute("student");
+		Student user = (Student) session.getAttribute("student");
 		int pid1 = user != null ? user.getId() : Integer.valueOf(pid);
-		
-		List<GoodsData> goodsInfoList = iGoodsService.queryGoods(pid1); 
-		
-		if(goodsInfoList.size()==0){
+
+		List<GoodsData> goodsInfoList = iGoodsService.queryGoods(pid1);
+
+		if (goodsInfoList.size() == 0) {
 			goodsInfoData = new GoodsInfoData(404, null);
-		}else{
+		} else {
 			goodsInfoData = new GoodsInfoData(200, goodsInfoList);
 		}
 		return goodsInfoData;
